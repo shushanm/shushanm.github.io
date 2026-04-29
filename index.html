@@ -352,7 +352,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.6rem;
             color: var(--ink);
-            margin: 5rem 0 2.5rem 0;
+            margin: 3rem 0 1.5rem 0;
             font-weight: 400;
             letter-spacing: 0.02em;
             display: flex;
@@ -367,40 +367,10 @@
             background: linear-gradient(90deg, var(--mist) 0%, transparent 100%);
         }
 
-        /* News Banners */
-        .news-banner {
-            padding: 1.5rem 2rem;
-            background: var(--cream);
-            border-left: 3px solid var(--terracotta);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            transition: all 0.3s ease;
-        }
-
-        .news-banner:hover {
-            background: var(--pearl);
-            transform: translateX(4px);
-        }
-
-        .news-banner strong {
-            color: var(--terracotta);
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-        }
-
-        .news-banner em {
-            color: var(--ink);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.05rem;
-        }
-
         /* Publications */
         .publication {
-            margin-bottom: 3rem;
-            padding: 2.5rem 0;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem 0;
             border-bottom: 1px solid var(--mist);
             transition: all 0.4s ease;
             position: relative;
@@ -414,7 +384,7 @@
             content: '';
             position: absolute;
             left: -3rem;
-            top: 2.5rem;
+            top: 1.5rem;
             width: 6px;
             height: 0;
             background: var(--terracotta);
@@ -430,7 +400,7 @@
             font-size: 1.5rem;
             font-weight: 500;
             color: var(--ink);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.4rem;
             line-height: 1.4;
             letter-spacing: -0.01em;
         }
@@ -449,7 +419,7 @@
             color: var(--stone);
             font-style: italic;
             font-size: 0.95rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.6rem;
             font-weight: 300;
         }
 
@@ -457,7 +427,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
             align-items: center;
         }
 
@@ -515,8 +485,8 @@
         }
 
         .abstract {
-            padding: 1.5rem 0 1.5rem 1.5rem;
-            margin: 1.5rem 0;
+            padding: 1rem 0 1rem 1.5rem;
+            margin: 0.8rem 0;
             font-size: 0.95rem;
             line-height: 1.8;
             color: var(--stone);
@@ -534,7 +504,7 @@
         }
 
         .media-coverage {
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             padding-left: 1.5rem;
             border-left: 1px solid var(--terracotta-light);
         }
@@ -583,7 +553,7 @@
             font-style: italic;
             color: var(--warm-gray);
             font-size: 0.9rem;
-            margin-top: 1rem;
+            margin-top: 0.6rem;
             font-weight: 300;
         }
 
@@ -861,7 +831,7 @@
         <section id="about" class="hero">
             <div class="hero-content">
                 <h1>Shushanik Margaryan</h1>
-                
+
                 <div class="affiliations">
                     <span class="affiliation">University of Potsdam</span>
                     <span class="affiliation">Berlin School of Economics</span>
@@ -879,7 +849,7 @@
                     </svg>
                 </a>
             </div>
-            
+
             <div class="hero-photo">
                 <img src="Shu-38 (1).jpg" alt="Shushanik Margaryan" class="profile-photo">
             </div>
@@ -893,26 +863,8 @@
                 <p class="section-subtitle">Applied Microeconomics · Education · Labour · Health</p>
             </div>
 
-            <!-- News -->
-            <div class="news-banner animate-on-scroll">
-                <strong>News</strong><br>
-                <em>"A Library in the Palm of your Hand? A Reading Intervention with Low-Income Children"</em> — Revise & Resubmit at the Journal of the European Economic Association
-            </div>
-            
-            <div class="news-banner animate-on-scroll">
-                <strong>News</strong><br>
-                <em>"Online Tutoring, School Performance, and School-to-Work Transitions"</em> — Conditionally Accepted at European Economic Review
-            </div>
-
-                <div class="news-banner animate-on-scroll">
-                <strong>News</strong><br>
-                Our collaboarative replication project <em>"Mass Reproducibility and Replicability: A New Hope"</em>, with Abel Brodeur, Derek Mikiola and many others is conditionally accepted Nature    
-            </div> 
             <!-- Job Market Paper -->
             <div class="publication animate-on-scroll">
-                <div class="publication-meta">
-                    <span class="status-badge jmp">Job Market Paper</span>
-                </div>
                 <h3 class="publication-title">Affirmative Action during Early Childhood: School Choice, Academic Performance and School Satisfaction</h3>
                 <div class="coauthors">With José Montalban Castilla</div>
                 <div class="publication-meta">
@@ -1223,7 +1175,7 @@
         // Mobile menu
         const mobileNav = document.querySelector('.mobile-nav');
         const navLinks = document.querySelector('.nav-links');
-        
+
         if (mobileNav) {
             mobileNav.addEventListener('click', function() {
                 navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
