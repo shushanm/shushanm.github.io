@@ -18,6 +18,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
+\usepackage{pgf-pie}
 \usetikzlibrary{positioning,arrows.meta,calc}
 
 % ----------------------------------------------------------------
@@ -27,6 +28,8 @@
 \definecolor{wulight}{HTML}{4F8FC4}
 \definecolor{wugray}{HTML}{5C6670}
 \definecolor{wured}{HTML}{B0202E}
+\definecolor{wugreen}{HTML}{4C8C6B}
+\definecolor{wuyellow}{HTML}{D9A441}
 \setbeamercolor{palette primary}{bg=wublue,fg=white}
 \setbeamercolor{frametitle}{bg=wublue,fg=white}
 \setbeamercolor{progress bar}{fg=wublue,bg=wulight!30}
@@ -296,32 +299,35 @@
   \srcnote{Gruber, \emph{Public Finance and Public Policy}, Fig.\ 1-2, citing OECD (2021), Table 29.}
 \end{frame}
 
-\begin{frame}{Austria Today: One of the Largest Governments in the EU}
+\begin{frame}{Government Spending Across the EU --- and the US}
   \begin{center}
   \begin{tikzpicture}
     \begin{axis}[
-      ybar, bar width=0.55cm,
-      width=11.5cm, height=5.8cm,
+      ybar, bar width=0.4cm,
+      width=12.3cm, height=4.9cm,
       ymin=0, ymax=65,
-      symbolic x coords={OECD avg.,EU avg.,Germany,Austria,France,Finland},
+      symbolic x coords={Ireland,US,OECD avg.,EU avg.,Germany,Italy,Belgium,Austria,France,Finland},
       xtick=data,
-      x tick label style={font=\small},
+      x tick label style={font=\scriptsize, rotate=40, anchor=east},
       ylabel={\% of GDP},
       nodes near coords,
       nodes near coords style={font=\scriptsize},
-      enlarge x limits=0.15,
+      enlarge x limits=0.08,
       axis lines*=left,
+      every node near coord/.append style={
+        /pgf/number format/.cd, fixed, precision=1
+      },
       ]
       \addplot[fill=wublue] coordinates {
-        (OECD avg.,42) (EU avg.,49) (Germany,49.5) (Austria,56.3) (France,57.1) (Finland,57.6)
+        (Ireland,23.4) (US,39.1) (OECD avg.,42.6) (EU avg.,49.2) (Germany,49.5)
+        (Italy,50.6) (Belgium,54.5) (Austria,56.3) (France,57.2) (Finland,57.4)
       };
     \end{axis}
   \end{tikzpicture}
   \end{center}
-  \vspace{-0.3em}
   \centering \small
-  Austria had the \textbf{3rd-highest} total government spending ratio (``Staatsquote'') in the EU in 2024.\\
-  \srcnote{Eurostat; Statistik Austria (2024); Statistisches Bundesamt (Destatis, 2025); OECD Government at a Glance.}
+  Austria (\textbf{56.3\%}) is well above the EU/OECD averages and the US (39.1\%) --- but below France and Finland.\\
+  \srcnote{Eurostat (2024, EU countries); Destatis (2025, Germany); OECD \emph{Government at a Glance 2025} (US, OECD avg., 2023).}
 \end{frame}
 
 \begin{frame}{Fact 2: Decentralization --- Who Spends, Who Taxes?}
@@ -409,6 +415,35 @@
   \srcnote{Statistik Austria, Maastricht notification (2025); BMF, Öffentliche Schulden 2024.}
 \end{frame}
 
+\begin{frame}{Austria's Revenues and Expenditures Over Time}
+  \begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=12cm, height=5cm,
+      xmin=1993, xmax=2026,
+      ymin=38, ymax=60,
+      xtick={1995,2007,2009,2014,2020,2024},
+      x tick label style={font=\scriptsize, rotate=45, anchor=east, /pgf/number format/1000 sep=},
+      ylabel={\% of GDP},
+      legend style={at={(0.03,0.03)},anchor=south west,legend columns=1,font=\scriptsize,fill=white,fill opacity=0.9,draw opacity=1,text opacity=1},
+      axis lines*=left,
+      mark size=1.8pt,
+      ]
+      \addplot[wured, thick, mark=*] coordinates {
+        (1995,55.8) (2007,49.2) (2009,54.1) (2020,56.8) (2024,56.3)
+      };
+      \addplot[wublue, thick, mark=square*] coordinates {
+        (1995,41.7) (2014,43.1) (2019,42.7) (2020,42.6) (2024,44.5)
+      };
+      \legend{Expenditure ratio, Revenue ratio}
+    \end{axis}
+  \end{tikzpicture}
+  \end{center}
+  \centering \small
+  Expenditure spikes in crises (2009, 2020) and partly recedes; revenue moves in a narrower band --- the gap between the lines \emph{is} the deficit.\\
+  \srcnote{Fiskalrat, Jahresbericht 2024; Statistik Austria; WKO-Statistik Langzeitreihen; WIFO-Monatsberichte 2015(2).}
+\end{frame}
+
 \begin{frame}{Discussion: Deficits and Debt}
   \begin{itemize}
     \item What are the costs of running larger deficits and carrying more debt?
@@ -421,6 +456,30 @@
   \begin{block}{Public goods vs.\ social insurance}
     National defense is a classic \textbf{public good} (non-excludable, non-rival benefit) --- and a small share of Austria's budget. Pensions and health coverage are \textbf{social insurance}: government provision of insurance where private insurance markets under-perform --- and they dominate Austrian spending.
   \end{block}
+\end{frame}
+
+\begin{frame}{Austria's Government Expenditure, by Function}
+  \begin{center}
+  \begin{tikzpicture}
+    \pie[
+      radius=2.3,
+      text=legend,
+      hide number,
+      color={wublue,wulight,wured,wugray,wugreen,wuyellow},
+      font=\scriptsize
+    ]{
+      41.5/Social protection (41.5\%),
+      16.9/Health (16.9\%),
+      12.9/Economic affairs (12.9\%),
+      10.9/General public admin. (10.9\%),
+      9.6/Education (9.6\%),
+      8.2/Other (8.2\%)
+    }
+  \end{tikzpicture}
+  \end{center}
+  \centering \small
+  Total general government expenditure: \texteuro{}271.3 billion (2024), COFOG classification.\\
+  \srcnote{Statistik Austria, ``Öffentliche Finanzen 2024'' (press conference, 31 March 2025).}
 \end{frame}
 
 \begin{frame}{Austria's Social Spending}
@@ -575,7 +634,7 @@
     \item Covid-19-Maßnahmengesetz, BGBl.\ I Nr.\ 12/2020
     \item Impfpflichtgesetz, BGBl.\ I Nr.\ 4/2022; Verfassungsgerichtshof, decisions G 29/2022, G 37/2022 (2022)
     \item Protocol (No.\ 12) on the Excessive Deficit Procedure, Treaty on the Functioning of the EU; Austrian \emph{Bundes-Verfassungsgesetz}, Art.\ 13(2)
-    \item Fiskalrat-Büro, Pressemitteilung ``Aktueller Budgetausblick 2024 und 2025'' (5 Nov.\ 2024)
+    \item Fiskalrat-Büro, Pressemitteilung ``Aktueller Budgetausblick 2024 und 2025'' (5 Nov.\ 2024); Fiskalrat, Jahresbericht über die öffentlichen Finanzen 2023--2028 (Dec.\ 2024)
     \item Parlament Österreich, Budgetdienst: ``Aktuelle Themen zur Budgetentwicklung 2024 und 2025''
   \end{itemize}
 \end{frame}
@@ -584,12 +643,13 @@
   \footnotesize
   \begin{itemize}
   \setlength{\itemsep}{2pt}
-    \item Statistik Austria: Staatsausgaben nach Aufgabenbereichen; Sozialquote/ESSPROS (2023); EU-SILC income and living conditions (2023); Maastricht notification (2025)
+    \item Statistik Austria: Staatsausgaben nach Aufgabenbereichen (COFOG); ``Öffentliche Finanzen 2024'' press conference (31 Mar.\ 2025); Sozialquote/ESSPROS (2023); EU-SILC income and living conditions (2023); Maastricht notification (2025)
     \item Bundesministerium für Finanzen (BMF): Öffentliche Schulden 2024; tax revenue statistics (2022--24)
     \item Oesterreichische Nationalbank (OeNB): Household Finance and Consumption Survey (HFCS)
     \item Agenda Austria: ``Eine Ausgabenschranke für den Staatshaushalt'' (fiscal federalism); ``Steuern und Abgaben auf einen Blick'' (tax structure)
     \item A\&W-Blog: ``Steuerlandschaft Österreich: Land der Berge -- Land der Täler''
-    \item Eurostat; OECD \emph{Government at a Glance}; Statistisches Bundesamt (Destatis, 2025)
+    \item WKO-Statistik, Langzeitreihen (Abgabenquote); WIFO-Monatsberichte 2015(2), ``Abgabensystem: Status quo''
+    \item Eurostat, government finance statistics (2024); OECD \emph{Government at a Glance 2025}; Statistisches Bundesamt (Destatis, 2025)
   \end{itemize}
 \end{frame}
 
