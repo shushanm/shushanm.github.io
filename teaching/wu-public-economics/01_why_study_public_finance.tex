@@ -259,6 +259,20 @@
   Same virus, same evidence --- yet Austria's own coalition governments split sharply over how far to go.
 \end{frame}
 
+\begin{frame}{Normative vs.\ Positive Public Economics}
+  \begin{block}{Normative}
+    Analysis of how things \emph{should} be. \\
+    \emph{Should} the government have mandated Covid-19 vaccination? \emph{How high} should the top income tax rate be?
+  \end{block}
+  \begin{block}{Positive}
+    Analysis of how things \emph{really are}. \\
+    \emph{Did} the Impfpflicht actually raise vaccination rates? \emph{Does} Kurzarbeit actually prevent layoffs, or mostly subsidize jobs that would have survived anyway?
+  \end{block}
+  \vspace{0.5em}
+  \centering
+  \alert{Positive analysis (mostly empirical) is the necessary first step before normative analysis (mostly theoretical) can be completed.}
+\end{frame}
+
 % =============================================================
 \section{1.2 Facts on Government in Austria}
 
@@ -323,6 +337,17 @@
   \centering \small
   Revenue-raising power and spending responsibility are separated --- a classic ``who pays vs.\ who decides'' problem in fiscal federalism.\\
   \srcnote{Agenda Austria, ``Eine Ausgabenschranke für den Staatshaushalt'' (fiscal-federalism chapter).}
+\end{frame}
+
+\begin{frame}{Why So Centralized? A Political-Economy View}
+  \begin{itemize}
+    \item Redistribution is hard to sustain at the local level: if a \emph{Land} or \emph{Gemeinde} taxes high earners heavily on its own, they can simply move to a lower-tax neighbor.
+    \item Centralizing revenue at the \textbf{Bund} is what makes Austria's \emph{Finanzausgleich} possible --- transferring resources from richer to poorer regions in a way a fully decentralized system could not.
+    \item This is a Q4 question, not just an accounting fact: \textbf{who benefits from more vs.\ less centralization is a political, not just technical, choice.}
+  \end{itemize}
+  \vspace{0.5em}
+  \centering \small
+  (Same logic globally: parties that prioritize redistribution tend to favor centralization; parties skeptical of redistribution tend to favor devolving power to lower levels.)
 \end{frame}
 
 \begin{frame}{Fact 3: Deficits and Debt}
@@ -444,6 +469,45 @@
   \srcnote{Agenda Austria, ``Steuern und Abgaben auf einen Blick''; A\&W-Blog, ``Steuerlandschaft Österreich: Land der Berge -- Land der Täler''; BMF tax revenue statistics.}
 \end{frame}
 
+\begin{frame}{Austria's Own Income-Distribution Data}
+  \begin{itemize}
+    \item Austria has its own ``Distributional National Accounts'' (DINA) research, in the tradition of Piketty--Saez--Zucman's work for the US.
+    \item Jestl \& List (2020) construct such series for Austria, 2004--2016.
+    \item Finding: before the 2008 financial crisis, pre-tax income for the \textbf{top 10\%} grew faster than for the rest of the population; after the crisis, top-10\% income growth turned \emph{negative} while the rest of the distribution stagnated.
+  \end{itemize}
+  \vspace{0.5em}
+  \centering \small
+  Two very different decades for the same income group --- growth and crisis do not raise all incomes equally.\\
+  \srcnote{Jestl \& List, ``Distributional National Accounts (DINA) for Austria, 2004--2016,'' wiiw/WIFO Working Paper 175 (2020); World Inequality Lab Working Paper 2020/23.}
+\end{frame}
+
+\begin{frame}{Austria's Tax System, Top to Bottom}
+  \begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      xbar, bar width=0.7cm,
+      width=11cm, height=4.6cm,
+      xmin=0, xmax=50,
+      symbolic y coords={Sample billionaire,Millionaire household,Middle-class family},
+      ytick=data,
+      y tick label style={font=\small},
+      xlabel={effective tax \& contribution rate (\% of gross income)},
+      nodes near coords,
+      nodes near coords style={font=\small},
+      enlarge y limits=0.35,
+      axis lines*=left,
+      ]
+      \addplot[fill=wured] coordinates {
+        (42,Middle-class family) (30,Millionaire household) (26,Sample billionaire)
+      };
+    \end{axis}
+  \end{tikzpicture}
+  \end{center}
+  \centering \small
+  The statutory top income-tax rate is 55\%---but a billionaire's \emph{income} is mostly business profit and capital gains, taxed on different (lower, flatter) terms than wages.\\
+  \srcnote{Momentum Institut, ``Problem Steuerstruktur: Arbeit hoch besteuert, Vermögen niedrig,'' Policy Brief 2022.01; ``Niedrigsteuerland für Superreiche.''}
+\end{frame}
+
 \begin{frame}{Fact 6: The Regulatory State}
   Beyond taxing and spending, governments \textbf{regulate}.
   \begin{center}
@@ -496,10 +560,11 @@
     \item Austria's Bund raises 72\% of tax revenue but does only 48\% of spending. What are the risks of this mismatch between taxing and spending authority?
     \item Consider the case for a wealth tax in a country where the top 1\% hold \(\approx\)40\% of net wealth. Frame your answer using the equity--efficiency trade-off.
     \item Was the 2022 Covid-19 vaccination mandate a case of correcting a market failure, or a case of government overreach? Use the four questions of public finance to structure your answer.
+    \item If Austria closes its budget deficit mainly through higher consumption taxes rather than income or wealth taxes, low-income households bear roughly \(3\times\) the burden (relative to income) of the top decile. Is this an efficiency argument, an equity argument, or both?
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Sources (1/2): Textbook, Legislation \& Institutions}
+\begin{frame}{Sources (1/3): Textbook, Legislation \& Institutions}
   \footnotesize
   \textbf{Textbook:} Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 1, Worth Publishers (Fig.\ 1-2, citing OECD (2021), Table 29).
   \vspace{0.3em}
@@ -515,19 +580,30 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Sources (2/2): Statistics \& Media}
+\begin{frame}{Sources (2/3): Statistics}
   \footnotesize
   \begin{itemize}
-  \setlength{\itemsep}{1pt}
+  \setlength{\itemsep}{2pt}
     \item Statistik Austria: Staatsausgaben nach Aufgabenbereichen; Sozialquote/ESSPROS (2023); EU-SILC income and living conditions (2023); Maastricht notification (2025)
     \item Bundesministerium für Finanzen (BMF): Öffentliche Schulden 2024; tax revenue statistics (2022--24)
     \item Oesterreichische Nationalbank (OeNB): Household Finance and Consumption Survey (HFCS)
     \item Agenda Austria: ``Eine Ausgabenschranke für den Staatshaushalt'' (fiscal federalism); ``Steuern und Abgaben auf einen Blick'' (tax structure)
     \item A\&W-Blog: ``Steuerlandschaft Österreich: Land der Berge -- Land der Täler''
     \item Eurostat; OECD \emph{Government at a Glance}; Statistisches Bundesamt (Destatis, 2025)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Sources (3/3): Media \& Distributional Research}
+  \footnotesize
+  \begin{itemize}
+  \setlength{\itemsep}{2pt}
     \item Rechnungshof, Bericht KlimaTicket (2025); profil.at; derStandard.at; ORF (KlimaTicket coverage)
     \item SN.at, ``16.\ März 2020: Der Tag, ab dem Österreich stillstand''
+    \item Momentum Institut: ``Problem Steuerstruktur: Arbeit hoch besteuert, Vermögen niedrig'' (Policy Brief 2022.01); ``Niedrigsteuerland für Superreiche''; ``Budgetsanierung durch Konsumsteuern ist zu Lasten Einkommensärmerer''
+    \item Jestl \& List, ``DINA for Austria, 2004--2016,'' wiiw/WIFO Working Paper 175 (2020)
   \end{itemize}
+  \vspace{0.5em}
+  \color{wugray} Two slides in this lecture (Austria's income/tax-distribution data) are modeled on Emmanuel Saez's Econ 131 (UC Berkeley) introductory lecture, itself following Piketty--Saez--Zucman's World Inequality Database methodology.
 \end{frame}
 
 \begin{frame}[standout]
