@@ -303,16 +303,16 @@
   \begin{center}
   \begin{tikzpicture}
     \begin{axis}[
-      ybar, bar width=0.4cm,
-      width=12.3cm, height=4.9cm,
+      ybar, bar width=0.5cm,
+      width=11cm, height=4.9cm,
       ymin=0, ymax=65,
-      symbolic x coords={Ireland,US,OECD avg.,EU avg.,Germany,Italy,Belgium,Austria,France,Finland},
+      symbolic x coords={Ireland,US,OECD avg.,EU avg.,Germany,Austria,Finland},
       xtick=data,
       x tick label style={font=\scriptsize, rotate=40, anchor=east},
       ylabel={\% of GDP},
       nodes near coords,
       nodes near coords style={font=\scriptsize},
-      enlarge x limits=0.08,
+      enlarge x limits=0.1,
       axis lines*=left,
       every node near coord/.append style={
         /pgf/number format/.cd, fixed, precision=1
@@ -320,29 +320,32 @@
       ]
       \addplot[fill=wublue] coordinates {
         (Ireland,23.4) (US,39.1) (OECD avg.,42.6) (EU avg.,49.2) (Germany,49.5)
-        (Italy,50.6) (Belgium,54.5) (Austria,56.3) (France,57.2) (Finland,57.4)
+        (Austria,56.3) (Finland,57.4)
       };
     \end{axis}
   \end{tikzpicture}
   \end{center}
   \centering \small
-  Austria (\textbf{56.3\%}) is well above the EU/OECD averages and the US (39.1\%) --- but below France and Finland.\\
-  \srcnote{Eurostat (2024, EU countries); Destatis (2025, Germany); OECD \emph{Government at a Glance 2025} (US, OECD avg., 2023).}
+  Austria (\textbf{56.3\%}) is well above the EU/OECD averages and the US (39.1\%) --- and close to Finland, one of the EU's highest.\\
+  \srcnote{Ireland, Finland: IMF (2024 projections). US, OECD avg.: OECD \emph{Government at a Glance 2025} (2023). EU avg.: Eurostat (2024). Germany: Destatis (2024). Austria: Statistik Austria (2024).}
 \end{frame}
 
 \begin{frame}{Fact 2: Decentralization --- Who Spends, Who Taxes?}
+  \footnotesize
   Austria, like Germany, is organized as a federal state with three levels: \emph{Bund}, \emph{Länder}, and \emph{Gemeinden}.
-  \vspace{1em}
+  \vspace{0.4em}
   \begin{alertblock}{Austria's federalism paradox}
     \begin{itemize}
-      \item \textbf{Bund} (federal): collects \(\approx\)72\% of tax revenue, but does only \(\approx\)48\% of spending
-      \item \textbf{Länder}: collect \(\approx\)12\% of tax revenue, but do \(\approx\)31\% of spending
-      \item \textbf{Gemeinden} (municipalities): collect \(\approx\)12\% of tax revenue, but do \(\approx\)25\% of spending
+    \setlength{\itemsep}{2pt}
+      \item Over \textbf{90\%} of tax revenue is collected centrally as shared federal taxes (\emph{gemeinschaftliche Bundesabgaben}) and redistributed to Länder/Gemeinden as \emph{Ertragsanteile}, via formulas fixed in the \emph{Finanzausgleichsgesetz}.
+      \item Austria's Länder raise only \(\approx\)\textbf{0.82\%} of GDP through their \emph{own} taxes --- versus \(\approx\)9\% of GDP in Germany --- down from 4.2\% in 1990.
+      \item The Bund transfers \(\approx\)\textbf{\texteuro{}32.5 billion} a year to Länder and Gemeinden, \(\approx\)\texteuro{}10 billion of it to municipalities.
     \end{itemize}
   \end{alertblock}
-  \centering \small
-  Revenue-raising power and spending responsibility are separated --- a classic ``who pays vs.\ who decides'' problem in fiscal federalism.\\
-  \srcnote{Agenda Austria, ``Eine Ausgabenschranke für den Staatshaushalt'' (fiscal-federalism chapter).}
+  \vspace{0.2em}
+  \centering
+  Extensive spending autonomy, almost no revenue autonomy --- a classic ``who pays vs.\ who decides'' problem in fiscal federalism.\\
+  \srcnote{KDZ -- Zentrum für Verwaltungsforschung, ``Österreichs Föderalismus: OECD-Vergleich zeigt Reformbedarf''; profil.at, ``Finanzausgleich: Riesensummen fließen an Länder und Gemeinden.''}
 \end{frame}
 
 \begin{frame}{Why So Centralized? A Political-Economy View}
@@ -614,9 +617,10 @@
 \end{frame}
 
 \begin{frame}{Discussion Questions for Next Time}
+  \small
   \begin{enumerate}
     \item Is Austria's heavy reliance on labor taxation (vs.\ capital/consumption) efficient, equitable, both, or neither?
-    \item Austria's Bund raises 72\% of tax revenue but does only 48\% of spending. What are the risks of this mismatch between taxing and spending authority?
+    \item Austria's Länder raise only \(\approx\)0.82\% of GDP through their own taxes, versus \(\approx\)9\% of GDP in Germany. What are the risks of this mismatch between taxing and spending authority?
     \item Consider the case for a wealth tax in a country where the top 1\% hold \(\approx\)40\% of net wealth. Frame your answer using the equity--efficiency trade-off.
     \item Was the 2022 Covid-19 vaccination mandate a case of correcting a market failure, or a case of government overreach? Use the four questions of public finance to structure your answer.
     \item If Austria closes its budget deficit mainly through higher consumption taxes rather than income or wealth taxes, low-income households bear roughly \(3\times\) the burden (relative to income) of the top decile. Is this an efficiency argument, an equity argument, or both?
@@ -646,10 +650,11 @@
     \item Statistik Austria: Staatsausgaben nach Aufgabenbereichen (COFOG); ``Öffentliche Finanzen 2024'' press conference (31 Mar.\ 2025); Sozialquote/ESSPROS (2023); EU-SILC income and living conditions (2023); Maastricht notification (2025)
     \item Bundesministerium für Finanzen (BMF): Öffentliche Schulden 2024; tax revenue statistics (2022--24)
     \item Oesterreichische Nationalbank (OeNB): Household Finance and Consumption Survey (HFCS)
-    \item Agenda Austria: ``Eine Ausgabenschranke für den Staatshaushalt'' (fiscal federalism); ``Steuern und Abgaben auf einen Blick'' (tax structure)
+    \item Agenda Austria: ``Steuern und Abgaben auf einen Blick'' (tax structure)
+    \item KDZ -- Zentrum für Verwaltungsforschung: ``Österreichs Föderalismus: OECD-Vergleich zeigt Reformbedarf''; profil.at: ``Finanzausgleich: Riesensummen fließen an Länder und Gemeinden''
     \item A\&W-Blog: ``Steuerlandschaft Österreich: Land der Berge -- Land der Täler''
     \item WKO-Statistik, Langzeitreihen (Abgabenquote); WIFO-Monatsberichte 2015(2), ``Abgabensystem: Status quo''
-    \item Eurostat, government finance statistics (2024); OECD \emph{Government at a Glance 2025}; Statistisches Bundesamt (Destatis, 2025)
+    \item Eurostat, government finance statistics (2024); OECD \emph{Government at a Glance 2025} (2023 data); IMF, World Economic Outlook (2024 projections); Statistisches Bundesamt (Destatis, 2025)
   \end{itemize}
 \end{frame}
 
