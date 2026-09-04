@@ -1,0 +1,435 @@
+% !TeX program = pdflatex
+% =============================================================
+% Public Economics -- Lecture 3
+% Empirical Tools of Public Finance
+% Based on: Gruber, J. "Public Finance and Public Policy", Ch. 3
+% Austrian institutional and empirical context added for WU Vienna.
+% =============================================================
+\documentclass[11pt,aspectratio=169]{beamer}
+
+\usetheme{metropolis}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgf-pie}
+\usetikzlibrary{positioning,arrows.meta,calc}
+
+% ----------------------------------------------------------------
+% Colors: WU Vienna blue as primary accent
+% ----------------------------------------------------------------
+\definecolor{wublue}{HTML}{003D7C}
+\definecolor{wulight}{HTML}{4F8FC4}
+\definecolor{wugray}{HTML}{5C6670}
+\definecolor{wured}{HTML}{B0202E}
+\definecolor{wugreen}{HTML}{4C8C6B}
+\definecolor{wuyellow}{HTML}{D9A441}
+\setbeamercolor{palette primary}{bg=wublue,fg=white}
+\setbeamercolor{frametitle}{bg=wublue,fg=white}
+\setbeamercolor{progress bar}{fg=wublue,bg=wulight!30}
+\setbeamercolor{alerted text}{fg=wured}
+
+\setbeamertemplate{frame footer}{Empirical Tools of Public Finance}
+\setbeamertemplate{footline}[frame number]
+
+\title{Public Economics}
+\subtitle{Lecture 3 \(\cdot\) Empirical Tools of Public Finance}
+\author{Shushanik Margaryan}
+\institute{WU Vienna University of Economics and Business}
+\date{Winter Term}
+
+% Source note command for footnote-style citations on data slides
+\newcommand{\srcnote}[1]{{\footnotesize\color{wugray}Source: #1}}
+
+\begin{document}
+
+% =============================================================
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Today's Questions}
+  \begin{itemize}
+    \item Theory (Lecture 2) tells us the \emph{direction} government intervention should push behavior. But by how much, in practice?
+    \item How do we know whether a policy \emph{causes} an outcome, rather than merely being \emph{correlated} with it?
+    \item What are ``quasi-experiments,'' and how can they get us close to the gold standard of a randomized trial when we cannot run one?
+  \end{itemize}
+  \vspace{1em}
+  \begin{block}{Based on}
+    Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 3 --- ``Empirical Tools of Public Finance''
+  \end{block}
+\end{frame}
+
+% =============================================================
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% =============================================================
+\section{3.1 Correlation Is Not Causation}
+
+\begin{frame}{The Identification Problem}
+  In the early nineteenth century, a cholera epidemic swept through Russia.
+  \begin{itemize}
+    \item The government sent doctors to the worst-affected areas.
+    \item Peasants in one province observed a very high \textbf{correlation} between the number of doctors in an area and the incidence of cholera there.
+    \item Relying on this fact, they banded together and murdered their doctors.
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{alertblock}{What went wrong}
+    They correctly saw that doctors and illness moved together --- but the \emph{causal} arrow ran the other way: more illness brought more doctors, not the reverse.
+  \end{alertblock}
+  \srcnote{Gruber, \emph{Public Finance and Public Policy}, Ch.\ 3.1.}
+\end{frame}
+
+\begin{frame}{The Same Mistake Keeps Happening}
+  \begin{itemize}
+    \item September 2014: aid workers trying to help communities in Guinea fight an Ebola outbreak were attacked, and eight were killed. A local leader: \emph{``Wherever those people have passed, the communities have been hit by illness.''}
+    \item 1988: a Harvard dean found that freshmen who had taken SAT-preparation courses scored, on average, \emph{63 points lower} than those who hadn't --- and concluded the courses were unhelpful.
+    \item In fact: in 1998 prep courses were rare, so mostly the \emph{weakest} test-takers --- who needed the most help --- took them. The courses didn't cause worse scores; students likely to score worse were the ones taking the courses.
+  \end{itemize}
+  \vspace{0.3em}
+  \centering
+  \alert{Statistics calls this the \emph{identification problem}: given that two variables move together, how do you identify what's causing what?}\\
+  \srcnote{Gruber, \emph{Public Finance and Public Policy}, Ch.\ 3.1.}
+\end{frame}
+
+\begin{frame}{Three (and Only Three) Explanations for Any Correlation}
+  For any correlation between two variables $A$ and $B$:
+  \begin{enumerate}
+    \item \(A\) causes \(B\).
+    \item \(B\) causes \(A\).
+    \item Some third factor causes both.
+  \end{enumerate}
+  \vspace{0.5em}
+  \begin{alertblock}{Why this matters for policy}
+    Policy makers want to use empirical results to \emph{predict} how an intervention will change behavior. Correlation alone provides no predictive power --- prediction requires knowing the \emph{causal} link.
+  \end{alertblock}
+\end{frame}
+
+% =============================================================
+\section{3.2 Measuring Causation with Data We'd Like to Have: Randomized Trials}
+
+\begin{frame}{The Gold Standard: Randomized Trials}
+  \begin{block}{Randomized trial}
+    A group of volunteers is randomly divided into a \textbf{treatment group}, which receives the intervention being studied, and a \textbf{control group}, which does not --- effectively, assignment by the flip of a coin.
+  \end{block}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item Because assignment doesn't depend on anything about the subjects, the two groups are --- on average --- identical in \emph{every} respect except the treatment.
+    \item Any remaining difference in outcomes can then be attributed to the treatment: this is what makes randomization the gold standard for estimating causal effects.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The Problem of Bias}
+  \begin{block}{Bias}
+    Any source of difference between treatment and control groups that is correlated with the treatment but is \emph{not due to} the treatment.
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Cholera doctors, SAT prep, and breastfeeding studies all suffered from bias: treatment and control groups differed for reasons \emph{other than} the treatment itself.
+    \item By definition, a properly randomized trial has \emph{no} such bias --- the only systematic difference between the groups is the treatment.
+  \end{itemize}
+  \vspace{0.3em}
+  \centering
+  \alert{This is why randomized trials are the benchmark against which every other empirical method is judged.}
+\end{frame}
+
+\begin{frame}{A Real Randomized Trial: Estrogen Replacement Therapy}
+  \footnotesize
+  \begin{itemize}
+    \item Estrogen replacement therapy (ERT) was widely used to treat menopause symptoms. Early \emph{observational} comparisons found ERT users had no higher (perhaps even lower) heart-disease risk.
+    \item Concern: ERT users were also more likely to be under a doctor's care, live healthier lifestyles, and have higher incomes --- all independently linked to lower heart-disease risk. This is textbook \emph{bias} (explanation 3: a third factor drives both).
+  \end{itemize}
+  \begin{alertblock}{The Women's Health Initiative trial}
+    A randomized trial of 16,000+ women aged 50--79 across 40 US clinical centers was stopped early (after 5.2 of a planned 8.5 years) because the result was already clear: ERT \emph{raised} heart-disease risk --- 7 more coronary events, 8 more strokes, 8 more pulmonary embolisms, and 8 more invasive breast cancers per 10,000 women per year, relative to control.
+  \end{alertblock}
+  \srcnote{Gruber, \emph{Public Finance and Public Policy}, Ch.\ 3.2, citing the Women's Health Initiative trial.}
+\end{frame}
+
+\begin{frame}{Randomized Trials in Public Finance: The Global Rise of RCTs}
+  \footnotesize
+  \begin{itemize}
+    \item Randomized trials are far more common in medicine than in public finance --- but the last two decades have seen a surge, led by the \textbf{MIT Jameel Poverty Action Lab (J-PAL)}, founded 2003 by Abhijit Banerjee, Esther Duflo, and Sendhil Mullainathan.
+    \item J-PAL's network has run 1,000+ randomized evaluations of social programs across 91 countries, in partnership with governments, NGOs, and firms.
+  \end{itemize}
+  \begin{alertblock}{Example: Indonesia's Raskin subsidized-rice program}
+    Only a third of eligible households received their full rice entitlement, partly because households couldn't prove their eligibility. Researchers randomly gave 378 villages an ID card stating a household's entitlement, versus 194 control villages without one. Card villages saw a sizeable rise in rice actually received --- without more going to ineligible households. Indonesia scaled the card nationwide in 2013.
+  \end{alertblock}
+  \srcnote{Banerjee, Hanna \& Olken, cited in Gruber, \emph{Public Finance and Public Policy}, Ch.\ 3.2.}
+\end{frame}
+
+\begin{frame}{A European Randomized Trial: Job-Search Counseling in France}
+  \footnotesize
+  \begin{itemize}
+    \item Public-finance RCTs aren't only a developing-economy story. Behaghel, Crépon \& Gurgand (2014) ran a large controlled experiment across roughly 235 French local labor markets (\(\approx\)44{,}000 job seekers).
+    \item Job seekers were randomly assigned to intensive counseling from the \textbf{public} employment service, from \textbf{private} providers, or to a control group receiving standard services.
+  \end{itemize}
+  \begin{alertblock}{Finding}
+    Intensive counseling raised job-exit rates by roughly \textbf{15--35\%} relative to control --- and public-service counseling was about twice as effective as private-provider counseling in the first six months.
+  \end{alertblock}
+  \centering
+  A companion study (Crépon, Duflo, Gurgand, Rathelot \& Zamora, 2013) used the same randomization to show job-placement help for some can partly \emph{displace} the job chances of others --- a caution about reading any single RCT's effect as a free lunch.\\
+  \srcnote{Behaghel, Crépon \& Gurgand, \emph{AEJ: Applied Economics} 6(4), 2014; Crépon et al., \emph{QJE}, 2013.}
+\end{frame}
+
+\begin{frame}{Why We Need to Go Beyond Randomized Trials}
+  \begin{itemize}
+    \item \textbf{Cost and time}: large trials are expensive and slow to plan and run.
+    \item \textbf{Ethics}: a 2001 Parkinson's-disease trial drilled holes in the skulls of all 18 subjects (to keep the control group comparable) but implanted fetal pig cells in only 10 --- widely criticized.
+    \item \textbf{External validity}: results are only valid for people who \emph{volunteer} to be treatments or controls, who may differ systematically from the population at large.
+    \item \textbf{Attrition}: if people leave the trial non-randomly (e.g., those with negative side effects drop out), the remaining sample is no longer representative.
+  \end{itemize}
+  \srcnote{Gruber, \emph{Public Finance and Public Policy}, Ch.\ 3.2.}
+\end{frame}
+
+% =============================================================
+\section{3.3 Estimating Causation with the Data We Actually Get}
+
+\begin{frame}{Observational Data}
+  \begin{block}{Observational data}
+    Data generated by individual behavior observed in the real world, not in the context of a deliberately designed experiment.
+  \end{block}
+  \vspace{0.5em}
+  Most of the time, this is all we have. The rest of this lecture covers three approaches researchers use to get \emph{as close as possible} to the gold standard using observational data:
+  \begin{enumerate}
+    \item Time series analysis
+    \item Cross-sectional regression analysis
+    \item Quasi-experiments (incl.\ difference-in-differences)
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Time Series Analysis}
+  \begin{block}{Time series analysis}
+    Documenting the correlation between two variables of interest \emph{over time}.
+  \end{block}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item Simplest possible empirical approach: plot both series across years and see whether they move together.
+    \item \textbf{Problem}: when both series follow a slow-moving trend, almost \emph{anything} else that trends over the same period will look correlated with it --- the correlation may reflect a shared trend, not causation.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{A Time Series You've Already Seen}
+  \begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=11.5cm, height=4.7cm,
+      xmin=1993, xmax=2026,
+      ymin=38, ymax=60,
+      xtick={1995,2007,2009,2014,2020,2024},
+      x tick label style={font=\scriptsize, rotate=45, anchor=east, /pgf/number format/1000 sep=},
+      ylabel={\% of GDP},
+      legend style={at={(0.03,0.03)},anchor=south west,legend columns=1,font=\scriptsize,fill=white,fill opacity=0.9,draw opacity=1,text opacity=1},
+      axis lines*=left,
+      mark size=1.8pt,
+      ]
+      \addplot[wured, thick, mark=*] coordinates {
+        (1995,55.8) (2007,49.2) (2009,54.1) (2020,56.8) (2024,56.3)
+      };
+      \addplot[wublue, thick, mark=square*] coordinates {
+        (1995,41.7) (2014,43.1) (2019,42.7) (2020,42.6) (2024,44.5)
+      };
+      \legend{Expenditure ratio, Revenue ratio}
+    \end{axis}
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize
+  \begin{alertblock}{Discussion (recall Lecture 1)}
+    Both ratios move together around 2009 and 2020. Does this chart tell us the financial crisis or the pandemic \emph{caused} the rise in the expenditure ratio? What is doing the identifying work --- the slow trend, or the sharp break?
+  \end{alertblock}
+  \srcnote{Fiskalrat, Jahresbericht 2024; Statistik Austria (as in Lecture 1).}
+\end{frame}
+
+\begin{frame}{When Is Time Series Analysis Useful?}
+  \footnotesize
+  \begin{itemize}
+    \item Slow, gradual trends are \emph{not} convincing --- too many other things trend at the same time.
+    \item \textbf{Sharp, temporary breaks} are more convincing: if $X$ reverses direction abruptly and $Y$ reverses \emph{at the same moment}, it's harder to find a third factor that just happens to reverse on the identical date.
+  \end{itemize}
+  \begin{alertblock}{A sharp break: Ireland's 2002 plastic-bag levy}
+    In March 2002, Ireland introduced a \texteuro{}0.15 levy per plastic shopping bag --- one precisely dated policy change. Convery, McDonnell \& Ferreira (2007) document a reduction in plastic-bag use ``in the order of 90\%'' at retail outlets; a widely-cited companion figure (Irish government) puts per-capita bag consumption at 328/year before the levy versus 21/year after (\(\approx\)95\%).
+  \end{alertblock}
+  \centering
+  The drop happens \emph{exactly} at the levy's start date, not gradually --- hard to explain with a coincidental third factor. That is what makes a sharp break more convincing than a slow trend.\\
+  \srcnote{Convery, McDonnell \& Ferreira, ``The Most Popular Tax in Europe? Lessons from the Irish Plastic Bags Levy,'' \emph{Environmental and Resource Economics} 38(1), 2007.}
+\end{frame}
+
+\begin{frame}{Cross-Sectional Regression Analysis}
+  \begin{block}{Cross-sectional regression analysis}
+    A statistical method for assessing the relationship between two (or more) variables \emph{while holding other factors constant}, comparing many individuals at \emph{one point in time}.
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item In its simplest form (\emph{bivariate regression}), it formalizes correlation: it finds the line that \emph{best fits} a scatter of data points, and reports its slope.
+    \item The \textbf{dependent variable} is what you want to explain; the \textbf{independent variable(s)} are what you think explain it.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Illustrative Example (Numbers Made Up for Teaching)}
+  \footnotesize
+  Suppose two \emph{Mindestsicherung} (social-assistance) recipients, Anna and Beatrix, have different preferences for leisure versus work.
+  \begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=9.5cm, height=4.6cm,
+      xmin=0, xmax=1300,
+      ymin=0, ymax=1100,
+      xlabel={Mindestsicherung (\texteuro{}/month)},
+      ylabel={hours worked per year},
+      axis lines*=left,
+      ]
+      \addplot[wublue, thick, mark=*, mark size=2.2pt] coordinates {(700,900) (1000,90)};
+      \node[font=\scriptsize] at (axis cs:700,830) {Anna};
+      \node[font=\scriptsize] at (axis cs:1000,150) {Beatrix};
+    \end{axis}
+  \end{tikzpicture}
+  \end{center}
+  Anna, with a low preference for leisure, works more \emph{and} --- because benefits phase out with earnings --- ends up with lower Mindestsicherung. A bivariate regression of hours on benefits would show a strong \emph{negative} slope.
+  \vspace{0.3em}
+  \centering
+  \alert{But is this slope causal?}
+\end{frame}
+
+\begin{frame}{Problems with Cross-Sectional Regression: Bias Again}
+  \begin{itemize}
+    \item In the Anna/Beatrix example, we know \emph{by construction} that the true story runs the other way: a high preference for leisure causes both \emph{lower} hours worked \emph{and} \emph{higher} Mindestsicherung (since benefits rise as earned income falls).
+    \item The negative correlation is \textbf{not causal} --- it reflects a difference in preferences that happens to be correlated with benefit levels.
+  \end{itemize}
+  \vspace{0.3em}
+  \centering
+  With real data we don't observe ``preference for leisure'' directly --- but the same bias risk remains: people with a low taste for work may simply be both lower earners \emph{and} higher benefit recipients, with no causal link running from benefits to hours at all.
+\end{frame}
+
+\begin{frame}{Control Variables}
+  \begin{block}{Control variables}
+    Variables included in a regression to account for differences between comparison groups that could otherwise bias the estimate.
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item If we had a perfect measure of ``preference for leisure,'' we could compare only people with the \emph{same} preference --- removing that source of bias entirely.
+  \end{itemize}
+  \begin{alertblock}{The catch}
+    The variables we really want (intrinsic preferences, motivation, ability) are usually impossible to measure. We approximate them with proxies --- age, education, past employment --- which only partially capture the underlying difference. Control variables reduce bias; they rarely eliminate it.
+  \end{alertblock}
+  \srcnote{Gruber, \emph{Public Finance and Public Policy}, Ch.\ 3.3.}
+\end{frame}
+
+\begin{frame}{Quasi-Experiments}
+  \begin{block}{Quasi-experiment}
+    A situation that arises naturally when a change in the economic environment (typically, a policy change) creates treatment and control groups that are \emph{nearly identical} except for that change --- letting an outside event do the randomizing for us.
+  \end{block}
+  \vspace{0.3em}
+  \centering
+  Austria's federal structure --- nine \emph{Länder}, each able to set some of its own policy parameters (Lecture 1) --- is a natural source of quasi-experiments: a reform in one Land, with neighbors unaffected, creates a ready-made treatment/control comparison.
+\end{frame}
+
+\begin{frame}{Illustrative Example (Numbers Made Up for Teaching)}
+  \footnotesize
+  Suppose two neighboring Bundesländer, \emph{Vorarlberg} and \emph{Tirol}, both have single-parent Mindestsicherung recipients. In 2023, Vorarlberg cuts its monthly benefit; Tirol's stays unchanged.
+  \begin{center}
+  \begin{tabular}{@{}lccc@{}}
+    \toprule
+     & \textbf{2022} & \textbf{2024} & \textbf{Difference} \\
+    \midrule
+    \textbf{Vorarlberg} (benefit) & \texteuro{}1{,}000 & \texteuro{}800 & $-$\texteuro{}200 \\
+    Vorarlberg (hours/year) & 1{,}000 & 1{,}200 & $+$200 \\
+    \midrule
+    \textbf{Tirol} (benefit) & \texteuro{}1{,}000 & \texteuro{}1{,}000 & \texteuro{}0 \\
+    Tirol (hours/year) & 1{,}050 & 1{,}100 & $+$50 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  Vorarlberg's raw before/after change (+200 hours) mixes the \emph{benefit cut} with anything else moving nationally (e.g., an economic upswing) --- exactly the time series problem. Tirol didn't experience the cut, but \emph{did} experience the same national trend.
+\end{frame}
+
+\begin{frame}{Difference-in-Differences}
+  \begin{block}{Difference-in-difference estimator}
+    The difference between the change in outcomes for the treatment group and the change in outcomes for the control group.
+  \end{block}
+  \[
+    \begin{aligned}
+      \text{hours(Vorarlberg,24)} - \text{hours(Vorarlberg,22)} &= \text{treatment effect} + \text{national-trend bias} \\
+      \text{hours(Tirol,24)} - \text{hours(Tirol,22)} &= \text{national-trend bias} \\
+      \hline
+      \text{difference} &= \text{treatment effect}
+    \end{aligned}
+  \]
+  In the made-up numbers above: \((+200) - (+50) = \mathbf{150}\) additional hours, \emph{net of} the national trend --- our diff-in-diff estimate of the causal effect of the benefit cut.
+\end{frame}
+
+\begin{frame}{Problems with Quasi-Experimental Analysis}
+  \begin{itemize}
+    \item Diff-in-diff assumes the \textbf{parallel-trends} assumption: absent the reform, treatment and control would have moved \emph{the same way}.
+    \item If the national trend hit Vorarlberg and Tirol \emph{differently} (e.g., their labor markets are exposed to different industries), the ``bias'' terms are not equal --- and simple subtraction no longer isolates the true treatment effect.
+    \item Quasi-experiments can never be \emph{certain} they've purged all bias, the way a true randomized trial can. Researchers argue their case both intuitively (the groups look comparable) and statistically (checking the result against alternative control groups).
+  \end{itemize}
+  \srcnote{Gruber, \emph{Public Finance and Public Policy}, Ch.\ 3.3.}
+\end{frame}
+
+% =============================================================
+\section{Structural Modeling}
+
+\begin{frame}{Reduced-Form vs.\ Structural Estimates}
+  \begin{block}{Reduced-form estimates}
+    Measures of the total impact of one variable on another, without decomposing \emph{why} --- what randomized trials and quasi-experiments naturally deliver.
+  \end{block}
+  \begin{block}{Structural estimates}
+    Estimates of the deeper features (e.g., the utility-function parameters from Lecture 2) that drive the response --- letting us decompose an effect into, say, income vs.\ substitution effects.
+  \end{block}
+  \vspace{0.3em}
+  \centering
+  Structural models can tell us \emph{why}; but they require assuming a specific form for preferences, and are wrong if that assumption is wrong. This course, like most of the empirical literature, mostly relies on reduced-form evidence.
+  \srcnote{Gruber, \emph{Public Finance and Public Policy}, Ch.\ 3.3.}
+\end{frame}
+
+% =============================================================
+\section{3.4 Conclusion}
+
+\begin{frame}{Highlights}
+  \begin{itemize}
+    \item Correlation is not causation: any correlation between $A$ and $B$ could mean $A \to B$, $B \to A$, or a third factor driving both.
+    \item Randomized trials remove bias by construction and are the gold standard --- but are costly, sometimes unethical, and imperfectly generalizable.
+    \item Time series analysis is convincing only around sharp, dated breaks --- not slow trends.
+    \item Cross-sectional regression can reduce, but rarely eliminates, bias --- control variables are only as good as the proxies available.
+    \item Quasi-experiments exploit real-world policy changes to approximate randomization; difference-in-differences is the workhorse tool, resting on a parallel-trends assumption.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Discussion Questions for Next Time}
+  \small
+  \begin{enumerate}
+    \item A researcher finds that Austrian Gemeinden with newly built schools have higher average test scores. Does this prove new schools raise test scores? What else could explain it?
+    \item Why might a diff-in-difference comparison of two Austrian Länder be more convincing than comparing a single Land's outcomes before and after a reform?
+    \item Under what conditions would you trust an observational (non-randomized) estimate of a policy's effect nearly as much as a randomized trial?
+    \item Is it more ethical, or less, to run a randomized trial of a welfare-benefit cut on real recipients than to infer its effect from indirect (observational) evidence alone?
+    \item Structural models require assuming a specific utility function; reduced-form models don't. What do we gain, and what do we risk, by making that assumption?
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Sources}
+  \footnotesize
+  \begin{itemize}
+  \setlength{\itemsep}{2pt}
+    \item Textbook: Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 3, Worth Publishers --- cholera/Ebola/SAT/breastfeeding examples (\S3.1); Women's Health Initiative ERT trial and J-PAL/Indonesia Raskin study (\S3.2, citing Banerjee, Hanna \& Olken); the general logic of Fig.\ 3-3/3-4 and Table 3-1's illustrative examples (\S3.3).
+    \item Behaghel, L., Crépon, B. \& Gurgand, M., ``Private and Public Provision of Counseling to Job Seekers: Evidence from a Large Controlled Experiment,'' \emph{American Economic Journal: Applied Economics} 6(4), 2014; Crépon, B., Duflo, E., Gurgand, M., Rathelot, R. \& Zamora, P., ``Do Labor Market Policies have Displacement Effects?,'' \emph{Quarterly Journal of Economics}, 2013.
+    \item Convery, F., McDonnell, S. \& Ferreira, S., ``The Most Popular Tax in Europe? Lessons from the Irish Plastic Bags Levy,'' \emph{Environmental and Resource Economics} 38(1), 2007.
+    \item Fiskalrat, Jahresbericht 2024; Statistik Austria --- Austria expenditure/revenue ratio chart (as in Lecture 1).
+    \item The Anna/Beatrix and Vorarlberg/Tirol examples use \textbf{invented, illustrative numbers} for teaching only, following the textbook's own convention (its Fig.\ 3-3 and Table 3-1 are explicitly ``fabricated'') --- not real Austrian data. A 2016 cross-\emph{Länder} Mindestsicherung reform did occur, but no published diff-in-diff study of it was found, so none is claimed here.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+  Thank you!\\
+  \vspace{0.5em}
+  \small Questions and discussion
+\end{frame}
+
+\end{document}
