@@ -326,6 +326,125 @@
 \end{frame}
 
 % =============================================================
+\section{Quiz: Correlation or Causation?}
+
+\begin{frame}{How to Play}
+  \centering
+  \Large \faQuestionCircle
+  \vspace{0.5em}
+  \normalsize
+  \begin{block}{The rules}
+    Each round: a scenario, then a multiple-choice question. Pick your answer --- then click to reveal.
+  \end{block}
+  \begin{alertblock}{The question to always ask}
+    Is there anything \emph{other than} the variable of interest that differs, systematically, between the groups being compared --- and that could \emph{also} move the outcome?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Round 1: Police and Crime}
+  \small
+  A city with more police officers per capita also has a \emph{higher} recorded crime rate than cities with fewer police. A researcher regresses crime rates on police-per-capita and reports \(\hat\beta > 0\).
+  \vspace{0.5em}
+  \textbf{What best explains \(\hat\beta > 0\)?}
+  \begin{enumerate}
+    \item[\textbf{A}] Police presence causes crime
+    \item[\textbf{B}] Reverse causality: high crime causes more police deployment
+    \item[\textbf{C}] Pure coincidence
+  \end{enumerate}
+  \pause
+  \vspace{0.3em}
+  \begin{alertblock}{\faCheckCircle\ \ Answer: B}
+    Cities allocate \emph{more} police to areas that \emph{already} have more crime. Same logic as the cholera doctors from \S3.1.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Round 2: Ice Cream and Drowning}
+  \small
+  Across a summer season, towns with higher weekly ice-cream sales also record more drowning deaths. \(\hat\beta > 0\) from a regression of drownings on ice-cream sales.
+  \vspace{0.5em}
+  \textbf{What best explains \(\hat\beta > 0\)?}
+  \begin{enumerate}
+    \item[\textbf{A}] Ice cream causes risky swimming behavior
+    \item[\textbf{B}] Drowning risk causes people to crave ice cream
+    \item[\textbf{C}] A third factor --- hot weather --- drives both up independently
+  \end{enumerate}
+  \pause
+  \vspace{0.3em}
+  \begin{alertblock}{\faCheckCircle\ \ Answer: C}
+    Hot weather raises both ice-cream sales \emph{and} swimming (hence drownings). Neither variable causes the other --- the classic textbook confounder.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Round 3: Schooling and Wages}
+  \small
+  A researcher regresses hourly wages on years of schooling across a large sample of workers and finds a positive \(\hat\beta\), with no control variables included.
+  \vspace{0.5em}
+  \textbf{Is \(\hat\beta\) unbiased?}
+  \begin{enumerate}
+    \item[\textbf{A}] Yes --- more schooling clearly pays off
+    \item[\textbf{B}] No --- likely omitted-variable bias from unobserved ability/motivation
+    \item[\textbf{C}] No --- reverse causality (wages cause schooling)
+  \end{enumerate}
+  \pause
+  \vspace{0.3em}
+  \begin{alertblock}{\faCheckCircle\ \ Answer: B}
+    People with more underlying ability or drive tend to get \emph{both} more schooling \emph{and} higher wages --- even if schooling itself had zero causal effect. \(\hat\beta\) is likely biased upward.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Round 4: Adding a Control}
+  \small
+  The same researcher adds \emph{parental income} as a control variable. The coefficient on schooling shrinks but stays positive and significant.
+  \vspace{0.5em}
+  \textbf{Is \(\hat\beta\) unbiased now?}
+  \begin{enumerate}
+    \item[\textbf{A}] Yes --- the bias is now fully removed
+    \item[\textbf{B}] Not necessarily --- other omitted factors (ability, work ethic, school quality) remain uncontrolled
+    \item[\textbf{C}] No --- adding controls always makes bias worse
+  \end{enumerate}
+  \pause
+  \vspace{0.3em}
+  \begin{alertblock}{\faCheckCircle\ \ Answer: B}
+    Parental income proxies for only \emph{part} of what drives both schooling and wages. Control variables reduce bias only for what they actually capture.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Round 5: A Benefit Cut, Two Regions}
+  \small
+  Region A cuts a welfare benefit; neighboring Region B leaves it unchanged. A researcher compares the before/after change in hours worked in A to the before/after change in B (a difference-in-differences design) and reports a large positive effect on labor supply.
+  \vspace{0.5em}
+  \textbf{Is \(\hat\beta\) unbiased?}
+  \begin{enumerate}
+    \item[\textbf{A}] Yes --- diff-in-differences always removes bias
+    \item[\textbf{B}] Only if Region A and B were on the \emph{same} underlying trend absent the cut
+    \item[\textbf{C}] No --- this design can never be trusted
+  \end{enumerate}
+  \pause
+  \vspace{0.3em}
+  \begin{alertblock}{\faCheckCircle\ \ Answer: B}
+    This is the \textbf{parallel-trends} assumption. If Region A's economy was already diverging from Region B's for unrelated reasons, simple subtraction no longer isolates the causal effect.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Round 6: Deworming in Kenya}
+  \small
+  Miguel \& Kremer (2004) randomized a school-based deworming program across dozens of primary schools in western Kenya, phasing treatment in school-by-school rather than child-by-child.
+  \vspace{0.5em}
+  \textbf{Why randomize by \emph{school}, not by individual child, within a school?}
+  \begin{enumerate}
+    \item[\textbf{A}] It's cheaper to administer
+    \item[\textbf{B}] To capture \emph{spillovers}: untreated children in a treated school also benefit from reduced worm transmission, which individual-level randomization would hide
+    \item[\textbf{C}] It doesn't matter --- either design gives the same answer
+  \end{enumerate}
+  \pause
+  \vspace{0.3em}
+  \begin{alertblock}{\faCheckCircle\ \ Answer: B}
+    Randomizing by individual \emph{within} a school would understate the true effect --- untreated ``controls'' next to treated children aren't a clean comparison when the treatment has spillovers.
+  \end{alertblock}
+  \srcnote{Miguel \& Kremer, ``Worms: Identifying Impacts on Education and Health in the Presence of Treatment Externalities,'' \emph{Econometrica} 72(1), 2004.}
+\end{frame}
+
+% =============================================================
 \section{Structural Modeling}
 
 \begin{frame}{Reduced-Form vs.\ Structural Estimates}
