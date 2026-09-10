@@ -268,6 +268,27 @@
  
 \end{frame}
 
+\begin{frame}{Explicit vs.\ Implicit Debt: Austria's Sustainability Gap}
+  \small
+  \begin{itemize}
+    \item \textbf{Explicit debt}: bonded liabilities of federal, state, and local government --- can only be reduced by repayment.
+    \item \textbf{Implicit debt}: the present value of promises the state has made under current law but hasn't borrowed for --- above all, pay-as-you-go pension commitments. Can only be reduced by reform.
+  \end{itemize}
+  \vspace{0.3em}
+  \begin{center}
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+     & \textbf{Austria} & \textbf{EU-28 average} \\
+    \midrule
+    Explicit debt (\% GDP) & 84\% & 85\% \\
+    Implicit debt (\% GDP) & 177\% & 132\% \\
+    Sustainability gap & 260\% & 217\% \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \srcnote{European Commission/Eurostat; Forschungszentrum Generationenverträge (2017).}
+\end{frame}
+
 \begin{frame}{Measuring Long-Run Sustainability: Austria's Pension System}
 
   The European Commission's \textbf{2024 Ageing Report} projects Austria's public pension expenditure from 2022 to 2070:
@@ -304,6 +325,104 @@
 
 % =============================================================
 \section{Deficits, Crowding Out, and Growth}
+
+\begin{frame}{The OLG Model: A Microfoundation for Crowding Out}
+  \small
+  \begin{itemize}
+    \item The \textbf{overlapping-generations (OLG)} model gives the crowding-out story a few slides ahead an explicit microfoundation: each generation lives two periods, working when young and living off savings when old.
+    \item Young-period budget: $c_t^y + s_t = w_t$. Old-period budget: $c_t^o = (1+r_{t+1})s_t$.
+    \item Combined into one intertemporal budget constraint:
+    \[
+      c_t^y + \frac{c_t^o}{1+r_{t+1}} = w_t
+    \]
+    \item Households choose $c_t^y, c_t^o$ --- and thus savings $s_t$ --- to maximize lifetime utility subject to this constraint.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Government in the OLG Model}
+  \small
+  \begin{itemize}
+    \item Public expenditures are normalized to zero. Every member of the \textbf{working} population pays a lump-sum tax $\tau_t$; the \textbf{retired} pay no tax.
+    \item Generation $t$'s intertemporal budget constraint becomes:
+    \[
+      c_t^y + \frac{c_t^o}{1+r_{t+1}} = w_t - \tau_t
+    \]
+    \item \textbf{Baseline, no debt}: the government simply balances its budget every period, taxing exactly what it spends.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The Policy Experiment: A Deficit-Financed Tax Cut}
+  \small
+  Suppose in period $t$ the government raises per-capita debt by $\Delta$ and cuts this generation's tax by the same amount:
+  \[
+    \tau_t + \Delta = 0
+  \]
+  The debt, plus interest, must be repaid the following period --- by this \emph{same} generation, now old:
+  \[
+    \tau_{t+1} - (1+r_{t+1})\Delta = 0 \quad\Longleftrightarrow\quad \tau_{t+1} = (1+r_{t+1})\Delta
+  \]
+  \vspace{0.3em}
+  So the experiment asks: what happens if one generation's \emph{own} lifetime tax burden is shifted from young age to old age, bridged by government debt in between?
+\end{frame}
+
+\begin{frame}{The New Budget Constraint}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+      \begin{tikzpicture}
+        \begin{axis}[
+          width=6.5cm, height=5.3cm,
+          xmin=0, xmax=9, ymin=0, ymax=13,
+          xlabel={$c^y$}, ylabel={$c^o$},
+          axis lines=left,
+          ticks=none,
+          ]
+          \addplot[wugray, thick, domain=0:6] {9-1.5*x};
+          \node[wugray, anchor=west, font=\scriptsize] at (axis cs:0.6,8.1) {no debt};
+          \addplot[wublue, thick, domain=0:8] {12-1.5*x};
+          \node[wublue, anchor=west, font=\scriptsize] at (axis cs:0.6,11.1) {with debt};
+          \addplot[wured, thin, domain=2.1:6.4, samples=50] {13.5/x};
+          \addplot[wugreen, thin, domain=2.7:8.3, samples=50] {24/x};
+          \addplot[only marks, mark=*, mark size=1.6pt, black] coordinates {(3,4.5) (4.2,5.7)};
+          \node[anchor=north east, font=\scriptsize] at (axis cs:3,4.3) {$s^*$};
+          \node[anchor=south west, font=\scriptsize] at (axis cs:4.2,5.9) {$s^{**}$};
+        \end{axis}
+      \end{tikzpicture}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \small
+      Substituting $\tau_t=-\Delta$ into the constraint:
+      \[
+        w_t + \Delta = c_t^y + \frac{c_t^o}{1+r_{t+1}}
+      \]
+      \begin{itemize}
+        \item The budget line shifts out in parallel by $\Delta$.
+        \item If $c^y, c^o$ are normal goods, the household consumes more in \textbf{both} periods.
+        \item $c^y$ rises by $0 < dc^y < \Delta$ --- so saving $s_t = w_t+\Delta-c_t^y$ rises, but by \textbf{less than} $\Delta$.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Effects on the Capital Market}
+  \small
+  \begin{itemize}
+    \item Public saving falls by the full $\Delta$; private saving rises by less than $\Delta$ --- so \textbf{total} national saving falls.
+    \item In the capital market (next slide): the savings curve $S$ shifts left, the interest rate $r$ rises, and equilibrium capital $K$ falls.
+    \item We might call this \textbf{crowding out} of private investment by public demand for credit --- it reduces the capital stock, which lowers the income of the population in the long run.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Normative Questions: Redistribution and Welfare}
+  \small
+  \begin{itemize}
+    \item The OLG model shows that public debt raises interest rates and lowers the capital stock in the long run.
+    \item \textbf{Future generations} are worse off (lower capital $\Rightarrow$ lower wages); the \textbf{current generation} is clearly better off (it pays less tax).
+    \item Assessing the overall welfare effect requires taking a stance on how to weight the welfare of different generations.
+    \item If technological progress raises future incomes anyway, future generations may end up better off than the current one \emph{regardless} --- which some use to argue for redistribution from future to current generations. This is ultimately a normative judgment, not something economics alone can settle.
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{How a Deficit Can Crowd Out Private Investment}
   \begin{columns}[T]
@@ -344,12 +463,41 @@
  
 \end{frame}
 
+\begin{frame}{Ricardian Equivalence}
+  \small
+  \begin{itemize}
+    \item Ricardo (1817) posed the question, Barro (1974) gave it a modern answer: if households are forward-looking and leave positive bequests, a debt-financed tax cut today is simply saved --- to cover the higher taxes needed to repay the debt later.
+    \item Under Ricardian equivalence, financing government spending through taxes or through debt is \textbf{completely equivalent}: consumption, saving, investment, and interest rates are all unaffected.
+    \item The result needs strong conditions: positive bequests, no differences in family size across households, non-distortionary taxes, and perfect capital markets.
+  \end{itemize}
+  \vspace{0.3em}
+  Empirical evidence favors the crowding-out story instead: deficits are associated with higher interest rates and lower investment (e.g.\ Ardagna et al.\ 2007; Gale \& Orszag 2003).
+\end{frame}
+
 \begin{frame}{Open Capital Markets Blunt Crowding Out}
 
   \begin{itemize}
     \item The crowding-out story assumes savings are supplied \emph{domestically} and inelastically. With fully open, integrated international capital markets, a country can borrow from the whole world's savings pool --- so its own deficit barely moves the interest rate it faces.
  	\item As one country inside the euro area's single capital market, Austria effectively faces a supply of savings that is close to perfectly elastic --- far more so than a large economy like the US, where domestic savings still matter enough that some crowding-out concern remains empirically credible.
  \end{itemize}
+\end{frame}
+
+\begin{frame}{Sovereign Debt Crises: When Expectations Turn}
+  \small
+  \begin{itemize}
+    \item Reinhart \& Rogoff (2009, \emph{This Time Is Different}): once creditors doubt a government can service its debt, they demand higher interest rates and sell existing bonds.
+    \item Higher rates make the debt harder to service, which can \textbf{confirm} the very default fear that triggered them --- a self-fulfilling crisis.
+    \item A state cannot be liquidated: an unsustainable debt load ends in negotiated restructuring --- a \textbf{haircut} for creditors.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Evidence: The Eurozone Debt Crisis}
+  \begin{center}
+    \includegraphics[height=4.7cm]{figures/eurozone_sovereign_bond_yields.png}
+  \end{center}
+  \small
+  Ten-year sovereign yields for Germany, France, Greece, Italy, Ireland, Portugal, and Spain, 1995--2019: a single currency didn't stop borrowing costs from diverging sharply once markets began pricing in default risk.\\
+  \srcnote{Deutsche Bundesbank.}
 \end{frame}
 
 \begin{frame}{The Secular Stagnation Puzzle}
@@ -385,6 +533,24 @@
  
   
  
+\end{frame}
+
+\begin{frame}{Can Public Debt Be Justified?}
+  \small
+  \begin{itemize}
+    \item \textbf{Tax smoothing} (Barro, 1979): the deadweight loss of a tax rises more than proportionally with the tax rate, so smoothing the rate over time --- borrowing in bad years, repaying in good ones --- minimizes the total distortion versus adjusting taxes every year.
+    \item \textbf{Anti-cyclical stabilization}: debt lets governments decouple spending from business-cycle tax revenue --- but this only justifies \emph{temporary} debt, not a decades-long upward trend.
+    \item \textbf{Musgrave's pay-as-you-use principle}: generations who benefit from public investment (infrastructure, education) should share its cost --- but this only justifies debt when net public investment is positive, which it often has not been.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Evidence: Fiscal Space Pays Off in a Crisis}
+  \begin{center}
+    \includegraphics[height=4.7cm]{figures/romer_romer_fiscal_space.png}
+  \end{center}
+  \small
+  OECD countries that entered a financial crisis with \textbf{more} fiscal space (lower debt) ran larger deficits in response --- and recovered faster.\\
+  \srcnote{Romer \& Romer (2019), NBER WP 25768.}
 \end{frame}
 
 \begin{frame}{The ``New View'' of Deficits}
