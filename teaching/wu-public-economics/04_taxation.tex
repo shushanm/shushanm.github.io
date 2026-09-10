@@ -61,11 +61,11 @@
   \begin{itemize}
     \item What are the different types of taxes governments levy, and how does the burden of a tax actually get shared between buyers and sellers?
     \item What does it mean for a tax system to be ``fair,'' and how do we measure that?
-    \item Why does every real-world income tax deviate from a clean, comprehensive definition of income --- and are those deviations justified?
+ 
   \end{itemize}
   \vspace{1em}
   \begin{block}{Based on}
-    Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 18 (\S18.1, 18.3--18.5); Leenders, W., \emph{Microeconomics of Public Policy, Part IV: Taxation} (Sciences Po, 2023--2024).
+    Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 18  
   \end{block}
 \end{frame}
 
@@ -88,8 +88,7 @@
   \end{itemize}
   \vspace{0.3em}
   \centering
-  Payroll, income, and wealth taxes are \textbf{direct} taxes (assessed on individuals); consumption taxes are \textbf{indirect} (assessed on transactions).\\
-  \srcnote{Gruber, \emph{Public Finance and Public Policy}, \S18.1.}
+
 \end{frame}
 
 \begin{frame}{The Same Five Types, in Austria}
@@ -108,61 +107,38 @@
   \end{tabular}
   \end{center}
   \centering
-  Every category from the textbook's typology has a direct Austrian counterpart --- often more than one.\\
-  \srcnote{Bundesministerium für Finanzen (BMF); Lecture 1 (Pendlerpauschale, CO\textsubscript{2}-Bepreisung).}
+   
 \end{frame}
 
 \begin{frame}{International Tax Revenues by Type}
-  \footnotesize
-  \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      \centering \textbf{Norway}\\[0.2em]
-      \begin{tikzpicture}
-        \pie[
-          radius=1.15, text=legend, hide number, font=\tiny,
-          color={wublue,wulight,wured,wugray,wugreen,wuyellow}
-        ]{
-          25.3/Income (25.3\%),
-          25.5/SSC (25.5\%),
-          29.5/Consumption (29.5\%),
-          16.4/Corporate (16.4\%),
-          3.1/Property (3.1\%),
-          0.2/Other (0.2\%)
-        }
-      \end{tikzpicture}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \centering \textbf{Denmark}\\[0.2em]
-      \begin{tikzpicture}
-        \pie[
-          radius=1.15, text=legend, hide number, font=\tiny,
-          color={wublue,wulight,wured,wugray,wugreen,wuyellow}
-        ]{
-          54.4/Income (54.4\%),
-          0.1/SSC (0.1\%),
-          32.9/Consumption (32.9\%),
-          6.5/Corporate (6.5\%),
-          4.1/Property (4.1\%),
-          2.0/Other (2.0\%)
-        }
-      \end{tikzpicture}
-    \end{column}
-  \end{columns}
-  \centering
-  2018 --- two very different OECD tax mixes: Norway spreads revenue across income, payroll, consumption, and corporate taxes evenly; Denmark leans heavily on individual income tax.\\
-  \srcnote{Gruber, \emph{Public Finance and Public Policy}, Fig.\ 18-2, citing OECD (2020).}
+\centering
+
+
+
+		\textbf{OECD average}\\[0.2em]
+			\begin{tikzpicture}
+				\pie[
+				radius=0.95, text=legend, hide number, font=\tiny,
+				color={wublue,wulight,wured,wugray,wugreen,wuyellow}
+				]{
+					23.5/Income (23.5\%),
+					25.7/SSC (25.7\%),
+					32.7/Consumption (32.7\%),
+					10.0/Corporate (10.0\%),
+					5.6/Property (5.6\%),
+					2.5/Other (2.5\%)
+				}
+			\end{tikzpicture}
+
 \end{frame}
 
 \begin{frame}{Where Does Austria Fit?}
   \begin{itemize}
-    \item Recall from Lecture 1: Austria's tax mix leans heavily on \textbf{labor} --- VAT (\(\approx\)\texteuro{}35.4bn, 2022), wage tax (\(\approx\)\texteuro{}25bn), and social contributions dominate; corporate tax is comparatively small (\(\approx\)\texteuro{}7.8bn, only 2.2\% of GDP).
-    \item Austria is closer to the \textbf{OECD average} pattern above than to Denmark's income-tax-heavy mix --- consumption and payroll taxes both play a substantial role.
+    \item  Austria's tax mix leans heavily on \textbf{labor} 
+    \item  Austria abolished its general \textbf{wealth tax} (\emph{Vermögensteuer}) in 1994, and its \textbf{inheritance/gift tax} lapsed in 2008 after the \emph{Verfassungsgerichtshof} ruled the property-valuation method unconstitutional and no replacement was passed. 
+    \item Austria has had \emph{no} wealth or inheritance tax since.
   \end{itemize}
-  \vspace{0.3em}
-  \begin{alertblock}{A structural fact worth remembering}
-    Austria abolished its general \textbf{wealth tax} (\emph{Vermögensteuer}) in 1994, and its \textbf{inheritance/gift tax} lapsed in 2008 after the \emph{Verfassungsgerichtshof} ruled the property-valuation method unconstitutional and no replacement was passed. Austria has had \emph{no} wealth or inheritance tax since.
-  \end{alertblock}
-  \srcnote{Lecture 1; BMF; \emph{Verfassungsgerichtshof} case law on the Erbschafts- und Schenkungssteuergesetz (2007/2008).}
+ 
 \end{frame}
 
 % =============================================================
@@ -170,17 +146,15 @@
 
 \begin{frame}{Tax Incidence: Who Really Pays?}
   \begin{block}{Tax incidence}
-    The study of how taxes affect the prices buyers and sellers face --- and therefore who really bears the burden.
+   Tax incidence measures who bears the legal or economic burden of a tax.
   \end{block}
   \vspace{0.3em}
   \begin{itemize}
     \item \textbf{Legal (statutory) incidence}: who is legally required to send the tax payment to the government.
-    \item \textbf{Economic incidence}: who actually ends up worse off, once prices adjust.
+    \item \textbf{Economic incidence}: who actually bears the burden, once prices adjust.
   \end{itemize}
-  \vspace{0.3em}
-  \centering
-  These are \emph{not} the same thing --- and which one matters is one of the most counterintuitive results in public finance.\\
-  \srcnote{Leenders, \emph{Microeconomics of Public Policy}, Part IV (Sciences Po).}
+ 
+
 \end{frame}
 
 \begin{frame}{The Canonical Case: An Excise Tax}
@@ -206,9 +180,9 @@
     \node[below, font=\scriptsize] at (2.96,-0.15) {$Q'^*$};
   \end{tikzpicture}
   \end{center}
-  \footnotesize \centering
+  \footnotesize 
   A tax $t$ on consumers wedges $p_c = p + t$ apart from $p$. Quantity falls from $Q^*$ to $Q'^*$; the consumer price rises by \emph{less than} $t$ --- both sides share the burden.\\
-  \srcnote{Following Leenders, \emph{Microeconomics of Public Policy}, Part IV (Sciences Po).}
+ 
 \end{frame}
 
 \begin{frame}{Two Extreme Cases}
@@ -246,7 +220,7 @@
     \end{column}
   \end{columns}
   \vspace{0.4em}
-  \centering
+  
   \alert{The side of the market with the \emph{less elastic} response bears more of the tax --- regardless of who writes the check.}
 \end{frame}
 
@@ -274,7 +248,7 @@
   \vspace{0.3em}
   The size of the efficiency loss is governed by the \textbf{elasticity of labor supply} (Lecture 2). Governments can dampen it by using tax revenue to subsidize goods complementary to working, such as child care.
   \vspace{0.3em}
-  \centering
+
   \(\Rightarrow\) ``How Can Scandinavians Tax So Much?'' (Kleven, 2014) --- high-tax Nordic countries also invest heavily in making work easy (child care, low-distortion consumption taxes), which is part of how they sustain such high tax revenue with limited efficiency loss.\\
   \srcnote{Kleven, H., \emph{Journal of Economic Perspectives} 28(4), 2014, cited in Leenders, Part IV.}
 \end{frame}
@@ -291,41 +265,49 @@
   \end{block}
 \end{frame}
 
-\begin{frame}{Austria's 2024 Income Tax Brackets}
-  \centering
-  \begin{tabular}{@{}rl@{}}
-    \toprule
-    \textbf{Taxable income (\texteuro{})} & \textbf{Marginal rate} \\
-    \midrule
-    0 -- 12,816 & 0\% \\
-    12,816 -- 20,818 & 20\% \\
-    20,818 -- 34,513 & 30\% \\
-    34,513 -- 66,612 & 40\% \\
-    66,612 -- 99,266 & 48\% \\
-    99,266 -- 1,000,000 & 50\% \\
-    above 1,000,000 & 55\% \\
-    \bottomrule
-  \end{tabular}
+\begin{frame}{Austria's 2026 Income Tax Brackets}
+ \begin{table}
+ 	\centering
+ 	\begin{tabular}{@{}lr@{}}
+ 		\toprule
+ 		\textbf{ } & \textbf{Tax rate} \\
+ 		\midrule
+ 		13.539 und darunter & 0\,\% \\
+ 		über 13.539 bis 21.992 & 20\,\% \\
+ 		über 21.992 bis 36.458 & 30\,\% \\
+ 		über 36.458 bis 70.365 & 40\,\% \\
+ 		über 70.365 bis 104.859 & 48\,\% \\
+ 		über 104.859 bis 1.000.000 & 50\,\% \\
+ 		über 1.000.000\textsuperscript{1)} & 55\,\% \\
+ 		\bottomrule
+ 	\end{tabular}
+ 
+ \end{table}
+  
+  
   \vspace{0.5em}
-  \centering \small
-  The 55\% top bracket is a temporary surcharge (legislated 2016--2029). Brackets are progressive: each additional euro is taxed at a higher rate than the last.\\
-  \srcnote{Bundesministerium für Finanzen (BMF), Einkommensteuertarif 2024.}
+   \small
+  The 55\% top bracket is a temporary surcharge. Brackets are progressive: each additional euro is taxed at a higher rate than the last.\\
+ 
 \end{frame}
 
+ 
+
 \begin{frame}{Worked Example: Lena's Tax Bill}
-  \footnotesize
-  Lena has taxable income of \texteuro{}80,000. Walking up the bracket schedule:
-  \[
-    (\text{\texteuro}8{,}002 \times 0.20) + (\text{\texteuro}13{,}695 \times 0.30) + (\text{\texteuro}32{,}099 \times 0.40) + (\text{\texteuro}13{,}388 \times 0.48) = \text{\texteuro}24{,}974.74
-  \]
-  \vspace{0.3em}
-  \begin{itemize}
-    \item Lena's \textbf{marginal} tax rate is \textbf{48\%} --- the rate on her next euro earned.
-    \item Lena's \textbf{average} tax rate is \(\text{\texteuro}24{,}974.74 / \text{\texteuro}80{,}000 = \mathbf{31.2\%}\).
-  \end{itemize}
-  \vspace{0.3em}
-  \centering
-  The gap between the two --- 48\% vs.\ 31.2\% --- is entirely due to progressivity: the first \texteuro{}12,816 was tax-free, and every bracket below her marginal one was taxed at a lower rate.
+	\footnotesize
+	Lena has taxable income of \texteuro{}80,000. Walking up the bracket schedule:
+	\[
+	(\text{\texteuro}8{,}453 \times 0.20) + (\text{\texteuro}14{,}466 \times 0.30) + (\text{\texteuro}33{,}907 \times 0.40) + (\text{\texteuro}9{,}635 \times 0.48) = \text{\texteuro}24{,}218.00
+	\]
+	Her disposable income: 80,000-24,218=55,782
+	\vspace{0.3em}
+	\begin{itemize}
+		\item Lena's \textbf{marginal} tax rate is \textbf{48\%} --- the rate on her next euro earned.
+		\item Lena's \textbf{average} tax rate is \(\text{\texteuro}24{,}218.00 / \text{\texteuro}80{,}000 = \mathbf{30.3\%}\).
+	\end{itemize}
+	\vspace{0.3em}
+
+	The gap between the two --- 48\% vs.\ 30.3\% --- is entirely due to progressivity: the first \texteuro{}13,539 was tax-free, and every bracket below her marginal one was taxed at a lower rate.
 \end{frame}
 
 \begin{frame}{Vertical and Horizontal Equity}
@@ -351,9 +333,9 @@
     The tax burden shifted away from wealthy property owners and onto poorer citizens who hadn't previously paid property tax at all --- a textbook violation of \textbf{vertical equity}. Thatcher was ousted as Conservative leader soon after; the tax was abandoned.
   \end{alertblock}
   \vspace{0.3em}
-  \centering
+ 
   (England's last attempt at such a tax, in 1381, ended with the beheading of several prominent officials.)\\
-  \srcnote{Gruber, \emph{Public Finance and Public Policy}, \S18.3.}
+
 \end{frame}
 
 \begin{frame}{Austria's Own Fairness Debate: \emph{Kalte Progression}}
@@ -366,11 +348,9 @@
     \item Effective 1 January 2023, Austria began \textbf{automatically indexing} tax brackets to inflation: two-thirds of the inflation adjustment happens automatically by law each year; the remaining third is allocated at the government's discretion via a separate ``\emph{Progressionsabgeltungsgesetz}.''
     \item The top \texteuro{}1{,}000{,}000 / 55\% bracket is \emph{excluded} from indexation.
   \end{itemize}
-  \vspace{0.3em}
-  \centering
-  \alert{Discussion:} is partial (two-thirds automatic) indexation a reasonable compromise, or does the discretionary third just recreate the same political problem it was meant to fix?\\
-  \srcnote{BMF; WKO; Parlament.gv.at, Teuerungs-Entlastungspaket II (2022).}
-\end{frame}
+ 
+ 
+ \end{frame}
 
 % =============================================================
 \section{4.4 Defining the Income Tax Base}
@@ -389,12 +369,11 @@
 
 \begin{frame}{Austria vs.\ the US: In-Kind Compensation}
   \begin{itemize}
-    \item The classic Haig-Simons violation in the US textbook: employer-provided \textbf{health insurance} is not taxed as income, even though it clearly raises a worker's ability to consume.
+    \item The classic Haig-Simons violation in th US: employer-provided \textbf{health insurance} is not taxed as income, even though it clearly raises a worker's ability to consume.
     \item Austria takes a stricter approach for many in-kind benefits: the \emph{Sachbezugswerteverordnung} taxes the value of a company car, subsidized housing, and other in-kind perks as part of wage income.
   \end{itemize}
-  \vspace{0.3em}
-  \centering
-  Not every deviation from Haig-Simons is universal across countries --- the ``right'' tax base is a policy choice, not a law of nature.
+
+ 
 \end{frame}
 
 \begin{frame}{Deviations for Ability-to-Pay and Earning Costs}
@@ -408,16 +387,16 @@
   Both are easy to justify in principle --- and hard to draw a clean line around in practice (was that lunch a business cost, or consumption?).
 \end{frame}
 
-\begin{frame}{Housing: A Case Where Austria Diverges Sharply}
+\begin{frame}{Housing}
   \footnotesize
   \begin{itemize}
     \item Whether you rent or own, you consume \texteuro{}X/month of housing services --- your \emph{imputed rental value}. A true Haig-Simons tax would treat renters and owners identically.
-    \item The \textbf{US} does not tax imputed rental income, \emph{but} lets owners deduct mortgage interest --- a large, one-sided subsidy to owning (\(\approx\)\texteuro{}80bn/year in forgone US federal revenue) that the textbook's own cited research (Glaeser \& Shapiro, 2003; a later study finding a Danish policy change had a \emph{precisely-estimated zero effect} on homeownership) struggles to justify on positive-externality grounds.
+    \item The \textbf{US} does not tax imputed rental income, \emph{but} lets owners deduct mortgage interest --- a large, one-sided subsidy to owning (\(\approx\)\texteuro{}80bn/year in forgone US federal revenue)
+    \item Empirical research finds little evidence that home ownership has positive social benefits
+
+    Austria   taxes owners and renters rather symmetrically  
+ 
   \end{itemize}
-  \begin{alertblock}{Austria took a different path}
-    Austria has \textbf{no general mortgage-interest deduction}. A narrower \emph{Sonderausgaben} deduction for housing construction/renovation loans was closed to new contracts in 2016 and phased out entirely by the 2021 tax-assessment year --- Austria now taxes owners and renters far more symmetrically than the US does.
-  \end{alertblock}
-  \srcnote{Gruber, \emph{Public Finance and Public Policy}, \S18.5; findok.bmf.gv.at; Statistik Austria (2021 Arbeitnehmerveranlagung).}
 \end{frame}
 
 \begin{frame}{Deductions vs.\ Credits}
@@ -428,7 +407,7 @@
     Reduces \emph{tax owed} directly --- worth the same to everyone, regardless of bracket, and thus more progressive.
   \end{block}
   \vspace{0.3em}
-  \centering
+   
   A \textbf{refundable} credit goes further still: it pays out even to people who owe little or no tax --- turning the tax system into a delivery mechanism for cash transfers to low earners.
 \end{frame}
 
@@ -484,6 +463,89 @@
   \srcnote{Leenders, Part IV, citing Piketty (2020) and long-run OECD/WID revenue series.}
 \end{frame}
 
+\section{4.5 The Appropriate Unit of Taxation}
+
+\begin{frame}{Whose Income Do We Tax? Pick Two of Three}
+	\small
+	Suppose a tax system had to satisfy three goals at once:
+	\begin{itemize}
+		\item \textbf{Progressivity}: marginal tax rates rise as income rises.
+		\item \textbf{Across-family horizontal equity}: families with equal total income pay equal tax.
+		\item \textbf{Across-marriage horizontal equity}: tax burdens are \emph{marriage neutral} --- unaffected by whether two people wed.
+	\end{itemize}
+	\vspace{0.3em}
+
+		All three seem reasonable. It is \textbf{impossible} to satisfy all three simultaneously --- any progressive tax system taxing couples on some notion of joint income must give up at least one.
+
+
+\end{frame}
+
+\begin{frame}{Worked Example: Two Couples, Same Income}
+	\footnotesize
+	A stylized progressive schedule: 10\% up to \texteuro{}20{,}000; 20\% up to \texteuro{}80{,}000; 30\% above \texteuro{}80{,}000 (illustrative only --- not Austria's actual schedule).
+	\vspace{0.3em}
+	\begin{center}
+		\begin{tabular}{@{}lccc@{}}
+			\toprule
+			& \textbf{Individual incomes} & \textbf{Tax, filed individually} & \textbf{Tax, filed as a family} \\
+			\midrule
+			Yasmin \& Doug & \texteuro{}140{,}000 + \texteuro{}10{,}000 & \texteuro{}33{,}000 & \texteuro{}35{,}000 \\
+			Jan \& Elena & \texteuro{}75{,}000 + \texteuro{}75{,}000 & \texteuro{}26{,}000 & \texteuro{}35{,}000 \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	\vspace{0.3em}
+	Both couples earn \texteuro{}150{,}000 combined.
+	\begin{itemize}
+		\item \textbf{Individual filing}: Yasmin \& Doug pay \texteuro{}7{,}000 \emph{more} than Jan \& Elena, despite equal family income --- violates across-family equity.
+		\item \textbf{Family filing}: both couples pay \texteuro{}35{,}000 --- equal treatment, but \emph{both} now pay more than they did unmarried --- a \textbf{marriage tax}.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Why the Trade-off Is Unavoidable}
+	\small
+	\begin{itemize}
+		\item Under \textbf{individual} filing, rising marginal rates mean two-earner couples with similarly-sized incomes (Jan \& Elena) pay less than one-earner-dominant couples (Yasmin \& Doug) with the same total --- that's the equity violation.
+		\item Under \textbf{family} filing, combining incomes pushes the secondary earner's earnings on top of the primary earner's --- Doug's first \texteuro{}10{,}000, taxed at 10\% individually, gets taxed at 30\% once merged with Yasmin's income. That's the marriage tax.
+		\item The \emph{only} escape from both problems at once is a flat (proportional) tax --- which gives up progressivity, the first goal.
+	\end{itemize}
+	\vspace{0.3em}
+	\centering
+
+\end{frame}
+
+
+
+\begin{frame}{Marriage Tax in Austria}
+
+	\begin{itemize}
+		\item Austria taxes spouses \textbf{individually}, not as a family unit --- and has done so since 1973, when a family-law reform replaced the previous household-taxation system.
+		\item Because each partner's tax bracket depends only on \emph{their own} income, getting married changes \textbf{nobody's} tax bill by itself --- Austria's system is marriage-neutral 
+	
+ 
+		\item The \emph{Alleinverdienerabsetzbetrag} (sole-earner credit) gives a small, means-tested credit to one-earner couples/families with children when the lower-earning partner's income stays below a threshold 
+ 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Unit of Taxation Around the World}
+	\footnotesize
+	\begin{center}
+		\begin{tabular}{@{}lp{7.5cm}@{}}
+			\toprule
+			\textbf{System} & \textbf{OECD countries} \\
+			\midrule
+			Individual taxation & 19 countries, \textbf{including Austria} \\
+			Family taxation with income splitting & France, Germany, Luxembourg, Portugal, Switzerland (mostly generates marriage \emph{subsidies}) \\
+			``Pure'' family taxation (no splitting) & United States, Ireland, Norway \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	\vspace{0.3em}
+	\centering
+
+\end{frame}
 % =============================================================
 \section{The Distribution of the Tax Burden}
 
@@ -493,63 +555,27 @@
     \item Applied to the Netherlands, Italy, France, and the US, this research finds effective tax rates that \textbf{rise} through the middle of the distribution --- then \textbf{flatten or fall} at the very top.
   \end{itemize}
   \vspace{0.3em}
-  \centering
-  The progressivity we build into income-tax \emph{brackets} doesn't automatically show up in the effective rate actually paid, once every tax is counted.\\
-  \srcnote{Leenders, Part IV, citing Saez \& Zucman, \emph{The Triumph of Injustice} (2019) and related Blanchet-Saez-Zucman-style distributional tax studies.}
+ 
+  The progressivity we build into income-tax \emph{brackets} doesn't automatically show up in the effective rate actually paid, once every tax is counted. 
+  \ 
 \end{frame}
 
 \begin{frame}{Four Insights on Who Pays}
-  \footnotesize
+ 
   \begin{enumerate}
     \setlength{\itemsep}{1pt}
     \item \textbf{Income taxes} are progressive for the bottom 90\% of earners, but play only a minor role at the very top --- where income increasingly comes from capital, not wages.
-    \item \textbf{Corporate taxes} act as a kind of minimum tax on the super-rich, since a large share of top-end income flows through corporate ownership.
+    \item \textbf{Corporate taxes} act as a kind of minimum tax on the rich, since a large share of top-end income flows through corporate ownership.
     \item \textbf{Consumption taxes} hit lower-income households hardest, because they consume a larger \emph{share} of their income than the wealthy do.
     \item \textbf{Payroll taxes} are levied only on labor income --- and labor income's share of total income \emph{falls} as you move up the distribution, which is regressive.
   \end{enumerate}
-  \begin{alertblock}{Austria's own version of insight \#4}
-    Austria's social-insurance contributions are capped at the \emph{Höchstbeitragsgrundlage} --- \texteuro{}6{,}060/month in 2024. Above that, an extra euro of salary pays \emph{zero} additional social-insurance contribution --- a regressive payroll tax at the top of the distribution.
-  \end{alertblock}
-  \srcnote{Leenders, Part IV; sozialversicherung.at, Höchstbeitragsgrundlage 2024.}
+  
 \end{frame}
 
 % =============================================================
-\section{Conclusion}
+ 
 
-\begin{frame}{Highlights}
-  \small
-  \begin{itemize}
-    \item Taxes come in five broad types (payroll, individual income, corporate income, wealth, consumption) and countries mix them very differently --- Austria leans on labor income, much like the OECD average.
-    \item Economic incidence --- who really bears a tax --- depends on relative elasticities, not on who legally writes the check.
-    \item Fairness has two distinct dimensions (vertical, horizontal equity), and every real tax system navigates trade-offs between them, often visibly and politically (Thatcher's poll tax; Austria's \emph{kalte Progression} reform).
-    \item No real income tax base matches the Haig-Simons ideal --- Austria and the US deviate from it in different, and sometimes opposite, ways (in-kind pay, housing).
-    \item Whether progressive brackets translate into a progressive \emph{effective} tax burden depends on the whole system --- including payroll-tax caps like Austria's own \emph{Höchstbeitragsgrundlage}.
-  \end{itemize}
-\end{frame}
 
-\begin{frame}{Discussion Questions for Next Time}
-  \small
-  \begin{enumerate}
-    \item Austria has no wealth or inheritance tax, while several EU neighbors do. What would the efficiency and equity trade-offs be in reintroducing one?
-    \item If demand for heating fuel is highly inelastic, who really bears Austria's CO\textsubscript{2} tax --- and does that change your view of whether it's a fair policy?
-    \item Is Austria's decision to tax company cars and other in-kind benefits (Sachbezug), while the US doesn't tax employer health insurance, better tax policy --- or just a different set of political trade-offs?
-    \item Austria's Familienbonus Plus is a non-refundable credit, topped up by the Kindermehrbetrag. Design an alternative policy that achieves the same goal (support for families with children) while being more/less redistributive --- and justify your choice.
-    \item If effective tax rates flatten at the very top of the income distribution (as Saez-Zucman-style research finds), what does that imply about relying on the income tax alone to address wealth concentration?
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}{Sources}
-  \footnotesize
-  \begin{itemize}
-  \setlength{\itemsep}{2pt}
-    \item Textbook: Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 18 (\S18.1, 18.3--18.5), Worth Publishers.
-    \item Leenders, W., \emph{Microeconomics of Public Policy, Part IV: Taxation}, lecture slides, Sciences Po (MPA 2023--2024) --- tax incidence theory, the rise of the fiscal state, and the distribution of the tax burden, citing Kleven (2014), Piketty (2020), Saez \& Zucman (2019), and Smith, Yagan, Zidar \& Zwick (2019).
-    \item Bundesministerium für Finanzen (BMF): Einkommensteuertarif 2024; Familienbonus Plus \& Kindermehrbetrag (2024); Gemeinsamer Meldestandard-Gesetz (GMSG).
-    \item sozialversicherung.at: Höchstbeitragsgrundlage 2024.
-    \item findok.bmf.gv.at; Statistik Austria (2021 Arbeitnehmerveranlagung) --- housing-loan Sonderausgaben phase-out.
-    \item \emph{Verfassungsgerichtshof}, case law on the Erbschafts- und Schenkungssteuergesetz (2007/2008); WKO; Parlament.gv.at, Teuerungs-Entlastungspaket II (2022).
-  \end{itemize}
-\end{frame}
 
 \begin{frame}[standout]
   Thank you!\\
