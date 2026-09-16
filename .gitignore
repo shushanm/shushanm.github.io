@@ -1,0 +1,11 @@
+# LaTeX build artifacts (pdflatex compilation byproducts; only .tex and .pdf are tracked)
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.fls
+*.fdb_latexmk
+*.synctex.gz
