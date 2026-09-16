@@ -560,6 +560,70 @@
 \end{frame}
 
 % =============================================================
+\section{Application: Health Insurance}
+
+\begin{frame}{Application: Health Care as a Market-Failure Case Study}
+  Health care combines almost every market failure covered in this lecture into a single, high-stakes sector.
+  \begin{itemize}
+    \item Advanced economies spend roughly \textbf{9\% of GDP} on health care today, up from just 2--3\% in 1950 --- and about \textbf{two-thirds} of that spending is government-funded across the OECD.
+    \item The US is an outlier: \textbf{17\% of GDP} on health care (vs.\ $\approx$9\% elsewhere in the OECD), while still leaving roughly \textbf{8\%} of its population uninsured.
+  \end{itemize}
+  \vspace{0.4em}
+  \small Two distinct market failures are at work here: an \textbf{externality} (vaccination) and a completely different one, \textbf{asymmetric information} (insurance itself) --- worth telling apart carefully.
+\end{frame}
+
+\begin{frame}{Vaccination: A Textbook Positive Externality}
+  Getting vaccinated is a positive \emph{consumption} externality, exactly like the R\&D case earlier in this lecture: $SMB = PMB + MB$.
+  \begin{itemize}
+    \item Your vaccination protects \emph{you} --- that's the private benefit ($PMB$) you weigh when deciding.
+    \item It also lowers the odds you infect someone else --- a benefit to others ($MB$) that you don't factor into your decision at all.
+    \item Below some vaccination-rate threshold, \textbf{herd immunity} breaks down and outbreaks become possible again.
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{alertblock}{Same conclusion as before}
+    A positive externality means underprovision: left alone, private vaccination choices fall short of the socially optimal coverage rate --- exactly the logic from the R\&D diagram earlier in this lecture.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{A Different Market Failure: Adverse Selection}
+  Health \emph{insurance} itself fails for a completely different reason: not an externality, but \textbf{asymmetric information}.
+  \begin{itemize}
+    \item Applicants know their own health risk far better than insurers do.
+    \item If insurers must charge one average price, it's too expensive for the healthy and too cheap for the sick --- healthy people opt out, the risk pool worsens, and the price rises further.
+  \end{itemize}
+  \vspace{0.3em}
+  \small Before regulatory reform, this is exactly what happened in the US individual (``nongroup'') insurance market: people with pre-existing conditions were often unable to buy coverage at any price. It's a market failure worth remembering as \emph{distinct} from everything else in this lecture --- externalities are about spillovers between parties; adverse selection is about one party knowing something the other doesn't.
+\end{frame}
+
+\begin{frame}{Government Responses, US Style}
+  The same menu of tools from earlier in this lecture --- regulation, subsidy, direct provision --- shows up again in health insurance, just with different names:
+  \begin{center}
+  \small
+  \begin{tabular}{@{}p{3.6cm}p{7.5cm}@{}}
+    \toprule
+    \textbf{Tool} & \textbf{US health insurance example} \\
+    \midrule
+    Quantity regulation / mandate & Obamacare's individual and large-employer coverage mandates (2014--2019) \\[0.3em]
+    Corrective subsidy & Medicaid and Obamacare exchange subsidies for low-income households \\[0.3em]
+    Direct public provision & \textbf{Medicare} (age 65+), run directly by the federal government \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \small As of 2023: 37\% of the US population is covered by government insurance, 55\% by private insurance (mostly employer-provided), and 8\% remain uninsured.
+\end{frame}
+
+\begin{frame}{Empirical Evidence: The Oregon Health Insurance Experiment}
+  Simply comparing insured to uninsured people is misleading --- the two groups differ in ways that independently affect health. Oregon's 2008 Medicaid lottery avoids this problem.
+  \begin{itemize}
+    \item A limited number of Medicaid slots were allocated by \textbf{random lottery} among 90{,}000 applicants --- 30{,}000 ``winners'' got the chance to enroll.
+    \item Finkelstein et al.\ (2012) compare winners to losers (\textbf{ITT}), then scale up by the actual gap in coverage the lottery created ($1/0.29$) to get the \textbf{LATE} --- the true causal effect of insurance.
+  \end{itemize}
+  \textbf{Results:} higher health care utilization, less medical debt and fewer bills sent to collections, and better self-reported physical and mental health.\\
+  \srcnote{Finkelstein et al.\ (2012), \emph{QJE} 127(3).}
+\end{frame}
+
+% =============================================================
 \begin{frame}{Sources}
   \tiny
   \begin{columns}[T]
@@ -571,8 +635,9 @@
       Ellerman et al. (2000), \emph{Markets for Clean Air}.
     \end{column}
     \begin{column}{0.34\textwidth}
+      Finkelstein et al.\ (2012), \emph{QJE} 127(3).\\
       Greenstone (2002), \emph{JPE} 110(6).\\
-      Gruber, J., \emph{Public Finance and Public Policy}, Ch.\ 5, \S6.1.\\
+      Gruber, J., \emph{Public Finance and Public Policy}, Ch.\ 5, \S6.1, Chs.\ 15--16.\\
       Isen, Rossin-Slater \& Walker (2017), \emph{JPE} 125(3).\\
       Nordhaus (2013), \emph{The Climate Casino}.
     \end{column}
