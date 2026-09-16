@@ -1,0 +1,264 @@
+% !TeX program = pdflatex
+% =============================================================
+% Public Economics -- Lecture 12
+% Education
+% Based on: Gruber, J. "Public Finance and Public Policy", Ch. 11
+% =============================================================
+\documentclass[11pt,aspectratio=169]{beamer}
+
+\usetheme{metropolis}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,arrows.meta,calc}
+
+% ----------------------------------------------------------------
+% Colors: WU Vienna blue as primary accent
+% ----------------------------------------------------------------
+\definecolor{wublue}{HTML}{003D7C}
+\definecolor{wulight}{HTML}{4F8FC4}
+\definecolor{wugray}{HTML}{5C6670}
+\definecolor{wured}{HTML}{B0202E}
+\definecolor{wugreen}{HTML}{4C8C6B}
+\definecolor{wuyellow}{HTML}{D9A441}
+\setbeamercolor{palette primary}{bg=wublue,fg=white}
+\setbeamercolor{frametitle}{bg=wublue,fg=white}
+\setbeamercolor{progress bar}{fg=wublue,bg=wulight!30}
+\setbeamercolor{alerted text}{fg=wured}
+
+\setbeamertemplate{frame footer}{Education}
+\setbeamertemplate{footline}[frame number]
+
+\title{Public Economics}
+\subtitle{Lecture 12 \(\cdot\) Education}
+\author{Shushanik Margaryan}
+\institute{WU Vienna University of Economics and Business}
+\date{Winter Term}
+
+% Source note command for footnote-style citations on data slides
+\newcommand{\srcnote}[1]{{\footnotesize\color{wugray}Source: #1}}
+
+\begin{document}
+
+% =============================================================
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Today's Questions}
+  \begin{itemize}
+    \item If education pays off for the person who gets it, why does government need to be involved at all?
+    \item Does schooling actually make people more productive --- or does it mainly \emph{signal} ability employers would have rewarded anyway?
+    \item Does spending more money on schools actually improve outcomes, and does giving families more choice of school make things better?
+  \end{itemize}
+  \vspace{1em}
+  \begin{block}{Based on}
+    Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 11 (Education).
+  \end{block}
+\end{frame}
+
+% =============================================================
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% =============================================================
+\section{11.1 The Rationale for Public Involvement}
+
+\begin{frame}{Why Does Government Get Involved in Education?}
+  Education is, first and foremost, a private investment: it raises the individual's own future earnings. Four standard arguments justify public involvement anyway:
+  \begin{enumerate}
+    \item \textbf{Positive externalities} --- a more educated population benefits people who never set foot in the classroom.
+    \item \textbf{Credit market failure} --- you can't borrow against your own future human capital the way you can against a house.
+    \item \textbf{Imperfect information} --- families may not know the true returns to schooling or the true quality of a given school.
+    \item \textbf{Equal opportunity} --- a society may simply value giving every child access to education, regardless of family income.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Human Capital Externalities}
+  \begin{block}{The externality argument}
+    Your education doesn't just raise \emph{your} productivity --- it can raise the productivity and well-being of the people around you.
+  \end{block}
+  \begin{itemize}
+    \item \textbf{Productivity spillovers:} a more skilled workforce raises the productivity of coworkers and speeds the diffusion of new technology.
+    \item \textbf{Civic participation:} more education is strongly associated with higher voting rates and civic engagement.
+    \item \textbf{Crime reduction:} more schooling --- especially completing high school --- is associated with lower crime rates, a benefit that accrues to the whole community, not just the student.
+  \end{itemize}
+  \small Exactly as with R\&D in the externalities lecture: if these spillovers are real, the private market will \textbf{underprovide} education relative to the social optimum.
+\end{frame}
+
+\begin{frame}{Credit Constraints and Imperfect Information}
+  \begin{block}{Credit market failure}
+    A student can't post their own future earnings as collateral for a loan the way a homeowner can post a house --- lenders can't repossess human capital. Without a public role, many students from low-income families would be unable to finance an investment that would pay off handsomely.
+  \end{block}
+  \begin{block}{Imperfect information}
+    Families --- especially of young children --- may not accurately judge the long-run returns to schooling or the quality of a particular school, which is itself a reason for public provision, information disclosure, and regulation of educational quality.
+  \end{block}
+\end{frame}
+
+% =============================================================
+\section{11.2 Human Capital vs.\ Signaling}
+
+\begin{frame}{Two Theories of What Education Does}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{Human capital model}\\
+      \small Schooling genuinely builds skills --- literacy, numeracy, reasoning, technical knowledge --- that raise a worker's productivity. Employers pay more because the worker is genuinely more capable.
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \textbf{Signaling model (Spence, 1973)}\\
+      \small Schooling may do little to build skill at all. Completing a hard degree \emph{signals} pre-existing ability and diligence that employers value --- and would have paid for even without the degree, if they could observe it directly.
+    \end{column}
+  \end{columns}
+  \vspace{0.6em}
+  \small These two theories make very different predictions about whether subsidizing education actually raises \emph{productivity}, or just reshuffles who gets which job.
+\end{frame}
+
+\begin{frame}{Evidence: Returns to Education}
+  A simple regression of wages on years of schooling (a Mincer regression) typically finds returns of roughly \textbf{8--10\% higher earnings per year of schooling}.
+  \begin{alertblock}{The problem: ability bias}
+    People who choose more schooling likely also have higher innate ability, motivation, or family advantages that \emph{independently} raise their earnings. A simple correlation overstates the causal effect of schooling itself.
+  \end{alertblock}
+  \small To isolate the true causal effect, economists look for a source of variation in schooling that is unrelated to a person's own ability --- a natural experiment.
+\end{frame}
+
+\begin{frame}{Natural Experiments: Isolating the Causal Return}
+  \textbf{Angrist \& Krueger (1991):} in the era of compulsory schooling laws, US students born earlier in the year reach the legal school-leaving age after completing \emph{less} schooling than those born later in the year --- purely a quirk of the calendar, unrelated to ability.
+  \begin{itemize}
+    \item Using quarter of birth as an \textbf{instrument} for years of schooling isolates variation that has nothing to do with individual ability.
+    \item The resulting causal estimate of the return to schooling is close to the simple correlational estimate --- roughly \textbf{8--10\% per year}.
+  \end{itemize}
+  \small \textbf{Conclusion:} ability bias turns out to be smaller than many economists initially feared --- most of the simple correlation between schooling and wages reflects a genuine causal effect.\\
+  \srcnote{Angrist \& Krueger (1991), \emph{QJE} 106(4); Card (1999), \emph{Handbook of Labor Economics}.}
+\end{frame}
+
+\begin{frame}{Diagram: Sheepskin Effects}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.58]
+    \draw[-{Latex}] (0,0) -- (11.5,0) node[right, align=left, font=\scriptsize]{Years of\\ schooling};
+    \draw[-{Latex}] (0,0) -- (0,6.3) node[left, font=\small]{Log wage};
+    \draw[wublue, thick] (0.5,1.0) -- (3.9,1.75);
+    \draw[wublue, thick] (4.0,2.6) -- (8.4,3.9);
+    \draw[wublue, thick] (8.5,4.8) -- (10.3,5.4);
+    \draw[wured, dashed] (3.95,1.85) -- (3.95,2.5);
+    \draw[wured, dashed] (8.45,4.0) -- (8.45,4.7);
+    \node[below, align=center, font=\tiny] at (2.7,-0.25) {12 yrs\\(HS diploma)};
+    \node[below, align=center, font=\tiny] at (8.45,-0.25) {16 yrs\\(BA degree)};
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize Wages jump disproportionately at the exact years when a \textbf{diploma} is awarded (12, 16 years), not just steadily with each additional year of schooling. Pure human capital accumulation predicts a smooth line; these discontinuous jumps --- ``sheepskin effects'' --- are evidence that credentials themselves carry independent signaling value.
+\end{frame}
+
+% =============================================================
+\section{11.3 Does School Spending Matter?}
+
+\begin{frame}{The Coleman Report and the ``Money Doesn't Matter'' Debate}
+  \begin{block}{The Coleman Report (1966)}
+    A landmark US study found that measured school resources (spending per pupil, teacher credentials, facilities) explained \textbf{surprisingly little} of the variation in student achievement --- family background dominated.
+  \end{block}
+  \vspace{0.4em}
+  \small This finding was hugely influential --- and hugely controversial. If money genuinely doesn't matter, the case for equalizing school spending across rich and poor districts weakens considerably. But the report measured only crude, aggregate resource variables, which may simply be poor proxies for what actually helps students learn.
+\end{frame}
+
+\begin{frame}{Evidence: The Tennessee STAR Experiment}
+  \textbf{Krueger (1999):} Tennessee randomly assigned kindergarten through 3rd-grade students and teachers to small classes ($\approx$13--17 students) or regular-size classes ($\approx$22--25 students) --- a genuine randomized experiment, not just an observational comparison.
+  \begin{itemize}
+    \item Students in \textbf{small classes} scored significantly higher on standardized tests.
+    \item Effects were \textbf{largest for disadvantaged students} --- smaller classes appear to matter most for the children with the fewest other resources.
+    \item Follow-up studies find the gains persist into later schooling and even adult outcomes.
+  \end{itemize}
+  \srcnote{Krueger (1999), \emph{QJE} 114(2).}
+\end{frame}
+
+\begin{frame}{Evidence: School-Finance Reforms and Long-Run Outcomes}
+  \textbf{Jackson, Johnson \& Persico (2016)} exploit court-ordered school-finance equalization reforms across US states as a natural experiment in per-pupil spending increases.
+  \begin{itemize}
+    \item Children exposed to a 10\% increase in per-pupil spending throughout their school years completed \textbf{more years of schooling}, earned \textbf{higher adult wages}, and were less likely to fall into poverty as adults.
+    \item Effects were \textbf{concentrated among low-income children} --- exactly the population school-finance reforms were designed to help.
+  \end{itemize}
+  \srcnote{Jackson, Johnson \& Persico (2016), \emph{QJE} 131(1).}
+\end{frame}
+
+\begin{frame}{Resolving the ``Does Money Matter?'' Debate}
+  The modern consensus reconciles Coleman with STAR and school-finance-reform evidence:
+  \begin{itemize}
+    \item \textbf{Crude, aggregate} spending measures (Coleman's approach) are a noisy proxy for what actually reaches the classroom.
+    \item \textbf{Well-targeted, well-implemented} spending increases --- smaller classes, better-paid and better-trained teachers, sustained over a child's schooling --- show real and often \textbf{persistent} effects, especially for disadvantaged children.
+  \end{itemize}
+  \small The right question is no longer ``does money matter?'' but ``\emph{which} uses of money matter, and for whom?''
+\end{frame}
+
+% =============================================================
+\section{11.4 School Choice and Competition}
+
+\begin{frame}{The Case for School Choice}
+  \begin{block}{Friedman (1955)}
+    Government could fund education (protecting the externality and credit-constraint rationale) \textbf{without} directly operating every school --- e.g., through vouchers families can spend at any qualifying school, public or private.
+  \end{block}
+  \vspace{0.4em}
+  \small The efficiency argument mirrors ordinary market competition: schools that must compete for students and funding have a stronger incentive to improve quality than a single monopoly local school district does.
+\end{frame}
+
+\begin{frame}{Evidence on Vouchers and Charter Schools}
+  \begin{itemize}
+    \item \textbf{Broad voucher programs} (allowing public funds to follow students to private schools) generally show \textbf{modest, mixed} average effects on test scores across studies --- some show small gains, others show null or even negative effects.
+    \item \textbf{Urban charter school lotteries} tell a more striking story: Abdulkadiroglu et al.\ find that Boston's oversubscribed, ``no-excuses'' urban charter schools produce \textbf{large} achievement gains for lottery winners relative to lottery losers --- a clean, randomized comparison.
+  \end{itemize}
+  \small The lesson: \emph{some} school models --- particularly intensive, structured urban charters --- clearly work well for disadvantaged students; broad, unrestricted choice alone is not a guarantee of better outcomes.\\
+  \srcnote{Abdulkadiroglu et al.\ (2011), \emph{QJE} 126(2).}
+\end{frame}
+
+\begin{frame}{Does Inter-District Competition Improve Schools?}
+  A different version of the choice argument: does simply having \textbf{more school districts} to choose among (without vouchers) raise quality, through ordinary Tiebout-style competition?
+  \begin{block}{Hoxby (2000)}
+    Using natural geographic boundaries (rivers, which historically shaped how many separate school districts a metropolitan area split into) as an instrument for the degree of district fragmentation, finds that metropolitan areas with \textbf{more competing school districts} have higher student achievement and more efficient spending.
+  \end{block}
+  \small This connects directly back to the Tiebout model from the previous lecture: competition among local jurisdictions can discipline quality --- for schools, just as for local public goods generally.\\
+  \srcnote{Hoxby (2000), \emph{AER} 90(5).}
+\end{frame}
+
+\begin{frame}{Conclusion}
+  \begin{itemize}
+    \item Externalities, credit constraints, and information problems all justify a public role in education --- even though schooling is, first, a private investment.
+    \item Education raises earnings largely through \textbf{genuine skill-building}, though credential-based ``sheepskin effects'' show signaling plays some role too.
+    \item Well-targeted spending --- smaller classes, sustained funding equalization --- \textbf{does} raise outcomes, especially for disadvantaged children; crude aggregate spending comparisons can mask this.
+    \item Choice and competition can raise quality, but the gains are concentrated in specific, well-designed models rather than guaranteed by choice alone.
+  \end{itemize}
+\end{frame}
+
+% =============================================================
+\begin{frame}{Sources}
+  \tiny
+  \begin{columns}[T]
+    \begin{column}{0.34\textwidth}
+      Abdulkadiroglu et al.\ (2011), \emph{QJE} 126(2).\\
+      Angrist, J. \& Krueger, A. (1991), \emph{QJE} 106(4).\\
+      Card, D. (1999), \emph{Handbook of Labor Economics}.
+    \end{column}
+    \begin{column}{0.34\textwidth}
+      Coleman, J. et al.\ (1966), \emph{Equality of Educational Opportunity}.\\
+      Gruber, J., \emph{Public Finance and Public Policy}, Ch.\ 11.\\
+      Hoxby, C. (2000), \emph{AER} 90(5).
+    \end{column}
+    \begin{column}{0.34\textwidth}
+      Jackson, C.K., Johnson, R. \& Persico, C. (2016), \emph{QJE} 131(1).\\
+      Krueger, A. (1999), \emph{QJE} 114(2).\\
+      Spence, M. (1973), \emph{QJE} 87(3).
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+  Thank you!\\
+  \vspace{0.5em}
+  \small Questions and discussion
+\end{frame}
+
+\end{document}

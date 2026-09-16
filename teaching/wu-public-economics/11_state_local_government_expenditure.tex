@@ -1,0 +1,272 @@
+% !TeX program = pdflatex
+% =============================================================
+% Public Economics -- Lecture 11
+% State and Local Government Expenditure
+% Based on: Gruber, J. "Public Finance and Public Policy", Ch. 10
+% =============================================================
+\documentclass[11pt,aspectratio=169]{beamer}
+
+\usetheme{metropolis}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,arrows.meta,calc}
+
+% ----------------------------------------------------------------
+% Colors: WU Vienna blue as primary accent
+% ----------------------------------------------------------------
+\definecolor{wublue}{HTML}{003D7C}
+\definecolor{wulight}{HTML}{4F8FC4}
+\definecolor{wugray}{HTML}{5C6670}
+\definecolor{wured}{HTML}{B0202E}
+\definecolor{wugreen}{HTML}{4C8C6B}
+\definecolor{wuyellow}{HTML}{D9A441}
+\setbeamercolor{palette primary}{bg=wublue,fg=white}
+\setbeamercolor{frametitle}{bg=wublue,fg=white}
+\setbeamercolor{progress bar}{fg=wublue,bg=wulight!30}
+\setbeamercolor{alerted text}{fg=wured}
+
+\setbeamertemplate{frame footer}{State \& Local Government}
+\setbeamertemplate{footline}[frame number]
+
+\title{Public Economics}
+\subtitle{Lecture 11 \(\cdot\) State and Local Government Expenditure}
+\author{Shushanik Margaryan}
+\institute{WU Vienna University of Economics and Business}
+\date{Winter Term}
+
+% Source note command for footnote-style citations on data slides
+\newcommand{\srcnote}[1]{{\footnotesize\color{wugray}Source: #1}}
+
+\begin{document}
+
+% =============================================================
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Today's Questions}
+  \begin{itemize}
+    \item Which public goods should be provided \emph{nationally}, and which are better left to states, regions, or municipalities?
+    \item Can people ``vote with their feet'' by choosing where to live --- and does that solve the preference-revelation problem that plagues national public-goods provision?
+    \item Why do higher levels of government so often send money down to lower ones, and does that money get spent the way we'd expect?
+  \end{itemize}
+  \vspace{1em}
+  \begin{block}{Based on}
+    Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 10 (State and Local Government Expenditures).
+  \end{block}
+\end{frame}
+
+% =============================================================
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% =============================================================
+\section{10.1 Fiscal Federalism}
+
+\begin{frame}{Why Multiple Levels of Government?}
+  Almost every country splits public provision across national, regional, and local governments. Two forces pull in opposite directions:
+  \begin{itemize}
+    \item \textbf{Centralization} lets government exploit \textbf{economies of scale} and internalize \textbf{spillovers} across jurisdictions (national defense benefits everyone; a local government has no incentive to pay for it alone).
+    \item \textbf{Decentralization} lets provision match \textbf{local tastes}, which vary --- a beach town and a mountain town may want very different mixes of public services.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The Decentralization Theorem}
+  \begin{block}{Oates's decentralization theorem (1972)}
+    When preferences for a public good vary across localities, and there are no spillovers or scale economies, welfare is higher under \textbf{decentralized}, locally tailored provision than under a single uniform national level of provision.
+  \end{block}
+  \vspace{0.4em}
+  \small Intuition: a single national quantity necessarily overshoots some areas' preferences and undershoots others'. Local governments can each choose the level their own residents actually want.
+\end{frame}
+
+\begin{frame}{Optimal Fiscal Federalism: What Goes Where?}
+  The efficient assignment of a public good to a level of government depends on two things: the \textbf{size of spillovers} across jurisdictions, and the \textbf{degree of taste heterogeneity}.
+  \begin{center}
+  \small
+  \begin{tabular}{@{}lp{3.6cm}p{3.3cm}@{}}
+    \toprule
+    & \textbf{Large spillovers / scale economies} & \textbf{Local tastes vary a lot} \\
+    \midrule
+    National defense & \checkmark & \\
+    Environmental regulation & \checkmark & \\
+    Local parks, trash collection & & \checkmark \\
+    Local zoning, policing style & & \checkmark \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \small Goods with large spillovers or scale economies belong at the national level; goods with strong local taste variation and few spillovers belong at the local level. Most real public goods sit somewhere in between.
+\end{frame}
+
+% =============================================================
+\section{10.2 The Tiebout Model}
+
+\begin{frame}{Tiebout (1956): ``Voting with Your Feet''}
+  National elections force everyone to accept the \emph{same} bundle of public goods and taxes --- one vote cannot reveal how much any individual actually values it.
+  \begin{block}{Tiebout's insight}
+    If there are \textbf{many local communities}, each offering a different bundle of local public goods and local taxes, people can simply \textbf{move} to the community that best matches their preferences.
+  \end{block}
+  \vspace{0.4em}
+  \small This ``voting with your feet'' behaves like a market: it reveals preferences (through location choice) in a way that a single national vote never can --- potentially solving the preference-revelation problem central to public-goods theory.
+\end{frame}
+
+\begin{frame}{The Tiebout Model: Assumptions}
+  The result is elegant, but relies on strong assumptions:
+  \begin{enumerate}
+    \setlength{\itemsep}{2pt}
+    \item Many communities exist, each already offering a distinct tax/service bundle.
+    \item Individuals are \textbf{perfectly mobile} and can move costlessly.
+    \item Full information about every community's taxes and services.
+    \item No spillovers between communities.
+    \item At least as many communities as there are distinct sets of tastes.
+    \item Communities can adjust to their \textbf{optimal size} (not too crowded, not too empty).
+    \item No economies of scale in providing local public goods.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Diagram: Sorting Across Communities}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.85]
+    \draw[wublue, thick, rounded corners] (0,0) rectangle (2.6,2.2);
+    \node[align=center, font=\scriptsize] at (1.3,1.1) {\textbf{Community A}\\ low tax\\ low services};
+    \draw[wulight, thick, rounded corners] (3.4,0) rectangle (6.0,2.2);
+    \node[align=center, font=\tiny] at (4.7,1.1) {\textbf{Community B}\\ moderate tax\\ moderate services};
+    \draw[wured, thick, rounded corners] (6.8,0) rectangle (9.4,2.2);
+    \node[align=center, font=\scriptsize] at (8.1,1.1) {\textbf{Community C}\\ high tax\\ high services};
+    \draw[-{Latex}, wugray] (1.3,-0.3) -- (1.3,-1.0);
+    \draw[-{Latex}, wugray] (4.7,-0.3) -- (4.7,-1.0);
+    \draw[-{Latex}, wugray] (8.1,-0.3) -- (8.1,-1.0);
+    \node[align=center, font=\tiny] at (1.3,-1.3) {Households wanting\\ few local services};
+    \node[align=center, font=\tiny] at (4.7,-1.3) {Households wanting\\ a moderate bundle};
+    \node[align=center, font=\tiny] at (8.1,-1.3) {Households wanting\\ extensive services};
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize Each household self-selects into the community whose tax/service bundle matches its own preferences --- mimicking, through residential choice, the preference revelation an ordinary market provides for private goods.
+\end{frame}
+
+\begin{frame}{Evidence: Tax and Service Capitalization}
+  If the Tiebout logic holds, a community's tax and service package should show up directly in \textbf{local property values}.
+  \begin{block}{Capitalization}
+    A locality's fiscal bundle (taxes net of the services they fund) becomes ``capitalized'' into the price of housing there --- buyers pay more to live where public services are relatively good for the tax price charged.
+  \end{block}
+  \small Oates (1969) finds exactly this: holding housing characteristics constant, property values are higher where local school spending is higher, and lower where local property tax rates are higher --- evidence that households really are shopping across communities on their fiscal terms, much as the Tiebout model predicts.\\
+  \srcnote{Oates (1969), \emph{JPE} 77(6).}
+\end{frame}
+
+\begin{frame}{Limits of the Tiebout Model}
+  \begin{itemize}
+    \item \textbf{Mobility is not costless:} moving has large financial and social costs, so real sorting is far weaker than the frictionless model assumes.
+    \item \textbf{Sorting can amplify inequality:} wealthier households cluster in communities with better services and use zoning restrictions to keep poorer households out --- ``exclusionary zoning.''
+    \item \textbf{Spillovers are common in practice:} a neighboring municipality's pollution, congestion, or crime doesn't stop at the town line.
+  \end{itemize}
+  \small The Tiebout model is best read as a useful benchmark, not a literal description of how local government actually works.
+\end{frame}
+
+% =============================================================
+\section{10.3 Redistribution and Fiscal Federalism}
+
+\begin{frame}{The Problem with Local Redistribution}
+  If Tiebout sorting works well for allocating \emph{public goods}, it works badly for \textbf{redistribution}.
+  \begin{alertblock}{The race to the bottom}
+    A generous local welfare program attracts low-income residents and repels high-income taxpayers who would have to fund it --- eroding the local tax base and forcing benefits back down. Anticipating this, no locality wants to be the first mover, and redistribution ends up systematically \textbf{under-provided} at the local level.
+  \end{alertblock}
+  \small This is a standard argument for financing redistributive programs at the \textbf{national}, not local, level --- where the tax base can't simply relocate to a neighboring town.
+\end{frame}
+
+\begin{frame}{Tax Competition Among Jurisdictions}
+  The same mobility logic applies to \textbf{capital and corporate taxation}, not just welfare recipients.
+  \begin{itemize}
+    \item Firms and mobile capital can relocate toward jurisdictions offering lower tax rates.
+    \item Jurisdictions competing for this mobile tax base face pressure to cut rates below what they would otherwise choose --- a fiscal ``race to the bottom'' on the tax-collection side.
+  \end{itemize}
+  \small As with local redistribution, this is an argument for coordinating certain tax bases (especially highly mobile ones like corporate income) above the purely local level.
+\end{frame}
+
+\begin{frame}{Fiscal Disparities Across Jurisdictions}
+  Communities differ enormously in their underlying \textbf{tax base} --- a wealthy suburb can fund excellent local schools at a low tax rate; a poor rural district cannot fund comparable schools even at a much higher rate.
+  \begin{itemize}
+    \item Left alone, Tiebout sorting reinforces this: the wealthy cluster together, the poor cluster together, and local service quality diverges further.
+    \item This is the standard efficiency-\emph{and}-equity case for \textbf{intergovernmental grants}: transfers from higher levels of government to lower ones, to offset unequal local tax capacity.
+  \end{itemize}
+\end{frame}
+
+% =============================================================
+\section{10.4 Intergovernmental Grants}
+
+\begin{frame}{Types of Grants: Categorical vs.\ Block}
+  \begin{itemize}
+    \item \textbf{Categorical (matching) grant:} the higher government matches every dollar the local government spends on a specific service (e.g., \$1 in federal money for every \$2 in local road spending). This \textbf{lowers the effective price} of that service to the locality.
+    \item \textbf{Block (non-matching) grant:} a fixed lump sum, with no strings attached to how it's spent (or only broad strings, e.g., ``for education''). This acts like a pure \textbf{increase in local income}.
+  \end{itemize}
+  \small The distinction matters enormously for how local governments actually respond --- a price effect versus an income effect.
+\end{frame}
+
+\begin{frame}{Diagram: Matching Grants vs.\ Block Grants}
+  \begin{columns}[T]
+    \begin{column}{0.56\textwidth}
+      \begin{tikzpicture}[scale=0.36]
+        \draw[-{Latex}] (0,0) -- (13,0) node[below, font=\scriptsize]{Public good $G$};
+        \draw[-{Latex}] (0,0) -- (0,10.5) node[left, font=\scriptsize]{Private good $C$};
+        \draw[wugray, thick] (0,6) -- (6,0);
+        \draw[wugreen, thick, dashed] (0,9) -- (9,0);
+        \draw[wured, thick] (0,6) -- (12,0);
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \scriptsize
+      \textcolor{wugray}{\textbf{Gray:}} original budget line.\\[0.3em]
+      \textcolor{wugreen}{\textbf{Green:}} block grant --- parallel shift, a pure income effect.\\[0.3em]
+      \textcolor{wured}{\textbf{Red:}} matching grant --- pivots from the same intercept, lowers the price of $G$.
+    \end{column}
+  \end{columns}
+  \vspace{0.3em}
+  \scriptsize A matching grant induces more spending on $G$ per dollar of grant than an equal-sized block grant, since it changes a relative price, not just income.
+\end{frame}
+
+\begin{frame}{The Flypaper Effect}
+  Standard theory predicts that a \$1,000 lump-sum grant to a local government should raise local public spending by roughly the same small amount that a \$1,000 increase in \emph{residents' own income} would --- both are just income effects of the same size.
+  \begin{alertblock}{The flypaper effect}
+    Empirically, this prediction fails badly: a grant paid directly to the local government raises local spending by far \textbf{more} than an equivalent rise in residents' private income does. ``Money sticks where it hits.''
+  \end{alertblock}
+  \small Leading explanations include imperfect information (residents don't realize the grant could instead be passed back as a tax cut), and the incentives of local bureaucrats and officials who directly control the grant funds and prefer to spend rather than rebate them.
+\end{frame}
+
+\begin{frame}{Conclusion}
+  \begin{itemize}
+    \item Fiscal federalism trades off the scale/spillover advantages of centralization against the taste-matching advantages of decentralization.
+    \item The Tiebout model shows how residential mobility \emph{can} solve the preference-revelation problem for local public goods --- but only under demanding assumptions that rarely hold exactly.
+    \item Redistribution and highly mobile tax bases are the clearest case \emph{against} full decentralization --- and intergovernmental grants are the standard tool for correcting the resulting fiscal disparities, even though how localities actually respond to grants (the flypaper effect) doesn't always match the textbook prediction.
+  \end{itemize}
+\end{frame}
+
+% =============================================================
+\begin{frame}{Sources}
+  \tiny
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      Gruber, J., \emph{Public Finance and Public Policy}, Ch.\ 10.\\
+      Oates, W. (1969), \emph{JPE} 77(6).
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      Oates, W. (1972), \emph{Fiscal Federalism}.\\
+      Tiebout, C. (1956), \emph{JPE} 64(5).
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+  Thank you!\\
+  \vspace{0.5em}
+  \small Questions and discussion
+\end{frame}
+
+\end{document}
