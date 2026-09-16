@@ -232,6 +232,21 @@
   $\Rightarrow$ a \textbf{negative externality}: private decisions $\neq$ socially efficient decisions.
 \end{frame}
 
+\begin{frame}{A Second Market Failure: Adverse Selection}
+  \small
+  Health insurance also illustrates a completely different reason markets can fail: \textbf{asymmetric information}.
+  \begin{itemize}
+    \setlength{\itemsep}{2pt}
+    \item An insurer cannot fully observe an applicant's health risk --- but the applicant often has a much better idea of their own risk.
+    \item If insurers cannot price policies by individual risk, they must charge everyone the \emph{average} price --- too high for the healthy, too low for the sick.
+    \item Healthy people opt out; the risk pool gets sicker; the average price rises further; more healthy people opt out $\ldots$
+  \end{itemize}
+  \vspace{0.3em}
+  \begin{alertblock}{Adverse selection}
+    Left unregulated, this spiral can shrink --- or entirely unravel --- an insurance market, even though \emph{every} participant would be better off with insurance available. This is exactly what happened, pre-reform, in the individual (``nongroup'') US health insurance market: people with pre-existing conditions were often unable to buy coverage at any price.
+  \end{alertblock}
+\end{frame}
+
 
 
 \begin{frame}{Redistribution}
@@ -278,6 +293,26 @@
   \end{center}
 \end{frame}
 
+\begin{frame}{The Four Tools, All at Once: US Health Insurance}
+  \small
+  A single country's health insurance system can illustrate \emph{all four} tools simultaneously --- exactly why it's such a useful running example:
+  \begin{center}
+  \small
+  \begin{tabular}{@{}p{3.4cm}p{8.5cm}@{}}
+    \toprule
+    \textbf{Tool} & \textbf{US health insurance example} \\
+    \midrule
+    Tax/subsidize & Employer-provided coverage is exempt from income and payroll tax \\[0.3em]
+    Mandate/restrict & Obamacare's individual and large-employer coverage mandates (2014--2019) \\[0.3em]
+    Public provision & \textbf{Medicare} (age 65+), run directly by the federal government \\[0.3em]
+    Public financing of private provision & \textbf{Medicaid} and Obamacare exchange subsidies, channeled through private providers and insurers \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.2em}
+  As of 2023: 37\% of the US population is covered by government insurance, 55\% by private insurance, and 8\% remain uninsured.
+\end{frame}
+
 \begin{frame}{Q3: What Are the Effects of Interventions?}
   \begin{block}{Direct effects}
     What would happen \emph{if people did not change their behavior}.
@@ -290,9 +325,24 @@
   Both matter for evaluating \emph{any} government intervention
 \end{frame}
 
-\begin{frame}{Worked Example:  }
+\begin{frame}{Worked Example: Does Health Insurance Coverage Matter?}
+  \textbf{Direct effect (naive):} give someone insurance $\Rightarrow$ they get more health care $\Rightarrow$ better health. Simple --- but comparing the insured to the uninsured directly is misleading: people who get insured differ from those who don't in ways that \emph{also} affect health.
+  \begin{block}{The Oregon Health Insurance Experiment (2008)}
+    Oregon had a limited number of Medicaid slots, so it used a \textbf{lottery} to allocate them among 90{,}000 applicants: 30{,}000 ``winners'' got the chance to apply.
+  \end{block}
+  \small Winning the lottery isn't the same as \emph{getting} insured --- not all winners enrolled, and some losers got covered another way. Finkelstein et al.\ (2012) therefore report two effects: the \textbf{ITT} (intention-to-treat: simply comparing winners vs.\ losers) and the \textbf{LATE} (scaling the ITT up by $1/0.29$, the actual gap in coverage rates the lottery created) --- the \emph{indirect}, causal effect of insurance itself.
+\end{frame}
 
-
+\begin{frame}{Worked Example: What the Oregon Experiment Found}
+  Because the lottery was random, any difference between winners and losers can be attributed to insurance coverage itself --- not to who chooses to get insured.
+  \begin{itemize}
+    \item \textbf{Higher health care utilization} --- more primary, preventive, \emph{and} hospital care.
+    \item \textbf{Lower financial strain} --- less medical debt, fewer bills sent to collections.
+    \item \textbf{Better self-reported physical and mental health.}
+  \end{itemize}
+  \vspace{0.4em}
+  \small This is Q3 in action: the \emph{direct} effect (more people covered) is only half the story --- the \emph{indirect} effects (how covered people actually behave, and what that does to their health and finances) are what a randomized design lets us measure credibly.\\
+  \srcnote{Finkelstein et al.\ (2012), \emph{QJE} 127(3).}
 \end{frame}
 
 
@@ -311,6 +361,22 @@
   \vspace{0.5em}
   \centering
   \alert{Positive analysis (mostly empirical) is the necessary first step before normative analysis (mostly theoretical) can be completed.}
+\end{frame}
+
+\begin{frame}{Worked Example: A Live Normative Debate}
+  The US debate over health reform is a clean illustration of \emph{normative} public economics --- reasonable people agreeing on the facts but disagreeing on values and trade-offs.
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{``Medicare for All''}\\
+      \small Universal coverage, low copays, funded by taxes. Covers everyone and gives government more leverage to control costs --- but requires a huge structural shift away from employer-based coverage.
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \textbf{``Improve Obamacare''}\\
+      \small Keep the existing mixed system; patch its gaps (more states expanding Medicaid, richer exchange subsidies). More politically feasible, but preserves a system where cost control is weaker and workers bear coverage costs regardless of income.
+    \end{column}
+  \end{columns}
+  \vspace{0.5em}
+  \small Positive economics can tell us what each path would likely cost and who would gain or lose. It cannot tell us which trade-off society \emph{should} choose --- that is a normative, political judgment.
 \end{frame}
 
 % =============================================================
