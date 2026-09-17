@@ -397,8 +397,89 @@
     \item A fine is economically equivalent to a tax --- but psychologically and socially very different: the goal is to \emph{prohibit}, not to price, the externality.
     \item Emissions limits (e.g., California's smog check for gas cars) are a quantity constraint on individual behavior.
   \end{itemize}
-  
+
 \end{frame}
+
+% =============================================================
+\section{5.4 Price vs.\ Quantity Regulation}
+
+\begin{frame}{Setting Up the Question}
+  So far, a corrective tax and a quantity mandate look interchangeable: both can move production from $Q_1$ to the efficient $Q_2$. So which should a government actually use?
+  \begin{itemize}
+    \item The answer turns out to hinge on two things this simple picture hides: whether \textbf{different polluters face different abatement costs}, and whether the government knows those costs \textbf{with certainty}.
+    \item To see why, it helps to redraw the problem --- not as a market for the polluting good, but as a market for \textbf{pollution reduction} itself.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Diagram: The Market for Pollution Reduction}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.62]
+    \draw[-{Latex}] (0,0) -- (7.3,0) node[below, font=\small]{Pollution reduction};
+    \draw[-{Latex}] (0,0) -- (0,6.5) node[left, font=\small]{\$ per unit of reduction};
+    \draw[wugray, thick] (0,0) -- (6.5,5.8);
+    \node[right, font=\scriptsize, wugray] at (6.5,5.8) {$MC=SMC$ (firm's cost of reducing)};
+    \draw[wured, thick] (0,3.3) -- (6.5,3.3);
+    \node[right, font=\scriptsize, wured] at (6.5,3.4) {$MD=SMB$ (damage avoided)};
+    \fill (0,0) circle (1.8pt);
+    \node[below left, font=\tiny] at (0,-0.05) {$A$: free market (zero reduction)};
+    \fill (3.65,3.3) circle (1.8pt);
+    \node[above, font=\tiny] at (3.65,3.45) {$B$: efficient reduction $R^*$};
+    \draw[dotted] (3.65,0) -- (3.65,3.3);
+    \node[below, font=\scriptsize] at (3.65,-0.15) {$R^*$};
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize The firm's private benefit from reducing pollution is zero, so left alone it reduces nothing (point $A$). $MD$ is flat here for simplicity: each unit of reduction avoids the same \$100 of damage. The efficient reduction $R^*$ is where $MC=MD$ (point $B$) --- exactly what a \$100 tax, or a mandate of $R^*$, both achieve.
+\end{frame}
+
+\begin{frame}{Multiple Plants, Different Reduction Costs}
+  Now add realism: suppose \textbf{two} steel plants, $A$ and $B$, each currently dump 200 units of sludge into the same river, and each unit of sludge does \$100 of damage regardless of which plant it came from.
+  \begin{itemize}
+    \item Plant $A$ has a newer, more efficient production process: cutting sludge is \textbf{cheap} for Plant $A$ at every level of reduction.
+    \item Plant $B$ has an older process: cutting sludge is \textbf{expensive} for Plant $B$ at every level of reduction.
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{alertblock}{The question}
+    Government wants total reduction of 200 units (so that total remaining pollution matches the socially optimal level). How should that 200 units be \textbf{split} between the two plants?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Diagram: Efficient Reduction Is Not an Equal Split}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.62]
+    \draw[-{Latex}] (0,0) -- (8.5,0);
+    \node[right, align=left, font=\scriptsize] at (8.5,0) {Reduction\\(units)};
+    \draw[-{Latex}] (0,0) -- (0,6.5) node[left, font=\small]{\$ per unit};
+    \draw[wublue, thick] (0,0) -- (7,4.4);
+    \node[right, font=\scriptsize, wublue] at (7,4.4) {$MC_A$ (cheap: newer plant)};
+    \draw[wured, thick] (0,0) -- (3.34,6.3);
+    \node[above, font=\scriptsize, wured] at (3.34,6.35) {$MC_B$ (expensive: older plant)};
+    \draw[wugray, thick, dashed] (0,3.3) -- (7,3.3);
+    \node[right, font=\scriptsize, wugray] at (5.2,3.05) {$MD=\$100$};
+    \fill (5.25,3.3) circle (1.8pt);
+    \fill (1.75,3.3) circle (1.8pt);
+    \draw[dotted] (5.25,0) -- (5.25,3.3);
+    \draw[dotted] (1.75,0) -- (1.75,3.3);
+    \node[below, font=\scriptsize] at (5.25,-0.15) {$150$};
+    \node[below, font=\scriptsize] at (1.75,-0.15) {$50$};
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize At a price of \$100/unit, Plant $A$ (cheap abatement) should reduce \textbf{150} units, while Plant $B$ (expensive abatement) should reduce only \textbf{50} --- totaling the required 200. Mandating an equal 100/100 split would be inefficient: it forces the high-cost plant to do too much and the low-cost plant too little.
+\end{frame}
+
+\begin{frame}{Three Policy Options, Compared}
+  \small
+  \begin{enumerate}
+    \setlength{\itemsep}{3pt}
+    \item \textbf{Quantity regulation, equal split:} mandate 100 units of reduction from \emph{each} plant. Simple, but \textbf{inefficient} --- it ignores that Plant $B$'s marginal cost at 100 units is far above Plant $A$'s; the same total reduction could cost less.
+    \item \textbf{Corrective tax (\$100/unit):} each plant independently reduces until its own marginal cost hits \$100. Plant $A$ lands at 150, Plant $B$ at 50 --- the \textbf{efficient} split, found automatically, with no need for the government to know either plant's cost curve.
+    \item \textbf{Tradable permits:} issue 200 permits, 100 to each plant, but let them trade. Plant $B$ buys permits from Plant $A$ until marginal costs equalize --- landing at the \emph{same} 150/50 split as the tax.
+  \end{enumerate}
+  \vspace{0.2em}
+  \begin{alertblock}{The key result}
+    A uniform \textbf{price} (tax or permit price) automatically sorts abatement toward whoever can do it most cheaply. A uniform \textbf{quantity mandate} does not --- unless government already knows enough to set plant-specific quotas.
+  \end{alertblock}
+\end{frame}
+
 \begin{frame}{Cap-and-Trade: Taxes and Regulation Combined}
 	\textbf{Emission permits and trading:} polluters are issued permits and allowed to trade them. If the total number of permits is set so that the resulting price equals \(MD\), the outcome is efficient --- and the price is automatically the \emph{same for every firm}.
 	\begin{itemize}
