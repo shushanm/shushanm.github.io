@@ -1,0 +1,987 @@
+% !TeX program = pdflatex
+% =============================================================
+% Public Economics -- Lecture 7
+% Externalities: Problems and Solutions (v2)
+% Based on: Saez, E. "Econ 131" (UC Berkeley), Lecture Notes on Externalities
+%           Gruber, J. "Public Finance and Public Policy", Ch. 5
+%           (5.1-5.5, Externalities: Problems and Solutions)
+%           Gruber, J. "Public Finance and Public Policy", S6.1
+%           (The Role of Economics in Environmental Regulation: The Case of Particulates)
+% v2: extended with material from a colleague's parallel WU course
+%     (Edoardo Cefala, Slides_Edoardo/FA2U2), inserted where topically
+%     relevant. Original structure preserved; nothing removed.
+% =============================================================
+\documentclass[11pt,aspectratio=169]{beamer}
+
+\usetheme{metropolis}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,arrows.meta,calc}
+
+% ----------------------------------------------------------------
+% Colors: WU Vienna blue as primary accent
+% ----------------------------------------------------------------
+\definecolor{wublue}{HTML}{003D7C}
+\definecolor{wulight}{HTML}{4F8FC4}
+\definecolor{wugray}{HTML}{5C6670}
+\definecolor{wured}{HTML}{B0202E}
+\definecolor{wugreen}{HTML}{4C8C6B}
+\definecolor{wuyellow}{HTML}{D9A441}
+\setbeamercolor{palette primary}{bg=wublue,fg=white}
+\setbeamercolor{frametitle}{bg=wublue,fg=white}
+\setbeamercolor{progress bar}{fg=wublue,bg=wulight!30}
+\setbeamercolor{alerted text}{fg=wured}
+
+\setbeamertemplate{frame footer}{Externalities}
+\setbeamertemplate{footline}[frame number]
+
+\title{Public Economics}
+\subtitle{Lecture 7 \(\cdot\) Externalities: Problems and Solutions}
+\author{Shushanik Margaryan}
+\institute{WU Vienna University of Economics and Business}
+\date{Winter Term}
+
+% Source note command for footnote-style citations on data slides
+\newcommand{\srcnote}[1]{{\footnotesize\color{wugray}Source: #1}}
+
+\begin{document}
+
+% =============================================================
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Today's Questions}
+  \begin{itemize}
+    \item When does one person's or firm's action make someone else better or worse off \emph{without} going through a price --- and why does the market then get the quantity wrong?
+    \item Can private bargaining ever fix this on its own, and when does it predictably fail?
+    \item What are the government's main tools --- taxes, subsidies, regulation, tradable permits --- and when is each the right one?
+  \end{itemize}
+  \vspace{1em}
+  \begin{block}{Based on}
+    Saez, E., \emph{Econ 131} lecture notes (UC Berkeley); Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 5 (\S5.1--5.5) and \S6.1.
+  \end{block}
+\end{frame}
+
+% =============================================================
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% =============================================================
+\section{5.1 Externality Theory}
+
+\begin{frame}{What Is an Externality?}
+  \begin{block}{Market failure}
+    A problem that violates an assumption of the First Welfare Theorem, so the market economy no longer delivers an efficient outcome.
+  \end{block}
+  \begin{block}{Externality}
+    Arises whenever the actions of one economic agent \textbf{directly} affect another agent \emph{outside the market mechanism}.
+  \end{block}
+  \begin{itemize}
+    \item \textbf{Externality:} a steel plant that dumps sludge into a river used by fishers.
+    \item \textbf{Externality:} a person receives a vaccination against measles
+    \item The single biggest externality on the planet: carbon-intensive growth since the 19th century, driving climate change.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Application: The Externality of an SUV}
+  Driving a large, gas-powered SUV generates at least four distinct negative externalities on other people:
+  \begin{enumerate}
+    \item \textbf{Environmental:} carbon emissions contribute to global warming.
+    \item \textbf{Infrastructure:} heavier vehicles wear down public roads faster.
+    \item \textbf{Safety:} the odds of a fatal accident rise for whoever is hit by a bigger car.
+    \item \textbf{Congestion:} one more car on the road adds to everyone else's travel time.
+  \end{enumerate}
+  \vspace{0.3em}
+ None of these costs shows up on the \textbf{sticker price}.  If all thse externalities were reflected in the price, we would speak of "\textit{inetrnalized}" extrnalities.
+\end{frame}
+
+\begin{frame}{Quiz: Which Is \emph{Not} a Negative Externality?}
+  \begin{block}{Question}
+  	  \end{block}
+    Which of the following is \textbf{not} a negative externality?
+
+  \begin{enumerate}
+    \item[A.] Cigarette smoking that damages your \emph{future} health.
+    \item[B.] Texting while driving, which increases accident risk.
+    \item[C.] Pesticide runoff from farms that pollutes land and water.
+    \item[D.] Noise from a construction project.
+    \item[E.] All are negative externalities.
+  \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Negative Production Externalities}
+  \begin{block}{Negative production externality}
+  	 \end{block}
+    A firm's production reduces others' well-being, and the firm is not made to pay for it.
+
+  \begin{itemize}
+    \item \textbf{Private marginal cost (PMC):} the direct cost to the producer of one more unit $=$ the supply curve.
+    \item \textbf{Marginal damage (MD):} the extra cost imposed on others that the producer does \emph{not} pay.
+    \item \textbf{Social marginal cost} \(SMC = PMC + MD\).
+  \end{itemize}
+  \vspace{0.4em}
+  \textbf{Example:} a coal plant's private cost curve reflects fuel and labor --- not the CO\textsubscript{2} it emits.
+\end{frame}
+
+\begin{frame}{Diagram: Negative Production Externality}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.62]
+    \draw[-{Latex}] (0,0) -- (7.5,0) node[below, font=\small]{$Q$ (steel)};
+    \draw[-{Latex}] (0,0) -- (0,7.3) node[left, font=\small]{Price / cost};
+    \draw[wugray, thick] (0.5,0.5) -- (6.5,4.5);
+    \node[right, font=\scriptsize, wugray] at (6.5,4.5) {$S=PMC$};
+    \draw[wured, thick] (0.5,2.0) -- (6.5,6.0);
+    \node[right, font=\scriptsize, wured] at (6.5,6.0) {$SMC=PMC+MD$};
+    \draw[wublue, thick] (0.5,6) -- (6.5,1);
+    \node[right, font=\scriptsize, wublue] at (6.5,1) {$D=PMB=SMB$};
+    \fill[wuyellow, opacity=0.5] (4.17,2.94) -- (3.17,3.78) -- (3.17,2.28) -- cycle;
+    \node[font=\tiny] at (3.85,3.0) {DWL};
+    \fill (4.17,2.94) circle (1.6pt); \node[above right, font=\tiny] at (4.2,2.98) {$A$};
+    \fill (3.17,3.78) circle (1.6pt); \node[above, font=\tiny] at (3.17,3.92) {$B$};
+    \fill (3.17,2.28) circle (1.6pt); \node[below, font=\tiny] at (3.17,2.15) {$C$};
+    \draw[dotted] (4.17,0) -- (4.17,2.94);
+    \draw[dotted] (3.17,0) -- (3.17,3.78);
+    \node[below, font=\scriptsize] at (4.17,-0.15) {$Q_1$};
+    \node[below, font=\scriptsize] at (3.17,-0.15) {$Q_2$};
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize The free market settles at $A$, where $PMC=PMB$, producing $Q_1$. The social optimum is $B$, where $SMC=SMB$, at the lower quantity $Q_2$. Triangle $ABC$ is the deadweight loss from \textbf{overproduction}.
+\end{frame}
+
+\begin{frame}{Negative Consumption Externalities}
+  \begin{block}{Negative consumption externality}
+    \end{block}
+    An individual's consumption reduces others' well-being, and the individual is not made to pay for it.
+
+  \begin{itemize}
+    \item \textbf{Private marginal benefit (PMB):} the direct benefit to the consumer of one more unit $=$ the demand curve.
+    \item \textbf{Social marginal benefit} \(SMB = PMB - MD\).
+  \end{itemize}
+  \vspace{0.4em}
+  \textbf{Example:} gasoline that powers a car contributes to global warming --- a cost the driver enjoys the benefit of driving without paying.
+\end{frame}
+
+\begin{frame}{Diagram: Negative Consumption Externality}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.62]
+    \draw[-{Latex}] (0,0) -- (7.5,0) node[below, font=\small]{$Q$ (gasoline)};
+    \draw[-{Latex}] (0,0) -- (0,7.3) node[left, font=\small]{Price / benefit};
+    \draw[wugray, thick] (0.5,0.5) -- (6.5,4.5);
+    \node[right, font=\scriptsize, wugray] at (6.5,4.5) {$S=PMC=SMC$};
+    \draw[wublue, thick] (0.5,6.5) -- (6.5,1.5);
+    \node[right, font=\scriptsize, wublue] at (6.5,1.5) {$D=PMB$};
+    \draw[wured, thick] (0.5,5.0) -- (6.5,0.0);
+    \node[right, font=\scriptsize, wured] at (6.15,0.35) {$SMB=PMB-MD$};
+    \fill[wuyellow, opacity=0.5] (4.5,3.17) -- (3.5,2.5) -- (3.5,4.0) -- cycle;
+    \node[font=\tiny] at (3.95,3.2) {DWL};
+    \fill (4.5,3.17) circle (1.6pt); \node[above right, font=\tiny] at (4.55,3.2) {$A$};
+    \fill (3.5,2.5) circle (1.6pt); \node[below, font=\tiny] at (3.5,2.37) {$B$};
+    \fill (3.5,4.0) circle (1.6pt); \node[above, font=\tiny] at (3.5,4.13) {$C$};
+    \draw[dotted] (4.5,0) -- (4.5,3.17);
+    \draw[dotted] (3.5,0) -- (3.5,4.0);
+    \node[below, font=\scriptsize] at (4.5,-0.15) {$Q_1$};
+    \node[below, font=\scriptsize] at (3.5,-0.15) {$Q_2$};
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize The market settles where $S=PMB$ (point $A$, quantity $Q_1$); the optimum is where $S=SMB$ (point $B$, quantity $Q_2 < Q_1$). Same story as before: \textbf{overconsumption} and a deadweight loss.
+\end{frame}
+
+\begin{frame}{Positive Externalities}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{Positive production externality}\\
+      \small A firm's production raises others' well-being without compensation.\\
+      $SMC = PMC - MB$\\[0.4em]
+      \emph{Example:} beehives that pollinate neighboring farms' crops.
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \textbf{Positive consumption externality}\\
+      \small An individual's consumption raises others' well-being without compensation.\\
+      $SMB = PMB + MB$\\[0.4em]
+      \emph{Example:} a beautiful private garden that passers-by enjoy.
+    \end{column}
+  \end{columns}
+  \vspace{0.8em}
+  \textbf{The two biggest positive externalities in the economy:}
+  \begin{itemize}
+    \item \textbf{Technology spillovers:} better production processes get copied and drive long-run growth.
+    \item \textbf{Education and research:} fundamental knowledge spills over into production
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Diagram: Positive Production Externality (R\&D)}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.56]
+    \draw[-{Latex}] (0,0) -- (7.5,0) node[below, font=\small]{$Q$ (R\&D)};
+    \draw[-{Latex}] (0,0) -- (0,7.3) node[left, font=\small]{Price / cost};
+    \draw[wugray, thick] (0.5,1.5) -- (6.5,5.5);
+    \node[right, font=\scriptsize, wugray] at (6.5,5.5) {$S=PMC$};
+    \draw[wured, thick] (0.5,0.0) -- (6.5,4.0);
+    \node[right, font=\scriptsize, wured] at (6.5,4.0) {$SMC=PMC-MB$};
+    \draw[wublue, thick] (0.5,6) -- (6.5,1);
+    \node[right, font=\scriptsize, wublue] at (6.5,1) {$D=PMB=SMB$};
+    \fill[wuyellow, opacity=0.5] (3.5,3.5) -- (4.5,2.667) -- (4.5,4.167) -- cycle;
+    \node[font=\tiny] at (4.05,3.4) {DWL};
+    \fill (3.5,3.5) circle (1.6pt); \node[above left, font=\tiny] at (3.45,3.6) {$A$};
+    \fill (4.5,2.667) circle (1.6pt); \node[below, font=\tiny] at (4.5,2.53) {$B$};
+    \fill (4.5,4.167) circle (1.6pt); \node[above, font=\tiny] at (4.5,4.3) {$C$};
+    \draw[dotted] (3.5,0) -- (3.5,3.5);
+    \draw[dotted] (4.5,0) -- (4.5,4.167);
+    \node[below, font=\scriptsize] at (3.5,-0.15) {$Q_1$};
+    \node[below, font=\scriptsize] at (4.5,-0.15) {$Q_2$};
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize The market settles at $A$ ($Q_1$, where $PMC=D$); the optimum $B$ requires \emph{more} R\&D ($Q_2>Q_1$, where $SMC=D$). Positive externalities cause \textbf{underprovision}.\\
+  \srcnote{Bloom, Schankerman \& Van Reenen (2013): private return to R\&D $\approx$21\%, social return $\approx$58\%.}
+\end{frame}
+
+\begin{frame}{Why the Market Gets It Wrong}
+  A competitive market sets quantity where \(PMB = PMC\). The efficient (social) optimum requires \(SMB = SMC\). Whenever an externality drives a wedge between private and social curves, the two conditions diverge:
+  \begin{center}
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    \textbf{Externality} & \textbf{Direction of gap} & \textbf{Market outcome} \\
+    \midrule
+    Negative production & $SMC>PMC$ & Overproduction \\
+    Positive production & $SMC<PMC$ & Underproduction \\
+    Negative consumption & $SMB<PMB$ & Overconsumption \\
+    Positive consumption & $SMB>PMB$ & Underconsumption \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.5em}
+  In every case, the First Welfare Theorem fails --- and government intervention is \emph{potentially} justified.
+\end{frame}
+
+% =============================================================
+\section{5.2 The Coase Theorem}
+
+\begin{frame}{Are Externalities Really Outside the Market?}
+  Ronald Coase (Nobel laureate) posed a provocative question: are externalities \emph{really} beyond the reach of private bargaining?
+  \begin{block}{Internalizing the externality}
+    \end{block}
+    When private negotiation or government action makes the price a party faces fully reflect the external costs or benefits of that party's actions.
+
+  If the answer is often ``yes,'' many externalities may not need government intervention at all.
+\end{frame}
+
+\begin{frame}{The Coase Theorem}
+	  \begin{block}
+ {Coase Theorem, Part I}
+  \end{block}
+    With well-defined property rights and costless bargaining, negotiation between the party creating an externality and the party affected by it can achieve the socially optimal quantity.
+
+
+  \begin{block}{Coase Theorem, Part II}
+  	  \end{block}
+    The efficient quantity does not depend on \emph{which} party is assigned the property rights, as long as someone is.
+
+\end{frame}
+
+\begin{frame}{Coase Theorem: The Steel Plant and the Swimmers}
+  A steel plant pollutes a river enjoyed by swimmers. Left alone, there is too much pollution.
+  \begin{itemize}
+    \item \textbf{If swimmers own the river:} they can charge the plant for polluting --- and will charge exactly the marginal damage (\(MD\)) per unit. Charge above \(MD\) and swimmers would rather sell one more unit of pollution than suffer it; the price settles at \(MD\).
+    \item \textbf{If the plant owns the river:}  swimmers would pay the plant to reduce its pollution;  \(MD\) per unit of reduction.
+  \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Problems with Coasian Solutions: Assignment}
+  In practice, Coasian bargaining is unlikely to resolve most externalities that cause real market failures.
+  \begin{block}{1. The assignment problem}
+    \end{block}
+    Assigning property rights is hard when an externality touches many agents at once --- think of global warming, where responsibility and damage are both diffuse.
+
+  \small Coasian solutions work best for \textbf{small, localized} externalities: beehive pollination has become an ordinary business transaction, not an external side-effect, precisely because the parties are few and identifiable. Large, global externalities involving countless firms and people are a different story.
+\end{frame}
+
+\begin{frame}{Problems with Coasian Solutions: Negotiating Costs}
+	  \begin{block}{2. The Holdout Problem}
+	\end{block}
+	\begin{block}{3. Free riders}
+
+	\end{block}
+  \begin{block}{4. Transaction costs and negotiating problems}
+    \end{block}
+    Negotiating is costly --- especially with large numbers of people on one or both sides.
+
+  \small This problem is amplified for something like global warming, where the potentially divergent interests of billions of people on one side of the bargain must somehow be aggregated before any negotiation can even start.
+  \vspace{0.6em}
+
+
+
+\end{frame}
+
+% =============================================================
+\section{5.3 Public-Sector Remedies}
+
+\begin{frame}{Public-Sector Remedies: Three Tools}
+  When Coasian bargaining fails, policy makers reach for one of three instruments:
+  \begin{enumerate}
+    \item \textbf{Quantity regulation:} limit or ban the externality-producing activity directly (e.g., the 1990s ban on ozone-depleting CFCs).
+    \item \textbf{Corrective (Pigouvian) taxation or subsidy:} a per-unit tax or subsidy equal to the marginal damage or benefit (e.g., a carbon tax).
+    \item \textbf{Tradable permits:} combine 1 and 2 --- cap the total quantity, but let firms trade the right to pollute (cap-and-trade).
+  \end{enumerate}
+  \vspace{0.4em}
+  \small The key advantage economists see in price-based tools (2 and 3): the price of emissions ends up the \emph{same for everyone}, which is what efficiency requires.
+\end{frame}
+
+\begin{frame}{Corrective Taxation}
+  Taxing the polluter an amount \(t = MD\) per unit raises \(PMC\) up to \(SMC\) --- exactly what a swimmer-owned river would have charged under Coase. Revisit the negative-production diagram: a \$100-per-unit tax shifts $PMC_1$ up to $PMC_2 = SMC$, and the market moves itself from $A$ (quantity $Q_1$) to the efficient point $B$ (quantity $Q_2$).
+  \begin{itemize}
+    \item This is called \textbf{Pigouvian taxation}, after economist A.\ C.\ Pigou.
+    \item Unlike Coase, it works \emph{without} needing anyone to negotiate --- the government sets the price once, for everyone.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Application: Congestion Pricing}
+  Traffic congestion is a textbook negative externality: each additional driver slows down, and pollutes for, everyone else. Congestion costs the US over \$150 billion a year.
+  \begin{itemize}
+    \item \textbf{London (2003):} $\approx$\pounds15--21 daily charge to enter an 8-square-mile zone; private cars entering fell by 39\%.
+    \item \textbf{Stockholm:} a variable charge (up to \$12.50) that rises with the size of the externality at that time and place; children's asthma-related hospital visits fell $\approx$15\% per unit of pollution reduced.
+    \item \textbf{New York City (2019):} the first US city to adopt congestion pricing --- but implementation has been politically fraught.
+  \end{itemize}
+  \small Success depends on offering alternatives: London added 300 extra buses the day its charge began.
+\end{frame}
+
+\begin{frame}{Subsidies for Positive Externalities}
+  The mirror image of a corrective tax: pay a subsidy \(s = MB\) per unit to push \(PMC\) down to \(SMC\), moving production from the underprovided market quantity up toward the efficient one.
+  \begin{itemize}
+    \item \textbf{R\&D tax credits:} subsidize innovation --- though rarely tied precisely to the size of the spillover.
+    \item \textbf{Charitable-giving tax deduction:} subsidizes an activity that benefits others, again without measuring the externality directly.
+    \item \textbf{Vaccination:} a classic positive consumption externality --- your shot protects people who aren't yet vaccinated. Operation Warp Speed combined ``push'' grants (\$12.4B for vaccine R\&D) with ``pull'' advance-purchase guarantees, cutting typical vaccine development time from 10--15 years to seven months.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Quiz: The Coffee Pesticide}
+  \begin{block}{Question}
+    A new pesticide helps grow coffee more cheaply but is toxic. Marginal damage is \$10/unit in country A, but would be \$100/unit in country B that imports it. What is the correct remedy?
+  \end{block}
+  \begin{enumerate}
+    \item[A.] A \$10 tax per unit.
+    \item[B.] A \$100 tax per unit.
+    \item[C.] Nothing.
+    \item[D.] The pesticide should be entirely prohibited.
+  \end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}{Quiz: Inelastic Demand for Gasoline}
+  \begin{block}{Question}
+    Gasoline generates a climate-change marginal external cost of \$2/gallon. Suppose gasoline consumption is completely \textbf{inelastic} to price. What is the correct remedy for efficiency?
+  \end{block}
+  \begin{enumerate}
+    \item[A.] A \$2 tax per gallon.
+    \item[B.] Nothing.
+    \item[C.] Either A or B.
+    \item[D.] Phase out gas cars.
+  \end{enumerate}
+  \vspace{0.4em}
+  \small \emph{Hint:} if quantity can't respond to price, does the tax change behavior --- or does it still matter for who pays the external cost?
+\end{frame}
+
+\begin{frame}{Regulation in Practice}
+  \textbf{The single most common real-world response to externalities is not a tax --- it's regulation:} products or actions that cause harm are simply forbidden by law (toxic pollutants, dangerous consumer goods, littering, speeding).
+  \begin{itemize}
+    \item A fine is economically equivalent to a tax --- but psychologically and socially very different: the goal is to \emph{prohibit}, not to price, the externality.
+    \item Emissions limits (e.g., California's smog check for gas cars) are a quantity constraint on individual behavior.
+  \end{itemize}
+
+\end{frame}
+
+% =============================================================
+\section{5.4 Price vs.\ Quantity Regulation}
+
+\begin{frame}{Setting Up the Question}
+  So far, a corrective tax and a quantity mandate look interchangeable: both can move production from $Q_1$ to the efficient $Q_2$. So which should a government actually use?
+  \begin{itemize}
+    \item The answer turns out to hinge on two things this simple picture hides: whether \textbf{different polluters face different abatement costs}, and whether the government knows those costs \textbf{with certainty}.
+    \item To see why, it helps to redraw the problem --- not as a market for the polluting good, but as a market for \textbf{pollution reduction} itself.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Diagram: The Market for Pollution Reduction}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.62]
+    \draw[-{Latex}] (0,0) -- (7.3,0) node[below, font=\small]{Pollution reduction};
+    \draw[-{Latex}] (0,0) -- (0,6.5) node[left, font=\small]{\$ per unit of reduction};
+    \draw[wugray, thick] (0,0) -- (6.5,5.8);
+    \node[right, font=\scriptsize, wugray] at (6.5,5.8) {$MC=SMC$ (firm's cost of reducing)};
+    \draw[wured, thick] (0,3.3) -- (6.5,3.3);
+    \node[right, font=\scriptsize, wured] at (6.5,3.4) {$MD=SMB$ (damage avoided)};
+    \fill (0,0) circle (1.8pt);
+    \node[below left, font=\tiny] at (0,-0.05) {$A$: free market (zero reduction)};
+    \fill (3.65,3.3) circle (1.8pt);
+    \node[above, font=\tiny] at (3.65,3.45) {$B$: efficient reduction $R^*$};
+    \draw[dotted] (3.65,0) -- (3.65,3.3);
+    \node[below, font=\scriptsize] at (3.65,-0.15) {$R^*$};
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize The firm's private benefit from reducing pollution is zero, so left alone it reduces nothing (point $A$). $MD$ is flat here for simplicity: each unit of reduction avoids the same \$100 of damage. The efficient reduction $R^*$ is where $MC=MD$ (point $B$) --- exactly what a \$100 tax, or a mandate of $R^*$, both achieve.
+\end{frame}
+
+\begin{frame}{Multiple Plants, Different Reduction Costs}
+  Now add realism: suppose \textbf{two} steel plants, $A$ and $B$, each currently dump 200 units of sludge into the same river, and each unit of sludge does \$100 of damage regardless of which plant it came from.
+  \begin{itemize}
+    \item Plant $A$ has a newer, more efficient production process: cutting sludge is \textbf{cheap} for Plant $A$ at every level of reduction.
+    \item Plant $B$ has an older process: cutting sludge is \textbf{expensive} for Plant $B$ at every level of reduction.
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{alertblock}{The question}
+    Government wants total reduction of 200 units (so that total remaining pollution matches the socially optimal level). How should that 200 units be \textbf{split} between the two plants?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Diagram: Efficient Reduction Is Not an Equal Split}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.62]
+    \draw[-{Latex}] (0,0) -- (8.5,0);
+    \node[right, align=left, font=\scriptsize] at (8.5,0) {Reduction\\(units)};
+    \draw[-{Latex}] (0,0) -- (0,6.5) node[left, font=\small]{\$ per unit};
+    \draw[wublue, thick] (0,0) -- (7,4.4);
+    \node[right, font=\scriptsize, wublue] at (7,4.4) {$MC_A$ (cheap: newer plant)};
+    \draw[wured, thick] (0,0) -- (3.34,6.3);
+    \node[above, font=\scriptsize, wured] at (3.34,6.35) {$MC_B$ (expensive: older plant)};
+    \draw[wugray, thick, dashed] (0,3.3) -- (7,3.3);
+    \node[right, font=\scriptsize, wugray] at (5.2,3.05) {$MD=\$100$};
+    \fill (5.25,3.3) circle (1.8pt);
+    \fill (1.75,3.3) circle (1.8pt);
+    \draw[dotted] (5.25,0) -- (5.25,3.3);
+    \draw[dotted] (1.75,0) -- (1.75,3.3);
+    \node[below, font=\scriptsize] at (5.25,-0.15) {$150$};
+    \node[below, font=\scriptsize] at (1.75,-0.15) {$50$};
+  \end{tikzpicture}
+  \end{center}
+  \footnotesize At a price of \$100/unit, Plant $A$ (cheap abatement) should reduce \textbf{150} units, while Plant $B$ (expensive abatement) should reduce only \textbf{50} --- totaling the required 200. Mandating an equal 100/100 split would be inefficient: it forces the high-cost plant to do too much and the low-cost plant too little.
+\end{frame}
+
+\begin{frame}{Three Policy Options, Compared}
+  \small
+  \begin{enumerate}
+    \setlength{\itemsep}{3pt}
+    \item \textbf{Quantity regulation, equal split:} mandate 100 units of reduction from \emph{each} plant. Simple, but \textbf{inefficient} --- it ignores that Plant $B$'s marginal cost at 100 units is far above Plant $A$'s; the same total reduction could cost less.
+    \item \textbf{Corrective tax (\$100/unit):} each plant independently reduces until its own marginal cost hits \$100. Plant $A$ lands at 150, Plant $B$ at 50 --- the \textbf{efficient} split, found automatically, with no need for the government to know either plant's cost curve.
+    \item \textbf{Tradable permits:} issue 200 permits, 100 to each plant, but let them trade. Plant $B$ buys permits from Plant $A$ until marginal costs equalize --- landing at the \emph{same} 150/50 split as the tax.
+  \end{enumerate}
+  \vspace{0.2em}
+  \begin{alertblock}{The key result}
+    A uniform \textbf{price} (tax or permit price) automatically sorts abatement toward whoever can do it most cheaply. A uniform \textbf{quantity mandate} does not --- unless government already knows enough to set plant-specific quotas.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Cap-and-Trade: Taxes and Regulation Combined}
+	\textbf{Emission permits and trading:} polluters are issued permits and allowed to trade them. If the total number of permits is set so that the resulting price equals \(MD\), the outcome is efficient --- and the price is automatically the \emph{same for every firm}.
+	\begin{itemize}
+		\item Used historically as a \textbf{transition tool}: SO\textsubscript{2} (acid rain) and CFCs (ozone) were both phased out gradually through shrinking, tradable allowances rather than an immediate ban --- giving industry time to develop substitutes.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Corrective Taxes vs.\ Tradable Permits}
+	Two key differences between a carbon tax and cap-and-trade for CO\textsubscript{2}:
+	\begin{enumerate}
+		\item \textbf{Initial allocation of permits.} Selling permits is economically equivalent to a tax. \emph{Giving} them away to incumbent polluters is like a tax \emph{plus} a large transfer to those firms.
+		\item \textbf{Uncertainty about marginal costs.} A tax fixes the \emph{price} of pollution but leaves the resulting \emph{quantity} uncertain; a cap fixes the \emph{quantity} but leaves the price uncertain.
+	\end{enumerate}
+	\vspace{0.5em}
+	\begin{block}{Rule of thumb}
+		\textbf{Taxes} are preferable when the marginal-damage curve is \textbf{flat} (getting the quantity exactly right barely matters). \textbf{Tradable permits} are preferable when marginal damage is \textbf{steep} (getting the quantity right matters a great deal).
+	\end{block}
+\end{frame}
+
+\begin{frame}{Why Steepness of Marginal Damage Matters}
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\centering \textbf{Flat MD (e.g., climate change)}\\[0.2em]
+			\begin{tikzpicture}[scale=0.48]
+				\draw[-{Latex}] (0,0) -- (7,0) node[below, font=\scriptsize]{Reduction};
+				\draw[-{Latex}] (0,0) -- (0,6) node[left, font=\scriptsize]{\$};
+				\draw[wugray, thick] (0.3,0.3) -- (6.3,5.8);
+				\draw[wured, thick] (0,2.8) -- (6.5,3.2);
+				\node[right, font=\tiny, wugray] at (6.3,5.8) {$MC$};
+				\node[right, font=\tiny, wured] at (6.5,3.2) {$MD$};
+			\end{tikzpicture}\\[0.3em]
+			\small One country's emissions barely move total accumulated CO\textsubscript{2} --- a small quantity miss costs almost nothing, so a stable, predictable \textbf{tax} is efficient.
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering \textbf{Steep MD (e.g., forest fires)}\\[0.2em]
+			\begin{tikzpicture}[scale=0.48]
+				\draw[-{Latex}] (0,0) -- (7,0) node[below, font=\scriptsize]{Reduction};
+				\draw[-{Latex}] (0,0) -- (0,6) node[left, font=\scriptsize]{\$};
+				\draw[wugray, thick] (0.3,0.3) -- (6.3,5.8);
+				\draw[wured, thick] (3.3,0) -- (3.7,6);
+				\node[right, font=\tiny, wugray] at (6.3,5.8) {$MC$};
+				\node[above, font=\tiny, wured] at (3.7,6) {$MD$};
+			\end{tikzpicture}\\[0.3em]
+			\small A small shortfall in fire containment can be catastrophic --- getting the \textbf{quantity} right matters most, favoring a \textbf{cap} (tradable permits).
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\section{What Is the EU ETS?}
+
+\begin{frame}{The Basics}
+	\begin{block}{EU ETS}
+		A \textbf{cap-and-trade} system: the EU sets a shrinking cap on total CO\textsubscript{2}(-equivalent) emissions from covered sectors, issues tradable allowances (EUAs) equal to that cap, and lets the market find the price.
+	\end{block}
+	\begin{itemize}
+		\item Launched in \textbf{2005} --- the first large-scale multi-country carbon market in the world.
+		\item Covers roughly \textbf{40\%} of total EU greenhouse gas emissions: power generation, energy-intensive industry (steel, cement, chemicals, refining), intra-EU aviation, and (since 2024) maritime shipping.
+		\item About \textbf{10,000} power plants and industrial installations are covered directly.
+		\item One allowance (EUA) $=$ the right to emit one tonne of CO\textsubscript{2}-equivalent. Firms must surrender one allowance per tonne emitted, or pay a substantial penalty.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Recap: Why Tradable Permits?}
+
+	\begin{itemize}
+		\item CO\textsubscript{2} emissions are a classic negative externality --- $SMC = PMC + MD$, and the unregulated market overproduces emissions.
+		\item A cap-and-trade system fixes the \emph{quantity} of pollution directly (like regulation), but lets firms \textbf{trade} the right to pollute (like a market).
+		\item Firms with cheap abatement options sell permits; firms with expensive abatement options buy them --- exactly the efficient reallocation Coase's insight predicts, just organized by the government instead of by private bargaining.
+	\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Phase I: Over-Allocation and the 2006--2007 Price Crash}
+	\begin{itemize}
+		\item Regulators set each country's cap based on firms' \textbf{self-reported} historical emissions --- and firms had every incentive to overstate them, to be handed generous free allowances.
+		\item When verified 2005 emissions data came out in April 2006, it turned out the cap had been set \textbf{above} actual emissions --- there was no real scarcity.
+		\item The permit price, which had traded around \texteuro{}30/tonne, collapsed toward \textbf{\texteuro{}0} by the end of Phase I.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Phase II--III: The 2008 Crisis and a Decade of Oversupply}
+	\begin{itemize}
+		\item The 2008 financial crisis sharply reduced industrial output and the emissions were well below the Phase II cap.
+		\item Allowance prices fell from $\approx$\texteuro{}25 to the single digits, and a large \textbf{surplus} of unused permits accumulated and carried over into Phase III.
+		\item Result: for most of the 2010s, EUA prices stayed low (roughly \texteuro{}5--8/tonne) --- too low to meaningfully drive abatement investment.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{The Fix: The Market Stability Reserve (2019)}
+	\begin{block}{Market Stability Reserve (MSR)}
+		An automatic mechanism that withholds allowances from auctions when the total surplus in circulation is too high, and releases them back when the surplus is too low.
+	\end{block}
+	\begin{itemize}
+		\item Directly targets the oversupply left over from the 2008 crash.
+		\item Effectively blends a pure quantity instrument with a bit of \emph{price-stabilizing} flexibility --- the system's own answer to the price-vs-quantity trade-off from the theory lecture.
+		\item Alongside a much steeper post-2021 cap reduction (the ``Fit for 55'' package), the MSR helped push EUA prices from single digits up past \texteuro{}50 by 2021, briefly touching nearly \texteuro{}100/tonne in early 2023.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Free Allocation vs.\ Auctioning}
+	Recall the first key difference between taxes and tradable permits: \textbf{how the permits are initially allocated}.
+	\begin{itemize}
+		\item \textbf{Free allocation (``grandfathering'')}, as in Phases I--II: equivalent to a Pigouvian tax \emph{plus} a large transfer to incumbent polluters --- the environmental incentive is the same, but existing firms are handed a windfall.
+		\item \textbf{Auctioning}, the Phase III--IV default for power generation: equivalent to a pure Pigouvian tax --- the government captures the revenue instead of handing it to polluters.
+	\end{itemize}
+	\small The EU ETS has moved steadily from (i) toward (ii) over 20 years
+\end{frame}
+
+\begin{frame}{Carbon Leakage: Why Some Free Allocation Remains}
+	\begin{block}{Carbon leakage}
+		If EU firms face a carbon price but foreign competitors don't, production --- and the emissions that come with it --- may simply relocate outside the EU, with \emph{no} net environmental benefit.
+	\end{block}
+	\begin{itemize}
+		\item Energy-intensive, trade-exposed sectors (steel, cement, chemicals) still receive a substantial share of allowances \textbf{free}, specifically to blunt this relocation incentive.
+		\item This is a real cost of \emph{unilateral} climate policy --- exactly the international-coordination problem from the climate-change section of the externalities lecture: one region acting alone bears a competitiveness cost that a coordinated global carbon price would not.
+	\end{itemize}
+\end{frame}
+
+% =============================================================
+
+\begin{frame}{Empirical Evidence: Did the EU ETS Cut Emissions?}
+	\begin{itemize}
+		\item \textbf{Ellerman \& Buchner} and related early studies estimate emissions from covered installations were roughly \textbf{8--12\% lower} cumulatively over Phase I--II than a no-ETS counterfactual --- a modest but real effect, achieved despite the well-documented Phase I price collapse.
+		\item \textbf{Bayer \& Aklin (2020)}, using a synthetic-control design, estimate the EU ETS avoided roughly \textbf{1 billion tonnes of CO\textsubscript{2}} between 2008--2016 relative to a no-policy counterfactual --- even through the years of very low permit prices.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Empirical Evidence: Effects on Innovation and Competitiveness}
+	\textbf{Calel \& Dechezleprêtre (2016)} compare EU ETS--regulated firms to similar unregulated firms.
+	\begin{itemize}
+		\item Regulated firms increased \textbf{low-carbon patenting} by roughly \textbf{10\%} more than comparable unregulated firms --- consistent with the corrective-tax logic that a real carbon price induces genuine technological response, not just short-run output cuts.
+		\item No detectable negative effect on regulated firms' overall economic performance (employment, revenue) relative to unregulated firms --- an important reply to the ``carbon pricing kills industry'' worry.
+	\end{itemize}
+	\srcnote{Calel \& Dechezleprêtre (2016), \emph{Review of Economics and Statistics} 98(1).}
+\end{frame}
+
+% =============================================================
+
+
+\begin{frame}{CBAM: Attacking Carbon Leakage Directly}
+	\begin{block}{Carbon Border Adjustment Mechanism (CBAM)}
+		A tariff-like charge on imports of specific carbon-intensive goods (steel, cement, aluminum, fertilizers, electricity, hydrogen), set equal to the carbon price EU producers already pay --- phasing in fully by 2026.
+	\end{block}
+	\begin{itemize}
+		\item Directly targets carbon leakage --- the ``stick'' side of the rich-country decarbonization toolkit from the climate-change lecture --- as an \textbf{alternative} to free allocation, rather than living alongside it forever.
+		\item As CBAM phases in, free allocation for the sectors it covers is meant to phase \emph{out} --- moving the EU ETS closer to a ``pure'' auctioned permit system even for exposed industries.
+	\end{itemize}
+\end{frame}
+
+% =============================================================
+\section{Carbon Pricing in Practice}
+
+\begin{frame}{How High Are Carbon Prices, in Practice?}
+  \small
+  \begin{itemize}
+    \item Most real-world carbon pricing falls on \textbf{mineral oils} in the transport and building sectors --- fuel, heating oil, natural gas --- rather than a comprehensive price on all emissions.
+    \item Worldwide average carbon price in 2023: roughly \textbf{\$23/tonne}. To limit warming to 1.5\textdegree{}C, the \emph{global average} price would need to rise to at least \$170/tonne by 2030 --- roughly \textbf{seven times} today's level.
+  \end{itemize}
+  \srcnote{World Bank, Carbon Pricing Dashboard; systemschangelab.org.}
+\end{frame}
+
+\begin{frame}{Carbon Tax Rates Across Europe}
+  \begin{center}
+    \includegraphics[height=4.9cm]{figures/edu_carbon_tax_europe_map.png}
+  \end{center}
+  \footnotesize
+  Rates range from under \texteuro{}1/tonne to over \texteuro{}120/tonne (Switzerland, the Nordics). \textbf{Austria} levies no separate carbon tax --- it relies instead on the EU ETS (previous section) and its own national emissions-trading system (\emph{Nationales Emissionshandelssystem}, since 2022) for the sectors the EU ETS doesn't cover.\\
+  \srcnote{Tax Foundation Europe, Carbon Taxes in Europe (2024).}
+\end{frame}
+
+\begin{frame}{Does a Carbon Tax Actually Cut Emissions? Evidence from Sweden}
+  \footnotesize
+  \begin{block}{Andersson (2019), \emph{AEJ: Economic Policy}}
+    Sweden introduced a carbon tax \emph{and} extended its VAT to transport fuel in 1991 --- raising the effective price from \$30 to \$132 per tonne of CO\textsubscript{2} by 2018. Transport is roughly 40\% of Sweden's emissions.
+  \end{block}
+  \begin{itemize}
+    \item \textbf{Identification problem:} Sweden's emissions were already trending with other rich countries --- a simple before/after comparison can't isolate the tax's effect.
+    \item \textbf{Synthetic control method:} builds a weighted combination of \emph{other} OECD countries (``synthetic Sweden'') that tracks real Sweden's emissions almost perfectly \emph{before} 1990 --- so any divergence \emph{after} 1990 is attributable to the tax.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Sweden vs.\ ``Synthetic Sweden''}
+  \begin{center}
+    \includegraphics[width=0.88\textwidth]{figures/edu_sweden_synthetic_control.png}
+  \end{center}
+  \footnotesize
+  Left: Sweden tracked the raw OECD average closely even \emph{after} 1990 --- masking the tax's effect. Right: against synthetic Sweden (built to match Sweden's \emph{pre}-1990 path exactly), real Sweden's emissions visibly diverge \emph{downward} right at the 1990 policy change.
+\end{frame}
+
+\begin{frame}{Isolating the Causal Effect}
+  \begin{center}
+    \includegraphics[width=0.46\textwidth]{figures/edu_sweden_emissions_gap.png}
+  \end{center}
+  \footnotesize
+  \begin{itemize}
+    \item The gap between Sweden and synthetic Sweden is roughly \textbf{zero} before 1990 (validating the synthetic control) and grows steadily \emph{negative} after --- reaching \textbf{-12.5\%} by 2005.
+    \item The effect \textbf{grows over time}, consistent with people gradually adjusting car purchases and driving habits to a permanently higher fuel price, not just cutting back immediately.
+  \end{itemize}
+  \srcnote{Andersson (2019), \emph{American Economic Journal: Economic Policy} 11(4).}
+\end{frame}
+
+% =============================================================
+\section{Empirical Application: Acid Rain and the Clean Air Act}
+
+\begin{frame}{Acid Rain, SO\textsubscript{2}, and the Clean Air Act}
+  Acid rain is caused by emissions of sulfur dioxide (SO\textsubscript{2}) and nitrogen oxides (NO\textsubscript{x}) --- and, more broadly, by airborne \textbf{particulates}.
+  \begin{itemize}
+    \item \textbf{Clean Air Act (1970):} the first federal law setting maximum ambient concentrations for pollutants including SO\textsubscript{2}. A loophole in its New Source Performance Standards left many existing plants effectively grandfathered.
+    \item \textbf{1990 Amendments:} introduced a tradable SO\textsubscript{2} \textbf{allowance system} --- the first large-scale US cap-and-trade program.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The 1990 Cap-and-Trade Experiment}
+  The SO\textsubscript{2} allowance market drew opposition from \emph{both} sides: the coal industry feared costs, and environmentalists distrusted letting firms buy the right to pollute --- Senator Eugene McCarthy dismissed it as ``pollution absolution'' and ``a market for vice and virtue.''
+  \begin{itemize}
+    \item In practice, realized compliance costs came in far below predictions: Ellerman and coauthors estimate roughly \$15 billion versus an originally projected \$35 billion (1995--2007).
+  \end{itemize}
+  \small Tradable permits let abatement happen wherever it was cheapest --- exactly the efficiency gain the theory predicts.
+\end{frame}
+
+\begin{frame}{Empirical Evidence: Particulates and Infant Mortality}
+  \textbf{The identification problem:} areas with more particulates in the air may simply differ from cleaner areas in many other ways --- a naive cross-area comparison of pollution and mortality is not causal.
+  \begin{block}{Chay \& Greenstone (2003)}
+    Use the 1970 Clean Air Act's regulatory threshold as a natural experiment: counties just \emph{above} the particulate threshold (forced to clean up) versus counties just \emph{below} it (control group). A difference-in-differences design compares infant mortality across the two groups, before and after.
+  \end{block}
+  \textbf{Result:} each 10\% decline in particulates $\Rightarrow$ roughly a 5\% decline in infant mortality --- about 1{,}300 fewer infant deaths in 1972 alone.\\
+  \srcnote{Chay \& Greenstone (2003), NBER WP 10053.}
+\end{frame}
+
+\begin{frame}{Has the Clean Air Act Been a Success?}
+  \begin{itemize}
+    \item \textbf{Costs:} Greenstone (2002) estimates roughly 600{,}000 jobs and \$75 billion in output foregone in heavily regulated industries.
+    \item \textbf{Benefits:} Isen, Rossin-Slater \& Walker (2017) find that in-utero exposure to cleaner air raised \emph{lifetime} earnings by about \$4{,}300 per person.
+    \item \textbf{Overall efficiency:} Burtraw et al.\ (1997) estimate a benefit--cost ratio of roughly \textbf{7 to 1} for the SO\textsubscript{2} trading program.
+    \item A cautionary note: US particulate pollution has recently \emph{risen} again, by about 5.5\%, a reminder that these gains are not automatically permanent.
+  \end{itemize}
+\end{frame}
+
+% =============================================================
+\section{Climate Change}
+
+\begin{frame}{Climate Change and CO\textsubscript{2}: Four Challenges}
+  Wagner \& Weitzman (2015) identify four features that make climate change unlike any ordinary externality:
+  \begin{enumerate}
+    \item \textbf{Global:} one country's emissions affect the entire world.
+    \item \textbf{Irreversible:} atmospheric CO\textsubscript{2} persists for centuries absent a carbon-capture breakthrough.
+    \item \textbf{Long-term:} the costs land decades or centuries from now --- raising the thorny question of how to discount them.
+    \item \textbf{Uncertain:} the ultimate cost is genuinely unknown, from mitigating feedback loops to amplifying ones.
+  \end{enumerate}
+  \vspace{0.3em}
+  \small How fast should emissions fall? Stern and Weitzman favor a fast reduction; Nordhaus argues for a slower, more gradual path.
+\end{frame}
+
+\begin{frame}{Main Costs of Global Warming}
+  Costs vary enormously by geography and income level, and the pace of change makes adaptation difficult:
+  \begin{enumerate}
+    \item \textbf{Extreme weather} (sea-level rise, heatwaves, droughts, wildfire smoke) can make populated places uninhabitable --- risking large, disruptive migration.
+    \item \textbf{Food security:} demand for food is very inelastic short-run, so a drop in agricultural output can spike prices and trigger famine risk in low-income countries.
+    \item \textbf{Biodiversity:} mass extinction risk from rapid habitat change.
+  \end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}{Empirical Example: Adjusting to Global Warming}
+  Estimating the cost of global warming is hard because \textbf{people adapt} --- reducing realized damage relative to a no-adaptation baseline.
+  \begin{block}{Barreca et al.\ (2016): heat and mortality}
+    \begin{itemize}
+      \item The mortality effect of an extremely hot day ($80^\circ$F+) fell by roughly 75\% between 1900--1959 and 1960--2004.
+      \item Adoption of residential air conditioning explains essentially the entire decline.
+      \item Ironic implication: worldwide AC adoption will itself speed up climate change, if powered by fossil fuels.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Two Views of Climate Policy}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{The narrow view}\\
+      \small CO\textsubscript{2} emissions are a classic externality: impose a carbon tax equal to marginal damage and let markets do the rest.\\[0.4em]
+      But the marginal damage of CO\textsubscript{2} is hard to pin down --- it depends heavily on how heavily the future is discounted. Discount it steeply, and the ``optimal'' tax is small; discount it lightly, and a large, unpopular tax is called for.
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \textbf{The broader view}\\
+      \small Emissions pose an existential civilizational risk (as CFCs once did to the ozone layer). The only real answer is to decarbonize fast, as a deliberate social choice --- within decades, not centuries.\\[0.4em]
+      Falling renewable costs make this feasible without killing growth: start with the easiest sectors to decarbonize (cars) before the hardest (aviation).
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Decarbonizing: A Coordination Problem}
+  From any one country's perspective, decarbonizing is costly, and the benefit --- shared globally --- is individually small. That is why economists stress \textbf{coordinated, binding} international agreements.
+  \begin{itemize}
+    \item \textbf{Kyoto (1997):} 35 industrialized nations (not the US) pledged to cut emissions to 1990 levels by 2012, with tradable emission rights among themselves. Since then: mostly non-binding pledges.
+    \item A credible \textbf{leader country} can still matter: California's mandate for 100\% renewable electricity by 2045 and phase-out of new gas car sales by 2035 offers a working local example.
+    \item Major powers also compete to \emph{control} future renewable technology --- the US--China race is, on net, helping speed the transition.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{How to Decarbonize: Rich and Poor Countries}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{Richer countries}\\
+      \small Fund public and private renewable R\&D; plan an explicit phase-out of carbon by sector; a carbon tax can help but is regressive and politically unpopular on its own --- pair it with compensation for low-income losers (recall France's ``yellow vests'' backlash to a higher gas tax).
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \textbf{Developing countries}\\
+      \small Rich countries caused most historical emissions, but poor countries still want the cheapest path to development --- often coal. Rich countries can help them leapfrog to renewables: the \emph{carrot} is R\&D and subsidies; the \emph{stick} is tariffs on the carbon content of imports.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% =============================================================
+\section{Carbon Inequality and Climate Policy Design}
+
+\begin{frame}{Climate Policy Has Distributional Effects Too}
+  \small
+  The rich-country/poor-country divide (previous section) is only one axis of inequality in climate policy. Two more matter just as much:
+  \begin{itemize}
+    \item \textbf{Carbon taxes alone are regressive}, for the same reason any \emph{consumption} tax is (recall the Taxation lecture's discussion of tax incidence): poorer households spend a larger \emph{share} of their income on energy-intensive necessities like heating and transport.
+    \item \textbf{Emissions themselves rise sharply with income} --- both across countries and \emph{within} them --- so who bears the cost of climate policy, and who caused the problem, are not the same people.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Who Emits the Most? Carbon Inequality by Region}
+  \begin{center}
+    \includegraphics[width=0.85\textwidth]{figures/edu_carbon_inequality_regions.png}
+  \end{center}
+  \footnotesize
+  Per-capita emissions range from 1.6 tonnes/year (Sub-Saharan Africa) to 20.8 tonnes/year (North America) --- more than a \textbf{13-fold} gap. The ``sustainable level'' consistent with 1.5\textdegree{}C warming is just 1.1 tonnes/person/year --- below every region's \emph{current} average.\\
+  \srcnote{World Inequality Report -- Chapter 6, Carbon Inequality (2022).}
+\end{frame}
+
+\begin{frame}{The Global Distribution of Emissions Growth}
+  \begin{center}
+    \includegraphics[width=0.92\textwidth]{figures/edu_global_emissions_history.png}
+  \end{center}
+  \footnotesize
+  Global annual emissions have grown 50-fold since 1850, reaching 50 billion tonnes in 2019 --- and nearly \textbf{half} of all historical emissions were released \emph{after} 1990, well after the science of climate change was established.
+\end{frame}
+
+\begin{frame}{Who Are the World's Top Emitters?}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{figures/edu_emissions_streamgraph.png}
+  \end{center}
+  \footnotesize
+  Reading left to right (lowest to highest individual emitters worldwide): the poorest emitters are disproportionately from Sub-Saharan Africa and India, while North America and Europe are heavily overrepresented among the top 0.001\% of emitters globally --- \textbf{within-country} inequality compounds the \textbf{across-country} gap from the previous slide.
+\end{frame}
+
+\begin{frame}{Carbon Inequality Within a Rich Country: Austria}
+  \begin{center}
+    \includegraphics[height=5.4cm]{figures/edu_austria_carbon_by_decile.png}
+  \end{center}
+  \footnotesize
+  Even within wealthy Austria, the top income decile emits \textbf{4.1 times} as much CO\textsubscript{2}e as the bottom decile --- driven overwhelmingly by \textbf{mobility} (cars, flights). This is not a poor-country problem alone.\\
+  \srcnote{Theine et al.\ (2022), \emph{Ecological Economics} 197.}
+\end{frame}
+
+\begin{frame}{Who Actually Pays the Carbon Tax?}
+  \begin{center}
+    \includegraphics[width=0.74\textwidth]{figures/edu_carbon_tax_incidence_decile.png}
+  \end{center}
+  \footnotesize
+  Simulating a \texteuro{}100/tonne CO\textsubscript{2} tax: the \textbf{lowest} income decile emits the least in absolute terms (left) --- but a disproportionate share of households paying the \textbf{highest} tax \emph{relative to income} are also in the bottom deciles (right). Low emitters can still be high \emph{relative} payers --- exactly the regressivity flagged two slides ago.
+\end{frame}
+
+\begin{frame}{Designing ``Eco-Social'' Policy}
+  \begin{block}{Eco-social policy}
+    Climate policy designed jointly with its \textbf{distributional} consequences in mind --- \emph{eco} (improving the ecological situation) \emph{plus social} (redistribution from higher to lower income groups).
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Motivation: cost-intensive climate policy can \emph{widen} inequality if left undesigned --- the risk of ``eco-poverty.''
+    \item This is exactly the compensation principle already raised for the ``yellow vests'' backlash (previous section) --- but made systematic rather than ad hoc.
+  \end{itemize}
+  \srcnote{Gugushvili \& Otto (2021).}
+\end{frame}
+
+\begin{frame}{Targeting Climate Policy by Income Group}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{figures/edu_climate_policy_matrix.png}
+  \end{center}
+  \footnotesize
+  The World Inequality Report's policy matrix: \textbf{bottom 50\%} measures emphasize public investment and compensating transfers; \textbf{middle 40\%} measures add financial incentives and building regulations; \textbf{top 10\%/1\%} measures shift toward wealth/corporate taxes with a pollution top-up and direct caps on high personal carbon footprints.
+\end{frame}
+
+\begin{frame}{Bringing It Back to This Lecture}
+  \small
+  \begin{itemize}
+    \item Every policy tool from earlier in this lecture --- Pigouvian taxes, tradable permits, regulation, subsidies --- can be paired with a \emph{redistributive} instrument (a rebate, a targeted transfer, a progressive revenue use) without losing its corrective-price logic.
+    \item The efficiency case for carbon pricing (get the price right, let markets do the rest) and the equity case for redistribution are \textbf{not in tension} --- revenue raised by a corrective tax is exactly what funds the compensation.
+  \end{itemize}
+  \vspace{0.3em}
+  \alert{Discussion:} if Austria introduced an explicit standalone carbon tax (recall: it currently relies on the EU/national ETS rather than a separate tax), how would you design the revenue recycling to avoid an ``eco-poverty'' backlash?
+\end{frame}
+
+% =============================================================
+\section{Application: Health Insurance}
+
+\begin{frame}{Application: Health Care as a Market-Failure Case Study}
+  Health care combines almost every market failure covered in this lecture into a single, high-stakes sector.
+  \begin{itemize}
+    \item Advanced economies spend roughly \textbf{9\% of GDP} on health care today, up from just 2--3\% in 1950 --- and about \textbf{two-thirds} of that spending is government-funded across the OECD.
+    \item The US is an outlier: \textbf{17\% of GDP} on health care (vs.\ $\approx$9\% elsewhere in the OECD), while still leaving roughly \textbf{8\%} of its population uninsured.
+  \end{itemize}
+  \vspace{0.4em}
+  \small Two distinct market failures are at work here: an \textbf{externality} (vaccination) and a completely different one, \textbf{asymmetric information} (insurance itself) --- worth telling apart carefully.
+\end{frame}
+
+\begin{frame}{Vaccination: A Textbook Positive Externality}
+  Getting vaccinated is a positive \emph{consumption} externality, exactly like the R\&D case earlier in this lecture: $SMB = PMB + MB$.
+  \begin{itemize}
+    \item Your vaccination protects \emph{you} --- that's the private benefit ($PMB$) you weigh when deciding.
+    \item It also lowers the odds you infect someone else --- a benefit to others ($MB$) that you don't factor into your decision at all.
+    \item Below some vaccination-rate threshold, \textbf{herd immunity} breaks down and outbreaks become possible again.
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{alertblock}{Same conclusion as before}
+    A positive externality means underprovision: left alone, private vaccination choices fall short of the socially optimal coverage rate --- exactly the logic from the R\&D diagram earlier in this lecture.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{A Different Market Failure: Adverse Selection}
+  Health \emph{insurance} itself fails for a completely different reason: not an externality, but \textbf{asymmetric information}.
+  \begin{itemize}
+    \item Applicants know their own health risk far better than insurers do.
+    \item If insurers must charge one average price, it's too expensive for the healthy and too cheap for the sick --- healthy people opt out, the risk pool worsens, and the price rises further.
+  \end{itemize}
+  \vspace{0.3em}
+  \small Before regulatory reform, this is exactly what happened in the US individual (``nongroup'') insurance market: people with pre-existing conditions were often unable to buy coverage at any price. It's a market failure worth remembering as \emph{distinct} from everything else in this lecture --- externalities are about spillovers between parties; adverse selection is about one party knowing something the other doesn't.
+\end{frame}
+
+\begin{frame}{Government Responses, US Style}
+  The same menu of tools from earlier in this lecture --- regulation, subsidy, direct provision --- shows up again in health insurance, just with different names:
+  \begin{center}
+  \small
+  \begin{tabular}{@{}p{3.6cm}p{7.5cm}@{}}
+    \toprule
+    \textbf{Tool} & \textbf{US health insurance example} \\
+    \midrule
+    Quantity regulation / mandate & Obamacare's individual and large-employer coverage mandates (2014--2019) \\[0.3em]
+    Corrective subsidy & Medicaid and Obamacare exchange subsidies for low-income households \\[0.3em]
+    Direct public provision & \textbf{Medicare} (age 65+), run directly by the federal government \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \small As of 2023: 37\% of the US population is covered by government insurance, 55\% by private insurance (mostly employer-provided), and 8\% remain uninsured.
+\end{frame}
+
+\begin{frame}{Empirical Evidence: The Oregon Health Insurance Experiment}
+  Simply comparing insured to uninsured people is misleading --- the two groups differ in ways that independently affect health. Oregon's 2008 Medicaid lottery avoids this problem.
+  \begin{itemize}
+    \item A limited number of Medicaid slots were allocated by \textbf{random lottery} among 90{,}000 applicants --- 30{,}000 ``winners'' got the chance to enroll.
+    \item Finkelstein et al.\ (2012) compare winners to losers (\textbf{ITT}), then scale up by the actual gap in coverage the lottery created ($1/0.29$) to get the \textbf{LATE} --- the true causal effect of insurance.
+  \end{itemize}
+  \textbf{Results:} higher health care utilization, less medical debt and fewer bills sent to collections, and better self-reported physical and mental health.\\
+  \srcnote{Finkelstein et al.\ (2012), \emph{QJE} 127(3).}
+\end{frame}
+
+% =============================================================
+\begin{frame}{Sources}
+  \tiny
+  \begin{columns}[T]
+    \begin{column}{0.34\textwidth}
+      Andersson (2019), \emph{AEJ: Economic Policy} 11(4).\\
+      Barreca et al. (2016), \emph{JPE} 124(1).\\
+      Bloom, Schankerman \& Van Reenen (2013), \emph{AER}.\\
+      Burtraw et al. (1997), RFF discussion paper.\\
+      Chay \& Greenstone (2003), NBER WP 10053.\\
+      Ellerman et al. (2000), \emph{Markets for Clean Air}.
+    \end{column}
+    \begin{column}{0.34\textwidth}
+      Finkelstein et al.\ (2012), \emph{QJE} 127(3).\\
+      Greenstone (2002), \emph{JPE} 110(6).\\
+      Gruber, J., \emph{Public Finance and Public Policy}, Ch.\ 5, \S6.1, Chs.\ 15--16.\\
+      Gugushvili \& Otto (2021).\\
+      Isen, Rossin-Slater \& Walker (2017), \emph{JPE} 125(3).\\
+      Nordhaus (2013), \emph{The Climate Casino}.
+    \end{column}
+    \begin{column}{0.34\textwidth}
+      Saez, E., \emph{Econ 131} lecture notes, UC Berkeley.\\
+      Sachs, J. (2020), \emph{The American Prospect}.\\
+      Stern Review (2007), \emph{The Economics of Climate Change}.\\
+      Theine et al.\ (2022), \emph{Ecological Economics} 197.\\
+      Wagner, G. \& Weitzman, M. (2015), \emph{Climate Shock}.\\
+      World Inequality Report (2022), Ch.\ 6, Carbon Inequality.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+  Thank you!\\
+  \vspace{0.5em}
+  \small Questions and discussion
+\end{frame}
+
+\end{document}
