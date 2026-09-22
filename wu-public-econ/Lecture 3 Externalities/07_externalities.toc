@@ -1,0 +1,8 @@
+\beamer@sectionintoc {1}{5.1 Externality Theory}{4}{0}{1}
+\beamer@sectionintoc {2}{5.2 The Coase Theorem}{15}{0}{2}
+\beamer@sectionintoc {3}{5.3 Public-Sector Remedies}{21}{0}{3}
+\beamer@sectionintoc {4}{5.4 Price vs.\ Quantity Regulation}{29}{0}{4}
+\beamer@sectionintoc {5}{What Is the EU ETS?}{38}{0}{5}
+\beamer@sectionintoc {6}{Empirical Application: Acid Rain and the Clean Air Act}{49}{0}{6}
+\beamer@sectionintoc {7}{Climate Change}{54}{0}{7}
+\beamer@sectionintoc {8}{Application: Health Insurance}{61}{0}{8}

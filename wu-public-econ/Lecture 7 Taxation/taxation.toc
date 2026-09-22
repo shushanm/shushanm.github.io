@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{4.1 Types of Taxation}{4}{0}{1}
+\beamer@sectionintoc {2}{4.2 Tax Incidence}{10}{0}{2}
+\beamer@sectionintoc {3}{4.3 Measuring the Fairness of Tax Systems}{16}{0}{3}
+\beamer@sectionintoc {4}{4.4 Defining the Income Tax Base}{23}{0}{4}
+\beamer@sectionintoc {5}{The Rise of the Fiscal State}{31}{0}{5}
+\beamer@sectionintoc {6}{4.5 The Appropriate Unit of Taxation}{36}{0}{6}
+\beamer@sectionintoc {7}{The Distribution of the Tax Burden}{42}{0}{7}

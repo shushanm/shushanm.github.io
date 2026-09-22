@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{9.1 Unanimous Consent: Lindahl Pricing}{5}{0}{1}
+\beamer@sectionintoc {2}{9.2 Aggregating Preferences: Voting}{10}{0}{2}
+\beamer@sectionintoc {3}{9.3 Representative Democracy}{20}{0}{3}
+\beamer@sectionintoc {4}{9.4 Public Choice Theory}{35}{0}{4}

@@ -1,0 +1,3 @@
+\beamer@sectionintoc {1}{2.1 Constrained Utility Maximization}{5}{0}{1}
+\beamer@sectionintoc {2}{2.2 Putting the Tools to Work: Sozialhilfe and Labor Supply}{15}{0}{2}
+\beamer@sectionintoc {3}{2.3 Equilibrium and Social Welfare}{21}{0}{3}

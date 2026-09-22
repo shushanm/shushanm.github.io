@@ -1,0 +1,278 @@
+% !TeX program = pdflatex
+% =============================================================
+% Public Economics -- Lecture 9
+% Cost-Benefit Analysis
+% Based on: Saez, E. "Econ 131" (UC Berkeley), Lecture Notes on Cost-Benefit Analysis
+%           Gruber, J. "Public Finance and Public Policy", Ch. 8
+% =============================================================
+\documentclass[11pt,aspectratio=169]{beamer}
+
+\usetheme{metropolis}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,arrows.meta,calc}
+
+% ----------------------------------------------------------------
+% Colors: WU Vienna blue as primary accent
+% ----------------------------------------------------------------
+\definecolor{wublue}{HTML}{003D7C}
+\definecolor{wulight}{HTML}{4F8FC4}
+\definecolor{wugray}{HTML}{5C6670}
+\definecolor{wured}{HTML}{B0202E}
+\definecolor{wugreen}{HTML}{4C8C6B}
+\definecolor{wuyellow}{HTML}{D9A441}
+\setbeamercolor{palette primary}{bg=wublue,fg=white}
+\setbeamercolor{frametitle}{bg=wublue,fg=white}
+\setbeamercolor{progress bar}{fg=wublue,bg=wulight!30}
+\setbeamercolor{alerted text}{fg=wured}
+
+\setbeamertemplate{frame footer}{Cost-Benefit Analysis}
+\setbeamertemplate{footline}[frame number]
+
+\title{Public Economics}
+\subtitle{Lecture 9 \(\cdot\) Cost-Benefit Analysis}
+\author{Shushanik Margaryan}
+\institute{WU Vienna University of Economics and Business}
+\date{Winter Term}
+
+% Source note command for footnote-style citations on data slides
+\newcommand{\srcnote}[1]{{\footnotesize\color{wugray}Source: #1}}
+
+\begin{document}
+
+% =============================================================
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Today's Questions}
+  \begin{itemize}
+    \item Once we know a public good is underprovided, how does a government decide whether a \emph{specific} project is worth building?
+    \item How do we put a dollar value on things that don't have a market price --- saved time, a cleaner river, even a human life?
+    \item How far into the future should we count costs and benefits, and at what rate should we discount them?
+  \end{itemize}
+  \vspace{1em}
+  \begin{block}{Based on}
+    Saez, E., \emph{Econ 131} lecture notes (UC Berkeley); Gruber, J. \emph{Public Finance and Public Policy}, Ch.\ 8.
+  \end{block}
+\end{frame}
+
+% =============================================================
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% =============================================================
+\begin{frame}{What Is Cost-Benefit Analysis?}
+  \begin{block}{Cost-benefit analysis}
+    The comparison of the costs and benefits of a public project, used to decide whether it should be undertaken.
+  \end{block}
+  \vspace{0.5em}
+  Sounds like simple accounting --- add up the costs, add up the benefits, compare. In practice it is genuinely hard, because:
+  \begin{itemize}
+    \item Many relevant resources are \textbf{not} priced in a competitive market.
+    \item Some benefits  have \textbf{no market price at all}.
+    \item Costs and benefits often arrive at very different \textbf{points in time}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{An example}
+	\begin{itemize}
+		\item The government is considering building a 400km train line, connecting two major cities. 
+		\item Currently commuters drive from one city to another. It takes about 5 hours by car. The train would only take 2 hours.
+		\item This commuting road is often affected by heavy traffic jams.
+		\item Think of \textbf{all the potential benefits} of contructing this train line. 
+	\end{itemize}
+\end{frame}
+% =============================================================
+\section{8.1 Measuring the Costs of Public Projects}
+
+\begin{frame}{Cash-Flow Accounting and Opportunity Cost}
+  \begin{block}{Cash-flow accounting}
+    \end{block}
+    Calculates costs by simply adding up what government pays for inputs, and benefits by adding up the income or revenue a project generates.
+
+  \begin{block}{Opportunity cost}
+  \end{block}
+    The social marginal cost of any resource is the value of that resource in its \textbf{next best use}.
+
+  \vspace{0.4em}
+  The general rule: economic costs are only those costs that come from \textbf{diverting} a resource away from its next best use --- not simply what the government happens to pay for it.
+\end{frame}
+
+\begin{frame}{Measuring Social Cost in Practice}
+  \textbf{Perfectly competitive markets:} Social cost $=$ price. True for most labor and material inputs.
+  \vspace{0.5em}
+
+  \textbf{Imperfectly competitive markets:}
+  \begin{itemize}
+    \item \textbf{Monopoly} (e.g., asphalt supplied by a monopolist): price $=$ marginal cost $+$ monopoly markup $>$ marginal cost. On efficiency grounds, \textbf{social cost $=$ marginal cost} --- the markup is just a transfer from taxpayers to the monopolist, which matters for distribution but not efficiency.
+    \item \textbf{Labor market with unemployment:} suppose a \$10 minimum wage creates involuntary unemployment, and the unemployed would work for \$6 on average. A government project hires them at \$10/hour --- but the workers gain a \$4/hour surplus. \textbf{Social cost} $= \$10 - \$4 = \$6$, not \$10.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Measuring Future Costs: Present Discounted Value}
+  \begin{block}{Present discounted value (PDV)}
+    A dollar next year is worth $1/(1+r)$ of a dollar today, since that dollar could otherwise earn interest $r$.
+  \end{block}
+  A maintenance cost of $F$ paid forever has PDV:
+  \[ \frac{F}{1+r} + \frac{F}{(1+r)^2} + \frac{F}{(1+r)^3} + \cdots = \frac{F}{r} \]
+  \small Government typically discounts at its own borrowing rate $r$ (e.g., 6\% nominal, 3\% real). This is reasonable for \textbf{short-run} projects --- but becomes problematic over the long run: at $r=3\%$, \$1 in 100 years is worth only \$0.052 today. Long-run costs like climate change get discounted almost to nothing.
+\end{frame}
+
+\begin{frame}{Long-Run Social Discounting: Two Justifications}
+  \begin{block}{Social discount rate}
+    The appropriate rate $r$ for computing the PDV of a \emph{social} investment.
+  \end{block}
+  Two distinct reasons to discount a future dollar relative to a dollar today:
+  \begin{enumerate}
+    \item \textbf{Absolute (``pure time'') discounting:} people simply prefer \$1 now to \$1 later. On ethical grounds, it's not obvious we should discount \emph{future generations'} welfare this way --- except for genuine existential risk (e.g., a meteorite ending civilization).
+    \item \textbf{Economic growth:} future generations will likely be richer, so an extra dollar is worth less to them at the margin --- this alone justifies some discounting even with zero pure time preference.
+  \end{enumerate}
+  \small In an ideal world, both effects are already embedded in the market interest rate $r$, so using today's $r$ would be enough.
+\end{frame}
+
+\begin{frame}{Weitzman (1998): Discount the Distant Future at Its Lowest Rate}
+  The problem: we don't actually know how growth --- and hence $r$ --- will evolve over the next century. If the economy collapses (e.g., from unchecked climate change), future generations will be \textbf{poor}, and we should \emph{not} discount their welfare heavily.
+  \begin{block}{A simple illustration}
+    50\% chance of zero growth ($r=0\%$): \$1 in 100 years $=$ \$1 today.\\
+    50\% chance of normal growth ($r=3\%$): \$1 in 100 years $=$ \$0.052 today.\\
+    Expected value today: $0.5(1) + 0.5(0.052) = \$0.552$.
+  \end{block}
+  Solving $(1+\bar r)^{-100} = 0.552$ gives an implied discount rate $\bar r \approx 0.6\%$ --- far below either scenario's own rate.
+  \begin{alertblock}{Takeaway}
+    When there's a real chance growth stops, the distant future should be discounted at a \textbf{low} rate.
+  \end{alertblock}
+\end{frame}
+
+% =============================================================
+\section{8.2 Measuring the Benefits of Public Projects}
+
+\begin{frame}{Valuing Time: Using Wages}
+  If individuals freely optimize their labor supply, they're indifferent between working one more hour and enjoying one more hour of leisure at the margin.
+  \[ \text{Hourly wage} = \text{value of one hour of leisure} \]
+  \vspace{0.3em}
+  So a project that saves people time (e.g., faster commutes) can be valued using wages --- whether people use the saved time to work more or relax more.
+  \vspace{0.4em}
+  \small \textbf{Problems in practice:}
+  \begin{enumerate}
+    \item Individuals often can't freely trade off hours and leisure --- many jobs come with fixed-hours constraints.
+    \item An hour \emph{stuck in traffic} is worse than an hour of ordinary leisure lost --- so the true value of reducing congestion exceeds the wage-based estimate.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Valuing Time: Contingent Valuation}
+  \begin{block}{Contingent valuation}
+    Directly asking individuals to value an option they are not currently choosing, or cannot choose at all.
+  \end{block}
+  \vspace{0.4em}
+  Often the \textbf{only} feasible method when there is no market price whatsoever:
+  \begin{itemize}
+    \item The value of saving an endangered species.
+    \item The value of keeping the Arctic pristine.
+  \end{itemize}
+  \small Popular among environmental advocates as a way to argue that a cause is ``worth'' a large number --- which is exactly where the method's problems begin.
+\end{frame}
+
+\begin{frame}{The Problems with Contingent Valuation}
+  \small
+  Diamond \& Hausman show that the structure of a contingent-valuation survey can swing the answer wildly:
+  \begin{itemize}
+    \setlength{\itemsep}{2pt}
+    \item \textbf{No real cost to respondents} --- easy to exaggerate value when you don't actually have to pay.
+    \item \textbf{Isolation effects:} asking about one cause alone vs.\ many causes together changes the stated value.
+    \item \textbf{Order effects:} which question comes first matters.
+    \item \textbf{Embedding effect:} people state a similar willingness to pay for saving \emph{one} lake as for saving \emph{three} lakes.
+  \end{itemize}
+  \vspace{0.3em}
+  \begin{alertblock}{The right comparison}
+    A rational allocation requires looking at \emph{all} competing causes together --- weighing one cause in isolation is not a sound basis for public policy. Government, which must set a single budget across all of them, is best placed to make that trade-off.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Valuing Time: Revealed Preference}
+  \begin{block}{Revealed preference (hedonic approach)}
+    Let people's actual choices reveal their valuation.
+  \end{block}
+  \begin{itemize}
+    \item \textbf{1970s US gas price controls} created queues at most stations --- but small independent stations, exempt from the controls, could charge more and had shorter queues. Comparing the price gap to the queue-length gap: saving \$10 by queuing one hour $\Rightarrow$ one hour is worth about \$10.
+    \item \textbf{FasTrak toll lanes} (San Francisco Bay Area): what drivers pay to skip congestion reveals the value of time \emph{and} of avoiding the unpleasantness of queuing itself.
+  \end{itemize}
+  \small These estimates capture the value of time for the \emph{marginal} person --- the one just indifferent between paying and waiting --- not necessarily the average person.
+\end{frame}
+
+\begin{frame}{Valuing Saved Lives}
+  Valuing human life is the single hardest, most ethically fraught issue in cost-benefit analysis.
+  \begin{itemize}
+    \item Yet virtually \emph{every} government expenditure changes the odds of saving a life somewhere --- safer roads, health care spending, and so on.
+    \item So some value must be placed on a \textbf{statistical} life --- a small change in the probability of death across a large population.
+  \end{itemize}
+  \begin{alertblock}{A crucial distinction}
+    We can meaningfully price a \textbf{statistical} life (fewer expected accidents across a population) even though pricing a specific, identified, \textbf{real} life is neither possible nor something anyone would attempt.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Valuing Saved Lives: Revealed Preference}
+  As with time, economists' preferred method is revealed preference: how much are people actually willing to pay to reduce their own odds of dying?
+  \begin{block}{Compensating differentials}
+    Extra (or reduced) wages paid to compensate workers for a job's negative (or positive) amenities --- including mortality risk.
+  \end{block}
+  \small \textbf{Example:} a \$10{,}000 enlistment bonus was needed to recruit soldiers during the Afghanistan/Iraq wars, which carried an extra $1/1{,}000$ chance of dying relative to peacetime.
+  \[ \text{Value of a statistical life} = \frac{\$10{,}000}{1/1{,}000} = \$10\text{ million} \]
+  \normalsize \textbf{Limitations:} requires rational behavior, and again values the \emph{marginal} person's life, not the average.\\
+  \srcnote{US studies put the revealed value of a statistical life at about \$9.3 million on average today.}
+\end{frame}
+
+\begin{frame}{Application: Speed Limits and the Value of a Statistical Life}
+  \textbf{Ashenfelter \& Greenstone (2004), \emph{JPE}:} in 1987 the US federal government allowed states to raise rural highway speed limits from 55 to 65 mph --- 21 states did so.
+  \begin{itemize}
+    \item The higher limit raised speeds by $\approx$3.5\% and raised fatality rates by $\approx$35\%.
+    \item That trade-off implies about \textbf{125{,}000 hours} of travel time saved per additional life lost.
+    \item Valuing time saved at the average hourly wage: adopting states were effectively willing to accept a fatality risk in exchange for saving \textbf{\$1.54 million} (1997 dollars) per statistical life.
+  \end{itemize}
+  \begin{alertblock}{Interpretation}
+    These states were revealing a value of a statistical life of \textbf{at most} \$1.54 million --- well below the \$9--10 million found in other contexts, a useful caution about how much these estimates vary by setting.
+  \end{alertblock}
+\end{frame}
+
+% =============================================================
+\section{8.3 Putting It All Together}
+
+\begin{frame}{Common Counting Mistakes}
+  \small
+  \begin{itemize}
+    \item \textbf{Counting secondary benefits:} a new highway boosts commerce nearby --- but often just \emph{relocates} activity from somewhere else rather than creating it.
+    \item \textbf{Counting labor as a benefit:} jobs ``created'' by a project are a \textbf{cost}, not a benefit --- those workers are not producing something else while employed on this project.
+    \item \textbf{Double-counting benefits:} a project that reduces commuting time \emph{and} raises nearby house values is often counting the \textbf{same} benefit twice, since the house-price gain largely capitalizes the time savings.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Distributional Concerns and Uncertainty}
+  \begin{block}{Distributional concerns}
+    The costs and benefits of a public project rarely fall on the same people. A project can pass a cost-benefit test in aggregate while still making some groups clearly worse off.
+  \end{block}
+  \begin{block}{Uncertainty}
+    Both the costs and the benefits of public projects are often highly uncertain --- construction costs run over budget, and benefits (time saved, lives saved, growth effects) depend on assumptions that may not hold.
+  \end{block}
+  \vspace{0.4em}
+  \small A cost-benefit number is a starting point for a policy debate, not a verdict that ends it.
+\end{frame}
+
+
+
+\begin{frame}[standout]
+  Thank you!\\
+  \vspace{0.5em}
+  \small Questions and discussion
+\end{frame}
+
+\end{document}

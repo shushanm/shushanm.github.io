@@ -1,0 +1,11 @@
+\frametitle{Try It Yourself: Design Your Own Tax System}
+\small
+  Saez \& Zucman built an interactive tool around the same distributional data from the last two slides --- it lets you set tax rates by income group and see the revenue and distributional consequences in real time.
+  \vspace{0.5em}
+  \begin{center}
+    \Large \url{https://taxjusticenow.org/#makeYourOwnTaxPlan}
+  \end{center}
+  \vspace{0.5em}
+  \centering
+  \alert{In-class exercise:} pick a distributional goal (e.g.\ ``flat effective rate for everyone'' or ``restore 1950s-style progressivity at the top'') and see what tax rates it actually takes to get there.\\
+  \srcnote{Saez \& Zucman, \emph{taxjusticenow.org}, companion site to \emph{The Triumph of Injustice} (2019).}

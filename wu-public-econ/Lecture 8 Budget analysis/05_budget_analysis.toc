@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{5.1 The Budget Process}{4}{0}{1}
+\beamer@sectionintoc {2}{5.2 Measuring the Budget's True Position}{10}{0}{2}
+\beamer@sectionintoc {3}{5.3 Do Debts and Deficits Matter? A Long-Run View}{16}{0}{3}
+\beamer@sectionintoc {4}{Deficits, Crowding Out, and Growth}{23}{0}{4}
