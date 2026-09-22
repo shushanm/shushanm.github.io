@@ -1,3 +1,0 @@
-\beamer@sectionintoc {1}{7.1 Optimal Provision of Public Goods}{4}{0}{1}
-\beamer@sectionintoc {2}{7.2 Private Provision of Public Goods}{8}{0}{2}
-\beamer@sectionintoc {3}{7.3 Crowding Out and Government Provision}{17}{0}{3}

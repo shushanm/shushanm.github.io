@@ -22,6 +22,7 @@
 \pgfplotsset{compat=1.18}
 \usepackage{pgf-pie}
 \usetikzlibrary{positioning,arrows.meta,calc}
+\usepackage{eso-pic}
 
 % ----------------------------------------------------------------
 % Colors: WU Vienna blue as primary accent
@@ -44,6 +45,7 @@
 \subtitle{Lecture 2 \(\cdot\) Theoretical Tools of Public Finance}
 \author{Dr. Shushanik Margaryan}
 \institute{WU Vienna University of Economics and Business}
+\titlegraphic{\includegraphics[height=1.0cm]{assets/wu_logo.png}}
 \date{Winter Term}
 
 % Source note command for footnote-style citations on data slides
@@ -55,6 +57,12 @@
 \begin{frame}
   \titlepage
 \end{frame}
+
+\AddToShipoutPictureFG{%
+  \AtPageUpperLeft{%
+    \put(\LenToUnit{\paperwidth-2.0cm},\LenToUnit{-0.85cm}){\includegraphics[height=0.62cm]{assets/wu_logo_white.png}}%
+  }%
+}
 
 % =============================================================
 \begin{frame}{Today's Questions}
