@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{11.1 The Rationale for Public Involvement}{4}{0}{1}
+\beamer@sectionintoc {2}{11.2 Human Capital vs.\ Signaling}{8}{0}{2}
+\beamer@sectionintoc {3}{11.3 Does School Spending Matter?}{13}{0}{3}
+\beamer@sectionintoc {4}{11.4 School Choice and Competition}{18}{0}{4}

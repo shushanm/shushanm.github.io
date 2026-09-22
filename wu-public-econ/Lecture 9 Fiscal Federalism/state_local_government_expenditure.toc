@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{10.1 Fiscal Federalism}{4}{0}{1}
+\beamer@sectionintoc {2}{10.2 The Tiebout Model}{8}{0}{2}
+\beamer@sectionintoc {3}{10.3 Redistribution and Fiscal Federalism}{26}{0}{3}
+\beamer@sectionintoc {4}{10.4 Intergovernmental Grants}{30}{0}{4}
