@@ -1,0 +1,121 @@
+% !TeX program = pdflatex
+% =============================================================
+% Public Economics -- Take-Home Assignments: Solutions
+% Instructor reference only -- not for distribution to students.
+% =============================================================
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+
+\definecolor{wublue}{HTML}{003D7C}
+\definecolor{wugray}{HTML}{5C6670}
+\definecolor{wured}{HTML}{B0202E}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{wublue}}{}{0em}{}
+\titlespacing{\section}{0pt}{1.4em}{0.6em}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{black}}{}{0em}{}
+\titlespacing{\subsection}{0pt}{1em}{0.4em}
+
+\newcommand{\qpart}[1]{\par\vspace{0.3em}\noindent\textbf{#1}\quad}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\begin{minipage}[t]{0.72\textwidth}
+  {\Large\bfseries\color{wublue} Public Economics}\\[2pt]
+  {\large Take-Home Assignments 1--3: Solutions}\\[4pt]
+  {\color{wured}\small\bfseries Instructor reference only --- do not distribute to students}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.2\textwidth}
+  \raggedleft
+  \includegraphics[height=1.1cm]{../assets/wu_logo.png}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent\textcolor{wublue}{\rule{\linewidth}{0.8pt}}
+
+% =================================================================
+\section*{Assignment 1 --- Theoretical/Empirical Tools, Externalities}
+
+\subsection*{Question 1: Pigouvian Taxation}
+
+\qpart{a)} $SMC(Q) = PMC(Q) + MD(Q) = 2Q + Q = 3Q$.
+
+Efficient quantity solves $SMC(Q) = MB(Q)$:
+\[
+3Q = 60 - Q \;\Rightarrow\; 4Q = 60 \;\Rightarrow\; Q^* = 15.
+\]
+Pigouvian tax $= MD(Q^*) = 15$, i.e.\ \textbf{\texteuro{}15 per heater-hour}.
+
+(For context, not required: the unregulated market outcome solves $PMC=MB$: $2Q=60-Q \Rightarrow Q=20$. The externality causes overproduction, $20 > 15$, as expected.)
+
+\qpart{b)} Cafés on the street likely differ in how cheaply they can reduce heater-hours (newer, more efficient heaters; different outdoor seating layouts; different customer demand for warmth). A per-unit tax lets each café choose its own response, and every café will keep using heaters up to the point where its own marginal cost equals the \texteuro{}15 tax --- automatically equalizing marginal abatement costs across cafés and reaching the total reduction at minimum aggregate cost. A flat cap of 15 hours for \emph{every} café ignores these cost differences: cafés for whom cutting hours is cheap are not required to cut more, and cafés for whom it is expensive are not allowed to cut less, so the same total reduction is achieved at a higher total cost. (Grading: accept any answer that correctly invokes heterogeneous marginal abatement costs and the price-vs-quantity efficiency argument from lecture.)
+
+\subsection*{Question 2: Designing a Natural Experiment}
+
+\qpart{a)} Pollution levels change over time for many reasons unrelated to the ban --- weather, seasonal traffic patterns, fuel prices, other regulations, general trends in vehicle emissions. A simple before/after comparison cannot separate the ban's effect from these confounding trends; it implicitly assumes nothing else changed, which is not credible over an 18-month window.
+
+\qpart{b)} At any point in time, the \textbf{treatment group} is neighborhoods where the ban has already taken effect; the \textbf{control group} is neighborhoods where it has not yet been rolled out (``not-yet-treated''). The design compares the \emph{change} in pollution in treated neighborhoods to the \emph{change} in not-yet-treated neighborhoods over the same period. It relies on a \textbf{parallel trends} assumption: absent the ban, treated and not-yet-treated neighborhoods would have followed similar pollution trends. (Bonus: note if a student flags that neighborhoods might not be randomly ordered --- e.g.\ the old town's busiest streets could be banned first --- which would threaten parallel trends.)
+
+% =================================================================
+\section*{Assignment 2 --- Cost-Benefit Analysis, Political Economy}
+
+\subsection*{Question 1: Discounting and Cost-Benefit Analysis}
+
+\qpart{a)} $NPV = 38.6 - 40 = -1.4$, i.e.\ a loss of \texteuro{}1.4 million. The NPV is slightly \textbf{negative}, so on cost-benefit grounds alone the city should \textbf{not} build the tram line (though it is a close call).
+
+\qpart{b)} A lower discount rate weights future benefits more heavily, raising their present value --- so the NPV \textbf{rises}, and could turn positive. (Exact check: at 2\%, the 10-year annuity factor is $\approx 8.98$, so $PV \approx 44.9$ and $NPV \approx +4.9$, both in \texteuro{} million --- the decision flips from ``reject'' to ``accept.'') The discount rate is contested because it encodes a value judgment about how much society should weigh future generations' welfare against the present, and there is no consensus ``correct'' social discount rate --- yet, as this example shows, the choice can flip the accept/reject decision for real projects.
+
+\subsection*{Question 2: The Median Voter}
+
+\qpart{a)} \textbf{500 m\textsuperscript{2}} (Resident B's ideal point) wins against any alternative. Any proposal above 500 loses to 500 because both A and B (2 of 3 voters) prefer 500; any proposal below 500 loses to 500 because both B and C (2 of 3 voters) prefer 500. The median voter's ideal point beats every other proposal in pairwise votes.
+
+\qpart{b)} Sorted ideal points are now 50 (D), 200 (A), 500 (B), 900 (C). With an even number of voters, there is no single voter whose ideal point is the strict median --- the outcome now depends on which of the two middle proposals (200 or 500) is pitted against which alternative, and any point in $[200, 500]$ can survive some pairwise vote. What matters for grading is that students recognize: (i) the winning outcome shifts \emph{down} from 500 toward the 200--500 range now that a low-demand voter has joined, and (ii) the mechanical reason is that the ``middle'' of the distribution has moved. (Accept ``500 no longer wins outright'' or ``the new median is between 200 and 500'' as correct; do not require the even-number subtlety to be stated formally.)
+
+% =================================================================
+\section*{Assignment 3 --- Taxation}
+
+\subsection*{Question 1: Tax Incidence}
+
+\qpart{a)} Set $P^S(Q) = P^D(Q)$:
+\[
+2 + 0.5Q = 20 - Q \;\Rightarrow\; 1.5Q = 18 \;\Rightarrow\; Q = 12, \qquad P = 2 + 0.5(12) = 8.
+\]
+Equilibrium: $Q = 12$ trips/hour, $P = $ \texteuro{}8.
+
+\qpart{b)} With a \texteuro{}3/trip tax on drivers, the price riders pay must exceed the price drivers keep by \texteuro{}3: $P^D(Q) - P^S(Q) = 3$, i.e.
+\[
+(20 - Q) - (2 + 0.5Q) = 3 \;\Rightarrow\; 18 - 1.5Q = 3 \;\Rightarrow\; Q = 10.
+\]
+Rider price: $P^D(10) = 20 - 10 = 10$, i.e.\ \texteuro{}10. Driver take-home: $P^S(10) = 2 + 0.5(10) = 7$, i.e.\ \texteuro{}7 (check: $10 - 7 = 3$, correct).
+
+Riders' price rose from \texteuro{}8 to \texteuro{}10 (\textbf{\texteuro{}2 borne by riders}, i.e.\ 2/3 of the tax); drivers' take-home fell from \texteuro{}8 to \texteuro{}7 (\textbf{\texteuro{}1 borne by drivers}, i.e.\ 1/3 of the tax). Riders bear the larger share because demand is relatively \emph{less} elastic (steeper) than supply at the equilibrium --- consistent with the ``less elastic side bears more of the tax'' rule from lecture.
+
+\subsection*{Question 2: Progressive Brackets, Average vs.\ Marginal Rates}
+
+\qpart{a)} Working up through the brackets to \texteuro{}50{,}000 (which falls in the 40\% bracket):
+\[
+(21{,}992 - 13{,}539)(0.20) + (36{,}458 - 21{,}992)(0.30) + (50{,}000 - 36{,}458)(0.40)
+\]
+\[
+= (8{,}453)(0.20) + (14{,}466)(0.30) + (13{,}542)(0.40) = 1{,}690.60 + 4{,}339.80 + 5{,}416.80 = 11{,}447.20.
+\]
+Total tax: \texteuro{}11{,}447.20.
+\textbf{Marginal rate = 40\%} (the rate on his next euro). \textbf{Average rate} $= 11{,}447.20 / 50{,}000 \approx \textbf{22.9\%}$.
+
+\qpart{b)} Even though Markus is no better off in real terms, his nominal income of \texteuro{}52{,}500 pushes more of his income into the 40\% bracket (and closer to the 48\% bracket), so his average tax rate \textbf{rises} purely from inflation, with no increase in real ability to pay. This is \textbf{\emph{kalte Progression}} (bracket creep) --- a stealth tax increase. Since 1 January 2023, Austria automatically indexes tax brackets to inflation (two-thirds of the adjustment happens automatically each year, the remaining third at the government's discretion), which largely --- though not completely, since the top \texteuro{}1{,}000{,}000/55\% bracket is excluded from indexation --- offsets this effect going forward.
+
+\end{document}

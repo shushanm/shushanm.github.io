@@ -1,7 +1,7 @@
 % !TeX program = pdflatex
 % =============================================================
 % Public Economics -- Take-Home Assignment 3
-% Covers: Budget Analysis, Fiscal Federalism
+% Covers: Taxation (Tax Incidence, Progressive Brackets)
 % =============================================================
 \documentclass[11pt]{article}
 
@@ -14,6 +14,7 @@
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{parskip}
+\usepackage{booktabs}
 
 \definecolor{wublue}{HTML}{003D7C}
 \definecolor{wugray}{HTML}{5C6670}
@@ -30,7 +31,7 @@
 \begin{minipage}[t]{0.72\textwidth}
   {\Large\bfseries\color{wublue} Public Economics}\\[2pt]
   {\large Take-Home Assignment 3}\\[4pt]
-  {\color{wugray}\small Topics: Budget Analysis, Fiscal Federalism}
+  {\color{wugray}\small Topics: Taxation (Tax Incidence, Progressive Brackets)}
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.2\textwidth}
@@ -49,21 +50,40 @@
 Answer both questions. Where a short explanation is requested, 2--3 sentences is enough --- we are grading for correct reasoning, not length. Show your work for any calculation.
 \normalsize\color{black}
 
-\section*{Question 1: Real vs.\ Nominal Deficits}
+\section*{Question 1: Tax Incidence}
 
-In a given year, Austria's government runs a \textbf{nominal} budget deficit of \texteuro{}10 billion. Inflation that year is 3\%, and the government's outstanding debt at the start of the year is \texteuro{}300 billion.
+The city of Vienna is considering a per-trip tax on ride-hailing services (Uber, Bolt). The market for rides is described by the inverse supply and demand curves
+\[
+P^S(Q) = 2 + 0.5Q, \qquad P^D(Q) = 20 - Q,
+\]
+where $Q$ is trips per hour and $P$ is the price in euros.
 
-\qpart{a)} Inflation erodes the real value of existing government debt, which effectively offsets part of the nominal deficit. Calculate the \textbf{real} (inflation-adjusted) budget deficit that year. (Hint: subtract inflation $\times$ outstanding debt from the nominal deficit.)
+\qpart{a)} Find the equilibrium price and quantity \emph{before} any tax.
 
-\qpart{b)} A newspaper headline reads: \emph{``Austria's deficit hits \texteuro{}10 billion --- worse than ever!''} In 2--3 sentences, explain why reporting only the nominal deficit figure can be a misleading way to describe the government's fiscal position, drawing on your answer to part (a) and/or the idea of measuring the deficit relative to GDP.
+\qpart{b)} The city imposes a tax of \texteuro{}3 per trip, collected from the \textbf{drivers} (suppliers). Find the new equilibrium quantity, the price \emph{riders} pay, and the price \emph{drivers} keep after remitting the tax. How much of the \texteuro{}3 tax is borne by riders, and how much by drivers? In one sentence, connect your answer to the relative steepness (elasticity) of supply and demand in this market.
 
-\section*{Question 2: Tiebout and Local Public Goods}
+\section*{Question 2: Progressive Brackets, Average vs.\ Marginal Rates}
 
-Two neighboring Austrian municipalities offer very different packages of local public services and property taxes. \emph{Gemeinde X} has excellent local schools and high property taxes; \emph{Gemeinde Y} has minimal local services and low property taxes.
+Austria's (simplified) income tax schedule has the following brackets:
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Taxable income} & \textbf{Rate} \\
+\midrule
+Up to \texteuro{}13{,}539 & 0\% \\
+\texteuro{}13{,}539 -- \texteuro{}21{,}992 & 20\% \\
+\texteuro{}21{,}992 -- \texteuro{}36{,}458 & 30\% \\
+\texteuro{}36{,}458 -- \texteuro{}70{,}365 & 40\% \\
+\texteuro{}70{,}365 -- \texteuro{}104{,}859 & 48\% \\
+\bottomrule
+\end{tabular}
+\end{center}
 
-\qpart{a)} Using the Tiebout ``voting with your feet'' logic, explain how allowing people to freely choose where to live can help reveal residents' true preferences for local public goods --- something that is hard to do through voting at the national level.
+Markus has taxable income of \texteuro{}50{,}000.
 
-\qpart{b)} Pick \textbf{one} realistic reason why this Tiebout sorting mechanism works less perfectly in practice than the simple theory suggests (for example: moving costs, imperfect information about what each municipality offers, zoning restrictions, or public-service spillovers that cross municipal borders). Name it and explain in 2--3 sentences why it weakens the sorting mechanism.
+\qpart{a)} Calculate Markus's total tax bill by working up through the brackets. What is his \textbf{marginal} tax rate, and what is his \textbf{average} tax rate?
+
+\qpart{b)} Next year, Markus's nominal income rises by 5\% (to \texteuro{}52{,}500), but prices have also risen by 5\%, so his \emph{real} purchasing power is exactly unchanged. If the brackets above stay fixed in nominal terms, explain in 2--3 sentences what happens to Markus's average tax rate, and name the phenomenon this illustrates. Briefly state how Austria's actual tax policy since 2023 addresses it.
 
 \vspace{1.5em}
 \noindent\textcolor{wugray}{\rule{\linewidth}{0.4pt}}\\
