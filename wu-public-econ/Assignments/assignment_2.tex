@@ -1,0 +1,72 @@
+% !TeX program = pdflatex
+% =============================================================
+% Public Economics -- Take-Home Assignment 2
+% Covers: Cost-Benefit Analysis, Political Economy
+% =============================================================
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+\definecolor{wublue}{HTML}{003D7C}
+\definecolor{wugray}{HTML}{5C6670}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{wublue}}{}{0em}{}
+\titlespacing{\section}{0pt}{1.2em}{0.6em}
+
+\newcommand{\qpart}[1]{\par\vspace{0.4em}\noindent\textbf{#1}\quad}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\begin{minipage}[t]{0.72\textwidth}
+  {\Large\bfseries\color{wublue} Public Economics}\\[2pt]
+  {\large Take-Home Assignment 2}\\[4pt]
+  {\color{wugray}\small Topics: Cost-Benefit Analysis, Political Economy}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.2\textwidth}
+  \raggedleft
+  \includegraphics[height=1.1cm]{../assets/wu_logo.png}
+\end{minipage}
+
+\vspace{0.3em}
+{\color{wugray}\small Name: \underline{\hspace{5cm}} \hspace{1cm} Student ID: \underline{\hspace{3cm}} \hspace{1cm} Due: \underline{\hspace{3cm}}}
+
+\vspace{0.6em}
+\noindent\textcolor{wublue}{\rule{\linewidth}{0.8pt}}
+
+\vspace{0.4em}
+\small\color{wugray}
+Answer both questions. Where a short explanation is requested, 2--3 sentences is enough --- we are grading for correct reasoning, not length. Show your work for any calculation.
+\normalsize\color{black}
+
+\section*{Question 1: Discounting and Cost-Benefit Analysis}
+
+The city of Linz is evaluating a new tram line. It costs \texteuro{}40 million today (year 0) and is expected to generate net social benefits of \texteuro{}5 million per year for the next 10 years (years 1--10).
+
+\qpart{a)} Using a discount rate of 5\%, the present value of a \texteuro{}5 million/year benefit stream over 10 years is approximately \texteuro{}38.6 million. Calculate the project's net present value (NPV) at this discount rate. Should the city build the tram line on cost-benefit grounds alone?
+
+\qpart{b)} A city council member argues the discount rate should instead be 2\%, since ``future generations' well-being matters just as much as ours.'' Without recomputing the exact NPV, explain in 2--3 sentences which direction this change would push the project's NPV, and why. Then explain, in one sentence, why the choice of discount rate is often the most contested part of a real-world cost-benefit analysis.
+
+\section*{Question 2: The Median Voter}
+
+Three residents of a small Austrian village must decide, by pairwise majority vote, how large a new public swimming pool should be (measured in square meters). Resident A wants 200~m\textsuperscript{2}, Resident B wants 500~m\textsuperscript{2}, and Resident C wants 900~m\textsuperscript{2}. All three have single-peaked preferences: each resident's satisfaction falls the further the actual size is from their own ideal.
+
+\qpart{a)} According to the median voter theorem, which pool size wins against any other proposal put to a majority vote? Explain briefly why, in terms of what happens when someone proposes a size above or below it.
+
+\qpart{b)} A fourth resident, D, moves into the village. D's preferences are also single-peaked, but D wants a pool of just 50~m\textsuperscript{2} (preferring to spend the money elsewhere). Does the outcome that wins under majority vote change? Explain your reasoning.
+
+\vspace{1.5em}
+\noindent\textcolor{wugray}{\rule{\linewidth}{0.4pt}}\\
+{\footnotesize\color{wugray} Public Economics --- WU Vienna --- Winter Term}
+
+\end{document}

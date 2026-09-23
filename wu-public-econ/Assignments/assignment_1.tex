@@ -1,0 +1,83 @@
+% !TeX program = pdflatex
+% =============================================================
+% Public Economics -- Take-Home Assignment 1
+% Covers: Theoretical/Empirical Tools, Externalities
+% =============================================================
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+\definecolor{wublue}{HTML}{003D7C}
+\definecolor{wugray}{HTML}{5C6670}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{wublue}}{}{0em}{}
+\titlespacing{\section}{0pt}{1.2em}{0.6em}
+
+\newcommand{\qpart}[1]{\par\vspace{0.4em}\noindent\textbf{#1}\quad}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\begin{minipage}[t]{0.72\textwidth}
+  {\Large\bfseries\color{wublue} Public Economics}\\[2pt]
+  {\large Take-Home Assignment 1}\\[4pt]
+  {\color{wugray}\small Topics: Theoretical \& Empirical Tools, Externalities}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.2\textwidth}
+  \raggedleft
+  \includegraphics[height=1.1cm]{../assets/wu_logo.png}
+\end{minipage}
+
+\vspace{0.3em}
+{\color{wugray}\small Name: \underline{\hspace{5cm}} \hspace{1cm} Student ID: \underline{\hspace{3cm}} \hspace{1cm} Due: \underline{\hspace{3cm}}}
+
+\vspace{0.6em}
+\noindent\textcolor{wublue}{\rule{\linewidth}{0.8pt}}
+
+\vspace{0.4em}
+\small\color{wugray}
+Answer both questions. Where a short explanation is requested, 2--3 sentences is enough --- we are grading for correct reasoning, not length. Show your work for any calculation.
+\normalsize\color{black}
+
+\section*{Question 1: Pigouvian Taxation}
+
+A caf\'e on Mariahilferstra\ss e runs outdoor heaters in winter. Let $Q$ be heater-hours per week. The caf\'e's private marginal cost of running the heaters is
+\[
+PMC(Q) = 2Q,
+\]
+and each heater-hour imposes a marginal external damage on the neighbors (noise, fumes) of
+\[
+MD(Q) = Q.
+\]
+The marginal benefit to caf\'e customers from heater-hours is
+\[
+MB(Q) = 60 - Q.
+\]
+
+\qpart{a)} Write down the social marginal cost $SMC(Q)$. Find the socially efficient quantity of heater-hours, $Q^*$, and the Pigouvian tax per heater-hour that would achieve it.
+
+\qpart{b)} The district council is instead considering a flat rule: every caf\'e on the street may run heaters for at most 15 hours per week, no exceptions. In 2--3 sentences, explain why this uniform quantity cap could be \emph{less} efficient than the Pigouvian tax from part (a), even if it happens to produce the same \emph{total} heater-hours across the street.
+
+\section*{Question 2: Designing a Natural Experiment}
+
+The city of Graz is banning through-traffic in its old town center to cut air pollution. The ban is \textbf{phased in} one neighborhood at a time over 18 months, rather than everywhere at once.
+
+\qpart{a)} A local newspaper wants to claim the ban ``caused'' lower pollution by simply comparing air-quality readings in the old town \emph{before} vs.\ \emph{after} the full ban took effect. In 2--3 sentences, explain why this before/after comparison alone is not credible evidence of a causal effect.
+
+\qpart{b)} The staggered rollout gives you a better option. Briefly describe a difference-in-differences design you could use instead: at any given point during the 18 months, which neighborhoods would be your \emph{treatment} group and which would be your \emph{control} group? What assumption about the control group does this design rely on?
+
+\vspace{1.5em}
+\noindent\textcolor{wugray}{\rule{\linewidth}{0.4pt}}\\
+{\footnotesize\color{wugray} Public Economics --- WU Vienna --- Winter Term}
+
+\end{document}

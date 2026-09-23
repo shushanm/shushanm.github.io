@@ -1,0 +1,72 @@
+% !TeX program = pdflatex
+% =============================================================
+% Public Economics -- Take-Home Assignment 3
+% Covers: Budget Analysis, Fiscal Federalism
+% =============================================================
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+\definecolor{wublue}{HTML}{003D7C}
+\definecolor{wugray}{HTML}{5C6670}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{wublue}}{}{0em}{}
+\titlespacing{\section}{0pt}{1.2em}{0.6em}
+
+\newcommand{\qpart}[1]{\par\vspace{0.4em}\noindent\textbf{#1}\quad}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\begin{minipage}[t]{0.72\textwidth}
+  {\Large\bfseries\color{wublue} Public Economics}\\[2pt]
+  {\large Take-Home Assignment 3}\\[4pt]
+  {\color{wugray}\small Topics: Budget Analysis, Fiscal Federalism}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.2\textwidth}
+  \raggedleft
+  \includegraphics[height=1.1cm]{../assets/wu_logo.png}
+\end{minipage}
+
+\vspace{0.3em}
+{\color{wugray}\small Name: \underline{\hspace{5cm}} \hspace{1cm} Student ID: \underline{\hspace{3cm}} \hspace{1cm} Due: \underline{\hspace{3cm}}}
+
+\vspace{0.6em}
+\noindent\textcolor{wublue}{\rule{\linewidth}{0.8pt}}
+
+\vspace{0.4em}
+\small\color{wugray}
+Answer both questions. Where a short explanation is requested, 2--3 sentences is enough --- we are grading for correct reasoning, not length. Show your work for any calculation.
+\normalsize\color{black}
+
+\section*{Question 1: Real vs.\ Nominal Deficits}
+
+In a given year, Austria's government runs a \textbf{nominal} budget deficit of \texteuro{}10 billion. Inflation that year is 3\%, and the government's outstanding debt at the start of the year is \texteuro{}300 billion.
+
+\qpart{a)} Inflation erodes the real value of existing government debt, which effectively offsets part of the nominal deficit. Calculate the \textbf{real} (inflation-adjusted) budget deficit that year. (Hint: subtract inflation $\times$ outstanding debt from the nominal deficit.)
+
+\qpart{b)} A newspaper headline reads: \emph{``Austria's deficit hits \texteuro{}10 billion --- worse than ever!''} In 2--3 sentences, explain why reporting only the nominal deficit figure can be a misleading way to describe the government's fiscal position, drawing on your answer to part (a) and/or the idea of measuring the deficit relative to GDP.
+
+\section*{Question 2: Tiebout and Local Public Goods}
+
+Two neighboring Austrian municipalities offer very different packages of local public services and property taxes. \emph{Gemeinde X} has excellent local schools and high property taxes; \emph{Gemeinde Y} has minimal local services and low property taxes.
+
+\qpart{a)} Using the Tiebout ``voting with your feet'' logic, explain how allowing people to freely choose where to live can help reveal residents' true preferences for local public goods --- something that is hard to do through voting at the national level.
+
+\qpart{b)} Pick \textbf{one} realistic reason why this Tiebout sorting mechanism works less perfectly in practice than the simple theory suggests (for example: moving costs, imperfect information about what each municipality offers, zoning restrictions, or public-service spillovers that cross municipal borders). Name it and explain in 2--3 sentences why it weakens the sorting mechanism.
+
+\vspace{1.5em}
+\noindent\textcolor{wugray}{\rule{\linewidth}{0.4pt}}\\
+{\footnotesize\color{wugray} Public Economics --- WU Vienna --- Winter Term}
+
+\end{document}
