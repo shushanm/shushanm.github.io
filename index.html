@@ -220,17 +220,31 @@
             text-align: right;
         }
 
-        .subsection-title {
+        .subsection-title,
+        .talk-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: var(--warm-gray);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--terracotta);
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin: 1.6rem 0 0.3rem;
+            letter-spacing: 0.16em;
+            margin: 2rem 0 0.4rem;
         }
 
-        .subsection-title:first-of-type { margin-top: 0.5rem; }
+        .subsection-title::after,
+        .talk-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--terracotta-light) 0%, transparent 100%);
+            opacity: 0.6;
+        }
+
+        .subsection-title:first-of-type { margin-top: 0.8rem; }
+        .talk-item:first-of-type .talk-title { margin-top: 0.8rem; }
 
         /* Publications */
         .publication {
@@ -238,7 +252,8 @@
             border-bottom: 1px solid var(--mist);
         }
 
-        .publication:last-of-type { border-bottom: none; }
+        .publication:last-of-type,
+        .publication:has(+ .subsection-title) { border-bottom: none; }
 
         .publication-title {
             font-family: 'Cormorant Garamond', serif;
@@ -370,16 +385,6 @@
 
         /* Talks */
         .talk-item { margin-bottom: 1.2rem; }
-
-        .talk-title {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: var(--warm-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.4rem;
-        }
 
         .talk-list {
             color: var(--stone);
