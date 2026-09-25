@@ -15,51 +15,42 @@
             --terracotta: #c4785a;
             --terracotta-light: #d89a7a;
             --sage-deep: #7a8a6e;
-            --sage-light: #9aaa8e;
             --warm-gray: #8a857f;
             --pearl: #f0ede8;
-            --shadow: rgba(26, 26, 26, 0.06);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
         body {
             font-family: 'DM Sans', sans-serif;
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.55;
             color: var(--ink);
             background: var(--paper);
-            min-height: 100vh;
             overflow-x: hidden;
         }
+
+        a { color: inherit; }
 
         /* Grain overlay for texture */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             pointer-events: none;
             opacity: 0.03;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            z-index: 1000;
+            z-index: 1001;
         }
 
         /* Navigation */
         .navbar {
             background: rgba(250, 248, 245, 0.92);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 1.2rem 0;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 0.7rem 0;
             position: fixed;
             top: 0;
             width: 100%;
@@ -68,734 +59,475 @@
         }
 
         .nav-container {
-            max-width: 1300px;
+            max-width: 860px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 3rem;
+            padding: 0 1.5rem;
+            position: relative;
         }
 
         .logo {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 500;
-            color: var(--ink);
             letter-spacing: 0.02em;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
+            gap: 1.6rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--stone);
-            font-weight: 400;
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            transition: color 0.3s ease;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -6px;
-            left: 0;
-            background: var(--terracotta);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .nav-links a:hover { color: var(--terracotta); }
 
-        .nav-links a:hover {
-            color: var(--ink);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Main Content */
+        /* Main */
         .container {
-            max-width: 1300px;
+            max-width: 860px;
             margin: 0 auto;
-            padding: 140px 3rem 80px;
+            padding: 88px 1.5rem 2rem;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 5rem;
+            grid-template-columns: 1fr 150px;
+            gap: 2.5rem;
             align-items: center;
-            margin-bottom: 8rem;
-            padding: 4rem 0;
-            position: relative;
+            margin-bottom: 3rem;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -60px;
-            left: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--terracotta) 0%, transparent 70%);
-            opacity: 0.04;
-            filter: blur(60px);
-            pointer-events: none;
-        }
+        .hero-content, .hero-photo { animation: fadeIn 0.8s ease-out both; }
 
-        .hero-content {
-            animation: fadeSlideUp 1s ease-out;
-        }
-
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-photo {
-            position: relative;
-            animation: fadeSlideUp 1s ease-out 0.2s both;
-        }
-
-        .hero-photo::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -20px;
-            bottom: -20px;
-            border: 1px solid var(--terracotta);
-            opacity: 0.3;
-            z-index: -1;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: none; }
         }
 
         .profile-photo {
+            display: block;
             width: 100%;
             aspect-ratio: 4/5;
             object-fit: cover;
             filter: grayscale(20%) contrast(1.05);
-            transition: all 0.6s ease;
+            transition: filter 0.5s ease;
         }
 
-        .hero-photo:hover .profile-photo {
-            filter: grayscale(0%) contrast(1);
-        }
+        .hero-photo:hover .profile-photo { filter: none; }
 
         .hero h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.8rem;
-            color: var(--ink);
-            margin-bottom: 0.5rem;
+            font-size: 2.4rem;
             font-weight: 400;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
             line-height: 1.1;
+            margin-bottom: 0.3rem;
         }
 
-        .hero .title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: var(--stone);
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-            font-style: italic;
-            letter-spacing: 0.02em;
-        }
-
-        .hero .affiliations {
-            margin-bottom: 2.5rem;
+        .affiliations {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 0.5rem;
+            margin-bottom: 0.9rem;
         }
 
         .affiliation {
-            background: transparent;
             color: var(--stone);
-            padding: 0.5rem 0;
-            font-size: 0.85rem;
-            font-weight: 400;
+            font-size: 0.8rem;
             letter-spacing: 0.02em;
-            position: relative;
         }
 
         .affiliation::after {
             content: '·';
-            margin-left: 0.8rem;
+            margin-left: 0.5rem;
             color: var(--terracotta);
         }
 
-        .affiliation:last-child::after {
-            display: none;
-        }
+        .affiliation:last-child::after { display: none; }
 
         .hero .bio {
-            font-size: 1.05rem;
-            line-height: 1.9;
+            font-size: 0.95rem;
+            line-height: 1.65;
             color: var(--stone);
-            margin-bottom: 2.5rem;
             font-weight: 300;
-            max-width: 580px;
+            margin-bottom: 1rem;
         }
- 
 
         .cv-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
-            background: transparent;
+            gap: 0.5rem;
             color: var(--ink);
-            padding: 1rem 2rem;
+            padding: 0.45rem 1rem;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.72rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid var(--ink);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .cv-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--ink);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-        }
+        .cv-button:hover { background: var(--ink); color: var(--paper); }
 
-        .cv-button:hover {
-            color: var(--paper);
-        }
+        .cv-button svg { width: 13px; height: 13px; transition: transform 0.3s ease; }
+        .cv-button:hover svg { transform: translateX(3px); }
 
-        .cv-button:hover::before {
-            width: 100%;
-        }
-
-        .cv-button svg {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.3s ease;
-        }
-
-        .cv-button:hover svg {
-            transform: translateX(4px);
-        }
-
-        /* Section Headers */
-        .section {
-            margin-bottom: 8rem;
-        }
+        /* Sections */
+        .section { margin-bottom: 3rem; }
 
         .section-header {
-            margin-bottom: 4rem;
-            position: relative;
+            display: flex;
+            align-items: baseline;
+            gap: 0.8rem;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--mist);
         }
 
         .section-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--terracotta);
-            letter-spacing: 0.2em;
-            margin-bottom: 0.8rem;
-            display: block;
+            letter-spacing: 0.15em;
         }
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
-            color: var(--ink);
+            font-size: 1.75rem;
             font-weight: 400;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
             line-height: 1.2;
         }
 
         .section-subtitle {
-            font-size: 1rem;
-            color: var(--stone);
-            font-style: italic;
-            font-weight: 300;
-            margin-top: 0.8rem;
+            margin-left: auto;
             font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--stone);
+            text-align: right;
         }
 
         .subsection-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--ink);
-            margin: 3rem 0 1.5rem 0;
-            font-weight: 400;
-            letter-spacing: 0.02em;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin: 1.6rem 0 0.3rem;
         }
 
-        .subsection-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, var(--mist) 0%, transparent 100%);
-        }
+        .subsection-title:first-of-type { margin-top: 0.5rem; }
 
         /* Publications */
         .publication {
-            margin-bottom: 1.5rem;
-            padding: 1.5rem 0;
+            padding: 0.7rem 0;
             border-bottom: 1px solid var(--mist);
-            transition: all 0.4s ease;
-            position: relative;
         }
 
-        .publication:last-child {
-            border-bottom: none;
-        }
-
-        .publication::before {
-            content: '';
-            position: absolute;
-            left: -3rem;
-            top: 1.5rem;
-            width: 6px;
-            height: 0;
-            background: var(--terracotta);
-            transition: height 0.4s ease;
-        }
-
-        .publication:hover::before {
-            height: 60px;
-        }
+        .publication:last-of-type { border-bottom: none; }
 
         .publication-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.15rem;
             font-weight: 500;
-            color: var(--ink);
-            margin-bottom: 0.4rem;
-            line-height: 1.4;
-            letter-spacing: -0.01em;
+            line-height: 1.3;
+            margin-bottom: 0.1rem;
         }
 
         .publication-title a {
-            color: inherit;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .publication-title a:hover {
-            color: var(--terracotta);
-        }
+        .publication-title a:hover { color: var(--terracotta); }
 
         .coauthors {
             color: var(--stone);
             font-style: italic;
-            font-size: 0.95rem;
-            margin-bottom: 0.6rem;
+            font-size: 0.82rem;
             font-weight: 300;
         }
 
         .publication-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 0.8rem;
+            gap: 0.3rem 0.7rem;
             align-items: center;
+            margin-top: 0.25rem;
+            font-size: 0.8rem;
         }
 
         .journal {
             color: var(--terracotta);
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.01em;
-            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
         }
 
         .journal a {
-            color: inherit;
             text-decoration: none;
             border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease;
         }
 
-        .journal a:hover {
-            border-color: var(--terracotta);
-        }
+        .journal a:hover { border-color: var(--terracotta); }
 
-        .year {
-            background: var(--terracotta);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.3rem 0.8rem;
-            letter-spacing: 0.05em;
-        }
+        .year { color: var(--warm-gray); }
+        .journal + .year::before { content: '· '; margin-left: -0.4rem; }
 
         .status-badge {
             background: var(--cream);
             color: var(--stone);
-            padding: 0.4rem 1rem;
-            font-size: 0.75rem;
+            padding: 0.1rem 0.5rem;
+            font-size: 0.68rem;
             font-weight: 500;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
         }
 
-        .status-badge.jmp {
-            background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%);
-            color: white;
-        }
+        .status-badge.rr { background: var(--sage-deep); color: white; }
+        .status-badge.rr a { color: white; text-decoration: none; }
 
-        .status-badge.rr {
-            background: var(--sage-deep);
-            color: white;
-        }
-
-        .status-badge.rr a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .abstract {
-            padding: 1rem 0 1rem 1.5rem;
-            margin: 0.8rem 0;
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: var(--stone);
-            border-left: 1px solid var(--mist);
-            font-weight: 300;
-        }
-
-        .abstract-label {
-            font-weight: 500;
+        .extras {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.2rem 1rem;
+            margin-top: 0.3rem;
+            font-size: 0.78rem;
             color: var(--warm-gray);
-            margin-bottom: 0.8rem;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
         }
 
-        .media-coverage {
-            margin-top: 1rem;
-            padding-left: 1.5rem;
-            border-left: 1px solid var(--terracotta-light);
+        details.abstract summary {
+            cursor: pointer;
+            list-style: none;
+            color: var(--warm-gray);
+            font-size: 0.68rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            transition: color 0.2s ease;
+        }
+
+        details.abstract summary::-webkit-details-marker { display: none; }
+        details.abstract summary::before { content: '+ '; color: var(--terracotta); }
+        details.abstract[open] summary::before { content: '– '; }
+        details.abstract summary:hover { color: var(--ink); }
+
+        details.abstract[open] { flex-basis: 100%; }
+
+        details.abstract p {
+            margin: 0.4rem 0 0.2rem;
+            padding-left: 0.9rem;
+            border-left: 1px solid var(--mist);
+            font-size: 0.86rem;
+            line-height: 1.6;
+            color: var(--stone);
+            font-weight: 300;
+            text-transform: none;
+            letter-spacing: normal;
         }
 
         .media-coverage-label {
+            font-size: 0.68rem;
             font-weight: 500;
-            color: var(--warm-gray);
-            margin-bottom: 0.5rem;
-            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
+            margin-right: 0.3rem;
         }
 
         .media-link {
             color: var(--terracotta);
             text-decoration: none;
-            font-weight: 400;
-            transition: all 0.3s ease;
             border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
         }
 
-        .media-link:hover {
-            border-bottom-color: var(--terracotta);
-        }
+        .media-link:hover { border-bottom-color: var(--terracotta); }
 
         .twitter-thread {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: transparent;
+            gap: 0.3rem;
             color: var(--stone);
-            padding: 0.6rem 1.2rem;
-            font-size: 0.8rem;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            border: 1px solid var(--mist);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .twitter-thread:hover {
-            background: var(--cream);
-            border-color: var(--stone);
-        }
+        .twitter-thread:hover { color: var(--ink); }
 
-        .draft-contact {
-            font-style: italic;
-            color: var(--warm-gray);
-            font-size: 0.9rem;
-            margin-top: 0.6rem;
-            font-weight: 300;
-        }
-
-        /* Talks and Conferences */
-        .talk-item {
-            margin-bottom: 4rem;
-        }
+        /* Talks */
+        .talk-item { margin-bottom: 1.2rem; }
 
         .talk-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.7rem;
             font-weight: 500;
-            color: var(--ink);
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .talk-title::before {
-            content: '';
-            width: 30px;
-            height: 1px;
-            background: var(--terracotta);
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.4rem;
         }
 
         .talk-list {
             color: var(--stone);
-            line-height: 2;
+            font-size: 0.88rem;
+            line-height: 1.65;
             font-weight: 300;
-            padding-left: 2.5rem;
         }
 
         .conference-year {
-            margin-bottom: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--mist);
+            display: grid;
+            grid-template-columns: 3rem 1fr;
+            gap: 1rem;
+            padding: 0.3rem 0;
         }
 
         .year-header {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: 600;
             color: var(--terracotta);
-            margin-bottom: 1rem;
+            line-height: 1.5;
         }
 
         .conference-list {
             color: var(--stone);
-            line-height: 1.9;
+            font-size: 0.88rem;
+            line-height: 1.6;
             font-weight: 300;
-            padding-left: 1rem;
         }
 
         /* Teaching */
         .teaching-item {
-            margin-bottom: 3rem;
-            padding: 2.5rem;
-            background: var(--cream);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .teaching-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--terracotta) 0%, var(--sage-deep) 100%);
+            padding: 0.2rem 0 0.2rem 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 2px solid var(--terracotta);
         }
 
         .institution {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 500;
-            color: var(--ink);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.2rem;
         }
 
         .course {
-            margin-bottom: 0.8rem;
             color: var(--stone);
+            font-size: 0.88rem;
             font-weight: 300;
-            padding-left: 1rem;
-            position: relative;
+            line-height: 1.6;
         }
 
-        .course::before {
-            content: '—';
-            position: absolute;
-            left: -0.5rem;
-            color: var(--mist);
-        }
-
-        .course-name {
-            font-weight: 400;
-            color: var(--ink);
-        }
+        .course-name { font-weight: 400; color: var(--ink); }
 
         .course-level {
             font-style: italic;
             color: var(--warm-gray);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         /* Footer */
         .footer {
             background: var(--ink);
             color: var(--pearl);
-            padding: 5rem 3rem;
-            margin-top: 6rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
+            padding: 1.6rem 1.5rem;
+            margin-top: 1rem;
         }
 
         .footer-content {
-            max-width: 1300px;
+            max-width: 860px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .footer h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--paper);
-            margin-bottom: 2rem;
-        }
-
-        .contact-info {
+            padding: 0 1.5rem;
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem 3rem;
+            font-size: 0.85rem;
             font-weight: 300;
-            line-height: 1.8;
+            line-height: 1.55;
         }
 
-        .contact-item strong {
+        .footer-content strong {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.68rem;
             font-weight: 500;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--terracotta-light);
-            margin-bottom: 0.3rem;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .hero-photo {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .nav-container {
-                padding: 0 1.5rem;
-            }
-
-            .container {
-                padding: 120px 1.5rem 60px;
-            }
-
-            .hero h1 {
-                font-size: 2.6rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .publication::before {
-                display: none;
-            }
-
-            .hero::before {
-                display: none;
-            }
-
-            .hero-photo::before {
-                display: none;
-            }
+            margin-bottom: 0.15rem;
         }
 
         .mobile-nav {
             display: none;
             background: none;
             border: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--ink);
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 0.2rem 0.4rem;
         }
 
-        @media (max-width: 768px) {
-            .mobile-nav {
-                display: block;
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 0.7rem);
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0.9rem;
+                padding: 1rem 1.5rem;
+                background: rgba(250, 248, 245, 0.98);
+                border-bottom: 1px solid var(--mist);
             }
+
+            .nav-links.open { display: flex; }
+            .mobile-nav { display: block; }
+
+            .container { padding: 76px 1rem 1.5rem; }
+            .nav-container, .footer-content { padding: 0 1rem; }
+            .footer { padding-left: 0; padding-right: 0; }
+
+            .hero { grid-template-columns: 1fr 96px; gap: 1.2rem; align-items: start; }
+            .hero h1 { font-size: 1.9rem; }
+            .section-title { font-size: 1.5rem; }
+            .section-subtitle { display: none; }
         }
 
-        /* Scroll animations */
+        /* Scroll fade-in */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(8px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .animate-on-scroll.visible { opacity: 1; transform: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-on-scroll { opacity: 1; transform: none; transition: none; }
+            .hero-content, .hero-photo { animation: none; }
         }
 
-        /* Focus states */
-        .nav-links a:focus,
-        .cv-button:focus {
+        .nav-links a:focus-visible,
+        .cv-button:focus-visible,
+        summary:focus-visible {
             outline: 2px solid var(--terracotta);
-            outline-offset: 4px;
+            outline-offset: 3px;
         }
 
-        /* Custom selection */
-        ::selection {
-            background: var(--terracotta);
-            color: white;
-        }
+        ::selection { background: var(--terracotta); color: white; }
     </style>
 </head>
 <body>
@@ -851,8 +583,6 @@
                 <p class="section-subtitle">Applied Microeconomics · Education · Labour · Health</p>
             </div>
 
- 
-
             <!-- Publications -->
             <h3 class="subsection-title">Publications</h3>
 
@@ -865,13 +595,11 @@
                     <span class="journal">Journal of Human Resources</span>
                     <span class="year">2021</span>
                 </div>
-                <div class="abstract">
-                    <div class="abstract-label">Abstract</div>
-                    Using data from the German Socio-Economic Panel and exploiting the staggered implementation of a compulsory schooling reform in West Germany, this article finds that an additional year of schooling lowers the probability of being very concerned about immigration to Germany by around six percentage points. Furthermore, our findings imply significant spillovers from maternal education to immigration attitudes of her offspring. While we find no evidence for returns to education within a range of labour market outcomes, higher social trust appears to be an important mechanism behind our findings.
-                </div>
-                <div class="media-coverage">
-                    <div class="media-coverage-label">Media Coverage</div>
-                    <a href="#" class="media-link">Deutschlandfunk</a>
+                <div class="extras">
+                    <details class="abstract"><summary>Abstract</summary>
+                        <p>Using data from the German Socio-Economic Panel and exploiting the staggered implementation of a compulsory schooling reform in West Germany, this article finds that an additional year of schooling lowers the probability of being very concerned about immigration to Germany by around six percentage points. Furthermore, our findings imply significant spillovers from maternal education to immigration attitudes of her offspring. While we find no evidence for returns to education within a range of labour market outcomes, higher social trust appears to be an important mechanism behind our findings.</p>
+                    </details>
+                    <span><span class="media-coverage-label">Media</span><a href="#" class="media-link">Deutschlandfunk</a></span>
                 </div>
             </div>
 
@@ -883,14 +611,15 @@
                     <span class="journal">Journal of Health Economics</span>
                     <span class="year">2021</span>
                 </div>
-                <div class="abstract">
-                    <div class="abstract-label">Abstract</div>
-                    Air pollution has a major detrimental impact on population health but little is known about the effectiveness of policy measures targeting pollution. I exploit the staggered implementation of low emission zones in large cities in Germany as a natural experiment to assess their health impact. Using outpatient and inpatient health care data, I demonstrate that low emission zones reduce the number of patients with cardiovascular diagnoses by 2-3 percent. This effect is particularly pronounced for the elderly above 65.
-                </div>
-                <a href="#" class="twitter-thread">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <div class="extras">
+                    <details class="abstract"><summary>Abstract</summary>
+                        <p>Air pollution has a major detrimental impact on population health but little is known about the effectiveness of policy measures targeting pollution. I exploit the staggered implementation of low emission zones in large cities in Germany as a natural experiment to assess their health impact. Using outpatient and inpatient health care data, I demonstrate that low emission zones reduce the number of patients with cardiovascular diagnoses by 2-3 percent. This effect is particularly pronounced for the elderly above 65.</p>
+                    </details>
+                    <a href="#" class="twitter-thread">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     Thread
-                </a>
+                    </a>
+                </div>
             </div>
 
             <div class="publication animate-on-scroll">
@@ -902,9 +631,10 @@
                     <span class="journal">Journal of Human Resources</span>
                     <span class="year">2022</span>
                 </div>
-                <div class="abstract">
-                    <div class="abstract-label">Abstract</div>
-                    This paper studies the causal effect of student internship experience in firms on earnings later in life. We use mandatory firm internships at German universities as an instrument for doing a firm internship while attending university. Employing longitudinal data from graduate surveys, we find positive and significant earnings returns of about 5% in both OLS and IV regressions. The positive returns are particularly pronounced for individuals and areas of study that are characterized by a weak labor market orientation. The empirical findings show that graduates who completed a firm internship face a lower risk of unemployment during the first year of their careers, suggesting a smoother transition to the labor market.
+                <div class="extras">
+                    <details class="abstract"><summary>Abstract</summary>
+                        <p>This paper studies the causal effect of student internship experience in firms on earnings later in life. We use mandatory firm internships at German universities as an instrument for doing a firm internship while attending university. Employing longitudinal data from graduate surveys, we find positive and significant earnings returns of about 5% in both OLS and IV regressions. The positive returns are particularly pronounced for individuals and areas of study that are characterized by a weak labor market orientation. The empirical findings show that graduates who completed a firm internship face a lower risk of unemployment during the first year of their careers, suggesting a smoother transition to the labor market.</p>
+                    </details>
                 </div>
             </div>
 
@@ -917,23 +647,24 @@
                     <span class="journal">Journal of Economic Behavior and Organization</span>
                     <span class="year">2024</span>
                 </div>
-                <div class="abstract">
-                    <div class="abstract-label">Abstract</div>
-                    Using novel longitudinal data, this paper studies the short- and medium-term effects of Russia's invasion of Ukraine on February 24, 2022 on social trust of adolescents in Germany. Comparing adolescents who responded to our survey shortly before the start of the war with those who responded shortly after the conflict began and applying difference-in-differences (DiD) models over time, we find a significant decline in the outcome after the war started. These findings provide new evidence on how armed conflicts influence social trust and well-being among young people in a country not directly involved in the war.
+                <div class="extras">
+                    <details class="abstract"><summary>Abstract</summary>
+                        <p>Using novel longitudinal data, this paper studies the short- and medium-term effects of Russia's invasion of Ukraine on February 24, 2022 on social trust of adolescents in Germany. Comparing adolescents who responded to our survey shortly before the start of the war with those who responded shortly after the conflict began and applying difference-in-differences (DiD) models over time, we find a significant decline in the outcome after the war started. These findings provide new evidence on how armed conflicts influence social trust and well-being among young people in a country not directly involved in the war.</p>
+                    </details>
                 </div>
             </div>
 
             <div class="publication animate-on-scroll">
                 <h3 class="publication-title">
-                 <a href="https://www.sciencedirect.com/science/article/pii/S0014292126001066" target="_blank">Online Tutoring, School Performance, and School-to-Work Transitions: Evidence from a Randomized Controlled Trial</a>
+                    <a href="https://www.sciencedirect.com/science/article/pii/S0014292126001066" target="_blank">Online Tutoring, School Performance, and School-to-Work Transitions: Evidence from a Randomized Controlled Trial</a>
                 </h3>
                 <div class="coauthors">With Silke Anger, Bernhard Christoph, Agata Galkiewicz, Malte Sandner, Thomas Siedler</div>
                 <div class="publication-meta">
                     <span class="journal">European Economic Review</span>
                     <span class="year">2026</span>
-                </div>  
-                <div class="publication-meta">
-                    <span class="journal">AEA RCT Registry AEARCTR-0008937</span>
+                </div>
+                <div class="extras">
+                    <span>AEA RCT Registry AEARCTR-0008937</span>
                 </div>
             </div>
 
@@ -947,18 +678,11 @@
                 <div class="coauthors">See list of authors on pages 2–3</div>
                 <div class="publication-meta">
                     <span class="journal">Nature</span>
-                    <span class="year">2026</span>
+                    <span class="year">2026 · Vol. 652, pp. 151–156</span>
                 </div>
-                <div class="publication-meta">
-                    <span class="journal">Vol. 652, pp. 151–156</span>
-                </div>
-                <div class="media-coverage">
-                    <div class="media-coverage-label">Circulated As</div>
-                    <span>"Mass Reproducibility and Replicability: A New Hope"</span>
-                </div>
-                <div class="media-coverage">
-                    <div class="media-coverage-label">Reproduction</div>
-                    <a href="https://zenodo.org/records/17792605" class="media-link" target="_blank">Data and code (Zenodo)</a>
+                <div class="extras">
+                    <span><span class="media-coverage-label">Circulated as</span>"Mass Reproducibility and Replicability: A New Hope"</span>
+                    <span><span class="media-coverage-label">Reproduction</span><a href="https://zenodo.org/records/17792605" class="media-link" target="_blank">Data and code (Zenodo)</a></span>
                 </div>
             </div>
 
@@ -971,9 +695,10 @@
                     <span class="journal">Journal of Comments and Replications in Economics</span>
                     <span class="year">2023</span>
                 </div>
-                <div class="abstract">
-                    <div class="abstract-label">Abstract</div>
-                    Atwood (2022) analyzes the effects of the 1963 U.S. measles vaccination on long-run labor market outcomes, using a generalized difference-in-differences approach. We reproduce the results of this paper and perform a battery of robustness checks. Overall, we confirm that the measles vaccination had positive labor market effects. While the negative effect on the likelihood of living in poverty and the positive effect on the probability of being employed are very robust across the different specifications, the headline estimate—the effect on earnings—is more sensitive to the exclusion of certain regions and survey years.
+                <div class="extras">
+                    <details class="abstract"><summary>Abstract</summary>
+                        <p>Atwood (2022) analyzes the effects of the 1963 U.S. measles vaccination on long-run labor market outcomes, using a generalized difference-in-differences approach. We reproduce the results of this paper and perform a battery of robustness checks. Overall, we confirm that the measles vaccination had positive labor market effects. While the negative effect on the likelihood of living in poverty and the positive effect on the probability of being employed are very robust across the different specifications, the headline estimate—the effect on earnings—is more sensitive to the exclusion of certain regions and survey years.</p>
+                    </details>
                 </div>
             </div>
 
@@ -985,33 +710,31 @@
                 <div class="coauthors">With Silke Anger, Bernhard Christoph, Frauke Peter, Malte Sandner and Thomas Siedler</div>
                 <div class="publication-meta">
                     <span class="status-badge rr">R&R — Journal of the European Economic Association</span>
-                </div>
-                <div class="publication-meta">
                     <span class="journal"><a href="https://www.iza.org/publications/dp/17322/a-library-in-the-palm-of-your-hand-a-randomized-field-experiment-with-low-income-children" target="_blank">IZA DP</a></span>
                     <span class="journal"><a href="https://humcap.uchicago.edu/RePEc/hka/wpaper/Anger_Christoph_Galkiewicz_etal_2024_library-palm-hand.pdf" target="_blank">HCEO WP</a></span>
                     <span class="status-badge rr"><a href="https://www.sole-jole.org/assets/2025/LIbraryinPalm_WorldLabor_Toronto.pdf" target="_blank">Winner Best Poster SOLE 2025</a></span>
                 </div>
-                <div class="media-coverage">
-                    <div class="media-coverage-label">Media Coverage</div>
-                    <a href="https://www.wirtschaftsdienst.eu/inhalt/jahr/2025/heft/11/beitrag/wie-schulische-und-berufliche-bildung-die-lebens-und-arbeitsmarktchancen-verbessert.html" class="media-link">Wirtschaftsdienst</a>
+                <div class="extras">
+                    <span><span class="media-coverage-label">Media</span><a href="https://www.wirtschaftsdienst.eu/inhalt/jahr/2025/heft/11/beitrag/wie-schulische-und-berufliche-bildung-die-lebens-und-arbeitsmarktchancen-verbessert.html" class="media-link">Wirtschaftsdienst</a></span>
                 </div>
             </div>
 
             <!-- Work in Progress -->
             <h3 class="subsection-title">Work in Progress</h3>
-            
+
             <div class="publication animate-on-scroll">
                 <h3 class="publication-title">Affirmative Action during Early Childhood: School Choice, Academic Performance and School Satisfaction</h3>
                 <div class="coauthors">With José Montalban Castilla</div>
                 <div class="publication-meta">
                     <span class="status-badge">Updated draft coming soon!</span>
                 </div>
-                <div class="abstract">
-                    <div class="abstract-label">Abstract</div>
-                    This paper examines an early childhood, income-based affirmative action policy that allocates school admission points to children from low-income households based on two income thresholds. These thresholds create sharp discontinuities that we exploit using a regression discontinuity design. Our analysis draws on the universe of school applications submitted at age three, linked to academic and well-being outcomes nine years later. We find that the affirmative action policy increases both the number and quality of feasible school options available to low-income families and raises the likelihood of admission to their top-choice schools. However, families do not systematically rank higher–value-added schools or those with better average test scores as their top choices. Instead, the policy shifts admissions toward charter schools with slightly higher socioeconomic composition. Nine years after application, we find no significant effects on standardized test scores or student well-being. These findings suggest that early childhood affirmative action broaden educational options for low-income families but has limited long-term impacts.
+                <div class="extras">
+                    <details class="abstract"><summary>Abstract</summary>
+                        <p>This paper examines an early childhood, income-based affirmative action policy that allocates school admission points to children from low-income households based on two income thresholds. These thresholds create sharp discontinuities that we exploit using a regression discontinuity design. Our analysis draws on the universe of school applications submitted at age three, linked to academic and well-being outcomes nine years later. We find that the affirmative action policy increases both the number and quality of feasible school options available to low-income families and raises the likelihood of admission to their top-choice schools. However, families do not systematically rank higher–value-added schools or those with better average test scores as their top choices. Instead, the policy shifts admissions toward charter schools with slightly higher socioeconomic composition. Nine years after application, we find no significant effects on standardized test scores or student well-being. These findings suggest that early childhood affirmative action broaden educational options for low-income families but has limited long-term impacts.</p>
+                    </details>
                 </div>
             </div>
-            
+
             <div class="publication animate-on-scroll">
                 <h3 class="publication-title">Cross-border Air Pollution: Evidence from the German-Polish Border</h3>
                 <div class="coauthors">With Adrian Santonja di Fonzo and Thomas Siedler</div>
@@ -1135,22 +858,8 @@
     <footer id="contact" class="footer">
         <div class="footer-content">
             <div>
-                <h3>Get in Touch</h3>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <strong>Email</strong>
-                        <span>shushanik.margaryan[at]wu.ac.at</span>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h3>Address</h3>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <strong>Postal Address</strong>
-                        <span></span>
-                    </div>
-                </div>
+                <strong>Email</strong>
+                shushanik.margaryan[at]wu.ac.at
             </div>
         </div>
     </footer>
@@ -1193,17 +902,8 @@
         const navLinks = document.querySelector('.nav-links');
 
         if (mobileNav) {
-            mobileNav.addEventListener('click', function() {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'rgba(250, 248, 245, 0.98)';
-                navLinks.style.padding = '2rem';
-                navLinks.style.gap = '1.5rem';
-            });
+            mobileNav.addEventListener('click', () => navLinks.classList.toggle('open'));
+            navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
         }
     </script>
 </body>
